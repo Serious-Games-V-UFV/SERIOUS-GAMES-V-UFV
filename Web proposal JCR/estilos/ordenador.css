@@ -1,0 +1,88 @@
+section{
+  margin-bottom: 5rem;
+}
+
+/*Estilos del menu*/
+  #menu li{
+    margin:auto 2rem;
+  }
+
+
+#container_grados .grado {
+  flex: 0 0 calc(33.333% - 1.33rem);
+  max-width: 500px;
+}
+#herramientas a{
+  display: inline-block;
+}
+
+
+#product {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  padding: 1.5rem;
+  border-radius: 20px;
+  max-width: 1200px;
+}
+
+#product figure {
+  flex: 1;
+  display: flex;
+  flex-direction: column;  
+  align-items: center;
+}
+
+#product img {
+  max-width: 300px;
+  height: auto;
+}
+
+#product figcaption {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+#caracteristicas {
+  flex: 1;
+  margin: auto 0;
+  width: auto;
+  text-align: center;
+  opacity: 0;
+  transition: 0.5s ease-in-out;
+}
+
+#caracteristicas td{
+  height: 50px;
+  margin-bottom: auto;
+}
+
+#product figure:hover ~ #caracteristicas{
+  opacity: 1;
+}
+
+#contacto li{
+  margin:auto 2rem;
+}
+#soporte {
+    padding: 20px 300px;
+    max-width: 50%;
+  }
+  
+  #form_soporte input[type="text"],
+  #form_soporte input[type="email"] {
+    max-width: 400px;
+  }
+  
+  fieldset {
+    padding: 1.5em 2em;
+  }
+
+
+
+
+
+
+  

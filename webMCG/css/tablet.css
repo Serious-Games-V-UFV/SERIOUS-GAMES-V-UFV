@@ -1,0 +1,54 @@
+@media screen and (min-width:768px){
+
+    main{
+        flex-direction: row;
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    main article{
+        width: 45%;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    main article:nth-of-type(3){
+        width: 92%;
+    }
+
+
+    footer{
+        display: block;
+        position:absolute;
+        bottom: 0;
+        height: 59px;
+        background-color: #348391;
+        width: 100%;
+    }
+
+    footer p{
+        padding: 0;
+        margin: 0;
+        display: flex;
+        background-color: inherit;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+
+    footer a{
+        margin: 0 10px;
+    }
+
+    footer img{
+        height: 40px;
+    }    
+
+    article table:first-of-type{
+        display: none;
+    }
+
+    article table:last-of-type{
+        display: table;
+    }
+}

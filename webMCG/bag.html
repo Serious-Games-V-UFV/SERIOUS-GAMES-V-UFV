@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Página iBag de Grupo7">
+    <meta name="keywords" content="Grupo7, Bolso, Agua, Proyecto">
+    <link rel="stylesheet" href="css/mobile.css">
+    <link rel="stylesheet" href="css/tablet.css">
+    <link rel="stylesheet" href="css/desktop.css">
+    <title>Grupo7 - iBag</title>
+</head>
+<body>
+    <header>
+        <h1>Grupo7</h1>
+        <nav>
+            <ul>
+                <a href="./index.html"><li>Home</li></a>
+                <a href="./bag.html"><li>iBag</li></a>
+                <a href="./contact.html"><li>About Us</li></a>
+                <li>
+                    <input type="checkbox" name="languages" id="lang">
+                    <label for="lang">Languages</label>
+                    <ol>
+                        <a href="./bag.html"><li><img src="./img/uk.png" alt="bandera UK"> English</li></a>
+                        <a href="./bag_es.html"><li><img src="./img/es.png" alt="bandera ES"> Español</li></a>
+                        <a href="./bag_de.html"><li><img src="./img/ge.png" alt="bandera DE"> Deutsch</li></a>
+                    </ol>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article>
+            <h2>iBag</h2>
+            <div>
+                <img src="img/bolso_pequeno-trans.png" alt="Imagen iBag">
+            </div>
+            <h3>199.99 €</h3>
+        </article>
+        <article>
+            <h2>Your information</h2>
+            <div>
+                <form action="#" method="get">
+                    <fieldset>
+                        <label for="card_number">Card Number</label>
+                        <input type="text" name="card_number" id="card_number" pattern="[0-9]{16}" required placeholder="----------------">
+
+                        <label for="year">Expiration date</label>
+                        <input type="number" name="month" id="month" min="1" max="12" required placeholder="--">
+                        <input type="number" name="year" id="year" min="2026" required placeholder="----">
+
+                        <label for="sec_code">Security code</label>
+                        <input type="number" name="sec_code" id="sec_code" min="100" max="999" required>
+                    </fieldset>
+                    <fieldset>
+                        <legend>BILLING INFORMATION</legend>
+                        <label for="name">First name</label>
+                        <input type="text" name="name" id="name" required>
+
+                        <label for="surname">Last name</label>
+                        <input type="text" name="surname" id="surname" required>
+
+                        <label for="city">City</label>
+                        <input type="text" name="city" id="city" required>
+
+                        <label for="address">Billing address</label>
+                        <input type="text" name="address" id="address" required>
+
+                        <label for="p_code">Postal code</label>
+                        <input type="text" name="p_code" id="p_code" required>
+                    </fieldset>
+                    <fieldset>
+                        <button type="reset">Reset</button>
+                        <button type="submit">Submit</button>
+                    </fieldset>
+                </form>
+            </div>
+        </article>
+    </main>
+    <footer>
+        <p>
+            <a href="https://www.youtube.com/" target="_blank"><img src="./img/youtube.png" alt="Youtube logo"></a>
+            <a href="https://www.instagram.com/" target="_blank"><img src="./img/instagram.png" alt="Instagram logo"></a>
+            <a href="https://www.x.com/" target="_blank"><img src="./img/x.png" alt="X logo"></a>
+        </p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="PaginaWEB,Información bolsa hidratación">
+<meta name="keywords" content="SERIOUS GAME,Bolsa,CSS,HTML,PaginaWEB,">
+<title>Funcionamiento</title>
+<link rel="stylesheet" href="css/movil.css">
+<link rel="stylesheet" href="css/tablet.css" media="(min-width: 600px)">
+<link rel="stylesheet" href="css/escritorio.css" media="(min-width: 992px)">
+</head>
+<body>
+<header>
+<h1>Funcionamiento de la bolsa</h1>
+<nav>
+    <a href="principal.html">Inicio</a>
+    <a href="informacion.html">Funcionamiento</a>
+    <a href="contacto.html">Contacto</a>
+</nav>
+</header>
+
+
+<main>
+    <section>
+        <h2>¿Cómo funciona?</h2>
+        <p>La bolsa incorpora un sensor de luz en su interior. Cada vez que se abre para sacar la botella, entra luz y el sistema reinicia el temporizador.</p>
+    </section>
+
+
+    <section>
+        <h2>Componentes del sistema</h2>
+        <table>
+            <tr>
+                <th>Componente</th>
+                <th>Función</th>
+             </tr>
+            <tr>
+                <td>Sensor de luz (LDR)</td>
+                <td>Detecta la apertura de la bolsa</td>
+            </tr>
+            <tr>
+                <td>LilyPad ATmega328</td>
+                <td>Controla la lógica del sistema</td>
+            </tr>
+            <tr>
+                <td>LED / Vibrador</td>
+                <td>Avisa al usuario de forma discreta</td>
+            </tr>
+            </table>
+    </section>
+
+
+    <section>
+        <h2>Lógica del recordatorio</h2>
+        <p>Si la bolsa no se abre durante un periodo prolongado, el sistema activa una señal suave. Al volver a abrirla, el aviso se desactiva automáticamente.</p>
+    </section>
+</main>
+
+
+<footer>
+    <p><a href="principal.html">Volver al inicio</a></p>
+</footer>
+</body>
+</html>
+
+
+
+
+</html>

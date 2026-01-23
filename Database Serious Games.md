@@ -1,3 +1,8 @@
+---
+Modified:
+  - viernes 23 ene. 2026 14:14:41
+Created: viernes 23 ene. 2026 12:36:48
+---
 
 ```SQL title="create_database"
 CREATE DATABASE serious_games;

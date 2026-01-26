@@ -1,12 +1,5 @@
 ---
-date: 2026-01-25T16:46
-tags:
-  - serious_games
-cssclasses:
-  - center-images
-  - center-titles
-  - rounded-images
-  - note
+date: 2026-01-26T01:11:40
 ---
 ## <mark style="background: #FF5582A6;">Create SQL</mark>
 
@@ -63,7 +56,7 @@ PRIMARY KEY (sensor, medida));
 
 ## <mark style="background: #FF5582A6;">Entity - Relation Model</mark>
 
-![[99 - Meta/attachments/MER_Serious.jpg|760x900]]
+![[MER_Serious.jpg|760x900]]
 
 <div class="page-break" style="page-break-before: always;"></div>
 

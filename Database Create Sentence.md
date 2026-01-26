@@ -52,13 +52,4 @@ FOREIGN KEY (sensor) REFERENCES sensores(id) ON UPDATE CASCADE ON DELETE RESTRIC
 FOREIGN KEY (medida) REFERENCES medidas(id) ON UPDATE CASCADE ON DELETE RESTRICT,
 PRIMARY KEY (sensor, medida));
 ```
-<div class="page-break" style="page-break-before: always;"></div>
-
-## <mark style="background: #FF5582A6;">Entity - Relation Model</mark>
-
-![[MER_Serious.jpg|760x900]]
-
-<div class="page-break" style="page-break-before: always;"></div>
-
-## <mark style="background: #FF5582A6;">Relational Model</mark>
 

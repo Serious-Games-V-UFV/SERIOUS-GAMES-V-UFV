@@ -1,5 +1,6 @@
 CREATE DATABASE serious_games;
 USE  serious_games;
+
 CREATE TABLE cuenta(
 dni VARCHAR(9) NOT NULL PRIMARY KEY,
 id INT UNSIGNED AUTO_INCREMENT UNIQUE KEY,
@@ -8,7 +9,7 @@ email VARCHAR(255) UNIQUE NOT NULL,
 nombre TEXT NOT NULL,
 apellido1 TEXT NOT NULL,
 apellido2 TEXT DEFAULT NULL,
-peso FLOAT UNSIGNED NOT NULL,
+peso DECIMAL(10,2) UNSIGNED NOT NULL,
 altura SMALLINT UNSIGNED NOT NULL,
 prefijo VARCHAR(6) NOT NULL,
 telefono VARCHAR(9) NOT NULL,
@@ -17,7 +18,8 @@ codigo_verif VARCHAR(100) DEFAULT NULL,
 codigo_recup VARCHAR(100) DEFAULT NULL,
 codigo_elim VARCHAR(100) DEFAULT NULL,
 estado ENUM('activo', 'pendiente', 'bloqueado', 'eliminado') NOT NULL DEFAULT 'pendiente',
-rol ENUM('usuario', 'admin') NOT NULL DEFAULT 'usuario');
+rol ENUM('usuario','finanzas','desarrollo','sistemas','marketing','imagen','comercio') NOT NULL DEFAULT 'usuario', 
+last_login DATETIME DEFAULT NULL);
 
 
 CREATE TABLE bolso(
@@ -30,7 +32,7 @@ FOREIGN KEY (cuenta) REFERENCES cuenta(dni)ON UPDATE CASCADE ON DELETE RESTRICT)
 CREATE TABLE productos (
 id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 nombre VARCHAR(150) NOT NULL,
-slug VARCHAR(180) NOT NULL UNIQUE,
+slug VARCHAR(180) NOT NULL UNIQUE, -- URL dinamica
 descripcion TEXT NOT NULL,
 descripcion_corta VARCHAR(255) NULL,
 precio DECIMAL(10,2) NOT NULL DEFAULT 0.00,
@@ -44,8 +46,7 @@ subido_por INT UNSIGNED NOT NULL,
 fecha_publicacion DATETIME NULL,
 fecha_creacion DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
 fecha_actualizacion DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-fecha_eliminacion DATETIME NULL
-);
+fecha_eliminacion DATETIME NULL);
 
 CREATE TABLE opciones_producto (
 id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -57,8 +58,8 @@ stock INT UNSIGNED NULL, -- NULL = ilimitado
 activo BOOLEAN NOT NULL DEFAULT TRUE,
 fecha_creacion DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
 fecha_actualizacion DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-FOREIGN KEY (id_producto) REFERENCES productos(id) ON UPDATE CASCADE ON DELETE CASCADE
-);
+FOREIGN KEY (id_producto) REFERENCES productos(id) ON UPDATE CASCADE ON DELETE CASCADE);
+
 CREATE TABLE pedidos (
 id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 id_usuario INT UNSIGNED NOT NULL,
@@ -84,27 +85,26 @@ fecha_pago DATETIME NULL,
 fecha_creacion DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
 fecha_actualizacion DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 fecha_cancelacion DATETIME NULL,
-FOREIGN KEY (id_usuario) REFERENCES cuenta(id) ON UPDATE CASCADE ON DELETE RESTRICT
-);
+FOREIGN KEY (id_usuario) REFERENCES cuenta(id) ON UPDATE CASCADE ON DELETE RESTRICT);
 
 
 CREATE TABLE descuentos (
-  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-  codigo VARCHAR(50) NOT NULL UNIQUE,
-  nombre VARCHAR(120) NOT NULL,
-  descripcion VARCHAR(255) NULL,
-  tipo ENUM('percent','fixed') NOT NULL, -- porcentaje o fijo
-  valor DECIMAL(10,2) NOT NULL,
-  cantidad_minima_para_descuento DECIMAL(10,2) NULL,        -- mínimo para aplicar
-  topo_descuento DECIMAL(10,2) NULL,    -- tope si es %
-  fecha_comienzo DATETIME NULL,
-  fecha_expiracion DATETIME NULL,
-  activo BOOLEAN NOT NULL DEFAULT TRUE,
-  limite_uso INT UNSIGNED NULL,             -- total usos (NULL = ilimitado)
-  limite_uso_por_persona INT UNSIGNED NULL,    -- por usuario (NULL = ilimitado)
-  fecha_creacion DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  fecha_actualizacion DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-);
+id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+codigo VARCHAR(50) NOT NULL UNIQUE,
+nombre VARCHAR(120) NOT NULL,
+descripcion VARCHAR(255) NULL,
+tipo ENUM('percent','fixed') NOT NULL, -- porcentaje o fijo
+valor DECIMAL(10,2) NOT NULL,
+cantidad_minima_para_descuento DECIMAL(10,2) NULL,        -- mínimo para aplicar
+topo_descuento DECIMAL(10,2) NULL,    -- tope si es %
+fecha_comienzo DATETIME NULL,
+fecha_expiracion DATETIME NULL,
+activo BOOLEAN NOT NULL DEFAULT TRUE,
+limite_uso INT UNSIGNED NULL,             -- total usos (NULL = ilimitado)
+limite_uso_por_persona INT UNSIGNED NULL,    -- por usuario (NULL = ilimitado)
+fecha_creacion DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+fecha_actualizacion DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP);
+
 CREATE TABLE detalles_pedido (
 id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 id_pedido BIGINT UNSIGNED NOT NULL,
@@ -117,13 +117,9 @@ descuento VARCHAR(50),
 cantidad INT UNSIGNED NOT NULL DEFAULT 1,
 precio_total DECIMAL(10,2) NOT NULL,
 fecha_creacion DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-
-FOREIGN KEY (id_pedido) REFERENCES pedidos(id)
-ON UPDATE CASCADE ON DELETE CASCADE,
-FOREIGN KEY (id_producto) REFERENCES productos(id)
-ON UPDATE CASCADE ON DELETE RESTRICT,
-FOREIGN KEY (descuento) REFERENCES descuentos(codigo)
-);
+FOREIGN KEY (id_pedido) REFERENCES pedidos(id) ON UPDATE CASCADE ON DELETE CASCADE,
+FOREIGN KEY (id_producto) REFERENCES productos(id) ON UPDATE CASCADE ON DELETE RESTRICT,
+FOREIGN KEY (descuento) REFERENCES descuentos(codigo) ON UPDATE CASCADE ON DELETE RESTRICT);
 
 CREATE TABLE categorias (
 id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -135,21 +131,19 @@ activo BOOLEAN NOT NULL DEFAULT TRUE,
 sort_order INT UNSIGNED NOT NULL DEFAULT 0,
 fecha_creacion DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
 fecha_actualizacion DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-FOREIGN KEY (id_padre) REFERENCES categorias(id) ON UPDATE CASCADE ON DELETE SET NULL
-);
+FOREIGN KEY (id_padre) REFERENCES categorias(id) ON UPDATE CASCADE ON DELETE SET NULL);
 
 CREATE TABLE producto_categoria (
 id_producto INT UNSIGNED NOT NULL,
 id_categoria INT UNSIGNED NOT NULL,
 PRIMARY KEY (id_producto, id_categoria),
 FOREIGN KEY (id_producto) REFERENCES productos(id) ON UPDATE CASCADE ON DELETE CASCADE,
-FOREIGN KEY (id_categoria) REFERENCES categorias(id) ON UPDATE CASCADE ON DELETE CASCADE
-);
+FOREIGN KEY (id_categoria) REFERENCES categorias(id) ON UPDATE CASCADE ON DELETE CASCADE);
 
 
 CREATE TABLE botella(
 id varchar(9) NOT NULL PRIMARY KEY,
-tamanio float CHECK (tamanio >=0.5 AND tamanio <= 1.5) NOT NULL ,
+tamanio DECIMAL(10,2) CHECK (tamanio >=0.5 AND tamanio <= 1.5) NOT NULL ,
 bolso varchar(9) NOT NULL,
 FOREIGN KEY (bolso) REFERENCES bolso(id)ON UPDATE CASCADE ON DELETE RESTRICT);
 
@@ -157,7 +151,7 @@ CREATE TABLE sensores(
 id int AUTO_INCREMENT NOT NULL PRIMARY KEY,
 tipo text NOT NULL,
 estado boolean NOT NULL,
-intervalo int CHECK (intervalo >0) NOT NULL);
+intervalo INT UNSIGNED NOT NULL);
 
 CREATE TABLE bolso_sensores(
 bolso varchar(9) NOT NULL,
@@ -168,7 +162,7 @@ PRIMARY KEY (bolso, sensor));
 
 CREATE TABLE medidas(
 id varchar(255) NOT NULL PRIMARY KEY,
-valor float NOT NULL);
+valor DECIMAL(10,2) NOT NULL);
 
 CREATE TABLE sensores_medidas(
 medida varchar(255) NOT NULL,

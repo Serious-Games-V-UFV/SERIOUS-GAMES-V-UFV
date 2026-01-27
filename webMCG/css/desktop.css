@@ -1,0 +1,52 @@
+@media screen and (min-width:992px){
+    
+    header label{
+        height: 59px;
+        display: inline;
+    }
+
+    header label::after{
+        content: "  ▲";
+    }
+
+    header label:hover{
+       cursor: pointer;
+    }
+    
+    header input:checked+label::after{
+        content: "  ▼";
+    }
+
+    header ul>li{
+        display: block;
+    }
+
+    header input, header ol>a{
+        display: none;
+    }
+
+    header input:checked~ol>a{
+        display: block;
+    }
+
+    header ol{
+        position: absolute;
+        top: 58px;
+        background-color: #185F6B;
+        list-style-type: none;
+        padding: 0;
+    }
+
+    header ol>a:hover{
+        background-color: #66D4E8;
+        cursor: pointer;
+    }
+
+    header ol img{
+        height: 16px;
+    }
+
+    article:nth-of-type(2) div:first-of-type img{
+        width: 440px;
+    }
+}

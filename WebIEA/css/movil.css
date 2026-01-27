@@ -1,0 +1,96 @@
+
+
+body {
+margin: 0;
+font-family: Arial, sans-serif;
+background-color:   whitesmoke;
+}
+
+
+header, footer {
+background-color:burlywood;
+color: white;
+padding: 1em;
+border-bottom: 4px solid black;
+}
+
+
+nav a {
+display: block;
+color: white;
+text-decoration: none;
+margin: 0.5em 0;
+}
+
+
+main {
+padding: 1em;
+}
+
+
+section {
+background-color: white;
+padding: 1em;
+margin-bottom: 1.5em;
+border-left: 6px solid burlywood;
+}
+
+
+img {
+max-width: 100%;
+border: 2px solid whitesmoke;
+}
+
+
+table {
+width: 100%;
+border-collapse: collapse;
+}
+
+
+td, th {
+border: 1px solid black;
+padding: 0.5em;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    max-width: 400px;
+}
+
+
+label {
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+}
+
+
+input, select, textarea {
+    padding: 0.5em;
+    margin-top: 0.3em;
+    font-size: 1em;
+}
+
+
+textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+
+button {
+    width: 120px;
+    padding: 0.5em;
+    background-color: burlywood;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: brown;
+}
+

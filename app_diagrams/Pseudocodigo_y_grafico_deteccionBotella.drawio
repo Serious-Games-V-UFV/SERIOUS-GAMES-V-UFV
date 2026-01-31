@@ -1,0 +1,84 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:147.0) Gecko/20100101 Firefox/147.0" version="29.3.6">
+  <diagram name="Página-1" id="Y5pbjU-eA5JU7RdG7CX8">
+    <mxGraphModel dx="776" dy="467" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="GW8g2jcgQ7oRg3WG4a5v-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Pseudocódigo del método &quot;deteccionBotella&quot;" vertex="1">
+          <mxGeometry height="40" width="170" x="35" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="GW8g2jcgQ7oRg3WG4a5v-2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;div&gt;Inicio&amp;nbsp;&lt;/div&gt;&lt;div&gt;variable sensor Boolean&lt;/div&gt;&lt;div&gt;si sensor == True&lt;/div&gt;&lt;div&gt;Mostrar &quot;Botella conectada&quot;&lt;/div&gt;&lt;div&gt;si sensor == False&lt;/div&gt;&lt;div&gt;Mostrar &quot;Botella no conectada&quot;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;Fin &lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="120" width="200" x="20" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="GW8g2jcgQ7oRg3WG4a5v-3" edge="1" parent="1" source="GW8g2jcgQ7oRg3WG4a5v-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="GW8g2jcgQ7oRg3WG4a5v-6">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="360" y="130" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GW8g2jcgQ7oRg3WG4a5v-4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Inicio" vertex="1">
+          <mxGeometry height="40" width="80" x="317.75" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="GW8g2jcgQ7oRg3WG4a5v-23" edge="1" parent="1" source="GW8g2jcgQ7oRg3WG4a5v-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="GW8g2jcgQ7oRg3WG4a5v-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="GW8g2jcgQ7oRg3WG4a5v-6" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" value="Boolean sensor" vertex="1">
+          <mxGeometry height="50" width="102.25" x="307.75" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="GW8g2jcgQ7oRg3WG4a5v-10" parent="1" style="rhombus;whiteSpace=wrap;html=1;" value="&lt;div&gt;if (sensor == True)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="90" width="107.75" x="305" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="GW8g2jcgQ7oRg3WG4a5v-11" edge="1" parent="1" source="GW8g2jcgQ7oRg3WG4a5v-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.427;entryY=-0.003;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" target="GW8g2jcgQ7oRg3WG4a5v-17">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="245" y="275" />
+              <mxPoint x="245" y="330" />
+            </Array>
+            <mxPoint x="307.75" y="465" as="sourcePoint" />
+            <mxPoint x="247.75" y="530" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GW8g2jcgQ7oRg3WG4a5v-12" connectable="0" parent="GW8g2jcgQ7oRg3WG4a5v-11" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="True" vertex="1">
+          <mxGeometry relative="1" x="-0.2493" y="-1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GW8g2jcgQ7oRg3WG4a5v-13" edge="1" parent="1" source="GW8g2jcgQ7oRg3WG4a5v-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="GW8g2jcgQ7oRg3WG4a5v-20">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="407.75" y="465" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GW8g2jcgQ7oRg3WG4a5v-14" connectable="0" parent="GW8g2jcgQ7oRg3WG4a5v-13" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="False" vertex="1">
+          <mxGeometry relative="1" x="-0.3865" y="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GW8g2jcgQ7oRg3WG4a5v-16" edge="1" parent="1" source="GW8g2jcgQ7oRg3WG4a5v-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="GW8g2jcgQ7oRg3WG4a5v-18">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="238" y="450" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GW8g2jcgQ7oRg3WG4a5v-17" parent="1" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;" value="syso(&quot;Botella conectada&quot;);" vertex="1">
+          <mxGeometry height="65" width="110" x="195" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="GW8g2jcgQ7oRg3WG4a5v-18" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Fin" vertex="1">
+          <mxGeometry height="40" width="80" x="319.25" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="GW8g2jcgQ7oRg3WG4a5v-19" edge="1" parent="1" source="GW8g2jcgQ7oRg3WG4a5v-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0.54;exitY=0.85;exitDx=0;exitDy=0;exitPerimeter=0;" target="GW8g2jcgQ7oRg3WG4a5v-18">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="469" y="450" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GW8g2jcgQ7oRg3WG4a5v-20" parent="1" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;" value="syso(&quot;Botella no conectada&quot;);" vertex="1">
+          <mxGeometry height="65" width="110" x="410" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="GW8g2jcgQ7oRg3WG4a5v-21" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Diagrama del método &quot;aperturaBolsa&quot;" vertex="1">
+          <mxGeometry height="40" width="170" x="274.25" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

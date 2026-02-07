@@ -25,7 +25,7 @@ float findWeight(HX711 scale){
 float waterQuantity(float prevKg, float weight){
   float total = 0F;
   total = prevWeitgh - weight; // * El agua pesa 1g x cada ml (1Kg x cada litro) | Water weights 1g per ml (1kg per liter)
-
+// TODO Crear la logica de rellenar la botella | Create the logic of the refill 
   if(total < 0){
     return 0;
   }else{
@@ -66,7 +66,7 @@ void loop() {
   if(currentWeight < 0){
     do{
       currentWeight = findWeight(scale);
-    }while(currentWeight <0);º
+    }while(currentWeight <0);
       float drinkenWater = waterQuantity(prevWeight,currentWeight);
   }
   drinkingTimer++;

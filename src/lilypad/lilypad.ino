@@ -67,7 +67,7 @@ void loop() {
     do{
       currentWeight = findWeight(scale);
     }while(currentWeight <0);
-      float totalWater = waterQuantity(prevWeight,currentWeight);
+      float drinkenWaterint  = waterQuantity(prevWeight,currentWeight);
   }
   drinkingTimer++;
   delay(2000);

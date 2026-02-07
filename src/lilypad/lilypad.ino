@@ -46,8 +46,8 @@ void setup() {
 // TODO Borrar esto cuando consigamos tarar bien la scale | Delete this when we tare the scale 
   // * Configuracion scale
   // * Scale config
-      scale.set_scale();  
-      scale.tare();       
+      scale.set_scale();
+      scale.tare();
       Serial.println("Pon peso conocido y lee Serial Monitor");
       
 }
@@ -67,9 +67,7 @@ void loop() {
     do{
       currentWeight = findWeight(scale);
     }while(currentWeight <0);
-    if(currentWeight > 0){
       float totalWater = waterQuantity(prevWeight,currentWeight);
-    }
   }
   drinkingTimer++;
   delay(2000);

@@ -7,11 +7,14 @@
     const int infraRed = 7;
     const int weightOut = 2;
     const int weightTrigger = 3;
-    static int drinkingTimer = 0;
-    
-// Configuracion de los pines bluetooth
-const int pinRX = 8; // * Pin recepcion lilypad (Conecta al TX del modulo) | Reception pin lilypad (TX HC05)
-const int pinTx = 9; // * Pin envio lilypad (Conecta al RX del modulo) | Transmission pin lilypad (RX HC05)
+
+// * Variables estáticas | Static variables
+  static int drinkingTimer = 0;
+  static float bottleCapacity = 1.5F;
+
+// * Configuracion de los pines bluetooth
+  const int pinRX = 8; // * Pin recepcion lilypad (Conecta al TX del modulo) | Reception pin lilypad (TX HC05)
+  const int pinTx = 9; // * Pin envio lilypad (Conecta al RX del modulo) | Transmission pin lilypad (RX HC05)
 
 SoftwareSerial bt (pinRX, pinTx);
 HX711 scale;
@@ -25,12 +28,7 @@ float findWeight(HX711 scale){
 float waterQuantity(float prevKg, float weight){
   float total = 0F;
   total = prevWeitgh - weight; // * El agua pesa 1g x cada ml (1Kg x cada litro) | Water weights 1g per ml (1kg per liter)
-// TODO Crear la logica de rellenar la botella | Create the logic of the refill 
-  if(total < 0){
-    return 0;
-  }else{
     return total;
-  }
 }
 
 void setup() {
@@ -44,8 +42,7 @@ void setup() {
   bt.begin(9600);
   Serial.begin(9600);
 // TODO Borrar esto cuando consigamos tarar bien la scale | Delete this when we tare the scale 
-  // * Configuracion scale
-  // * Scale config
+  // * Configuracion scale | Scale config
       scale.set_scale();
       scale.tare();
       Serial.println("Pon peso conocido y lee Serial Monitor");
@@ -68,6 +65,9 @@ void loop() {
       currentWeight = findWeight(scale);
     }while(currentWeight <0);
       float drinkenWater = waterQuantity(prevWeight,currentWeight);
+      if(drinkenWater < 0){
+        int capacidadBotella = (drinkenWater*-1)
+      }
   }
   drinkingTimer++;
   delay(2000);

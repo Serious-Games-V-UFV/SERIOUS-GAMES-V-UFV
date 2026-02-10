@@ -154,7 +154,7 @@ CREATE TABLE sensores(
 id int AUTO_INCREMENT NOT NULL PRIMARY KEY,
 tipo varchar(255) NOT NULL,
 estado boolean NOT NULL,
-intervalo INT UNSIGNED NOT NULL);
+);
 
 CREATE TABLE bolso_sensores(
 bolso BIGINT NOT NULL,

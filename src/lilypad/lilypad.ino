@@ -112,7 +112,7 @@ void loop() {
     currentWeight = findWeight();
     float drunk = waterQuantity(prevWeight,currentWeight);
     if(drunk > 0.01){
-      currentCapacity -=drunk;
+      currentCapacity -= drunk;
       lastActivity = clock;
     }else if(drunk <-0.1){
       currentCapacity += fabs(drunk); // * Si se rellena la capacidad aumenta fabs = valor absoluto | If there is a refill, capacity increases fabs = absolute value
@@ -120,6 +120,7 @@ void loop() {
     prevWeight = currentWeight;
   
   // * Deteccion de la apertura de la botella | Bag opening detection
+    
 
 
 

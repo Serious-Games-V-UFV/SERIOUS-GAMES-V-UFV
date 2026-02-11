@@ -19,6 +19,7 @@
   static unsigned long lastDrink = 0L;
   static float currentWeight = 0;
   static float prevWeight = 1.5;
+  static float totalDrunk = 0;
   
 
 
@@ -113,13 +114,12 @@ void loop() {
     float drunk = waterQuantity(prevWeight,currentWeight);
     if(drunk > 0.01){
       currentCapacity -= drunk;
+        totalDrunk += drunk;
       lastActivity = clock;
     }else if(drunk <-0.1){
-      currentCapacity += fabs(drunk); // * Si se rellena la capacidad aumenta fabs = valor absoluto | If there is a refill, capacity increases fabs = absolute value
+      currentCapacity += fabs(drunk); // * Si se rellena la capacidad aumenta (fabs = valor absoluto) | If there is a refill, capacity increases (fabs = absolute value)
     }
     prevWeight = currentWeight;
-  
-  // * Deteccion de la apertura de la botella | Bag opening detection
     
 
 

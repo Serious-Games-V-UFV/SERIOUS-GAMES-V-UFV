@@ -1,14 +1,13 @@
 #include <SoftwareSerial.h>
 #include <HX711.h>
 #include <Adafruit_NeoPixel.h>
-#include <Math.h>
+#include <math.h>
 // * Configuracion pines sensores | Component's pin config
     const int led= 5;
     const int buzzer = 6;
     const int infraRed = 7;
-    const int weightOut = 2;
-    const int weightTrigger = 3;
-    const int light = A2;
+    const int weight = A2;
+    const int weightSCK = A3;
     
 
 // * Variables | variables
@@ -27,9 +26,9 @@
   const int pinRX = 8; // * Pin recepcion lilypad (Conecta al TX del modulo) | Reception pin lilypad (TX HC05)
   const int pinTx = 9; // * Pin envio lilypad (Conecta al RX del modulo) | Transmission pin lilypad (RX HC05)
 
-SoftwareSerial bt (pinRX, pinTx);
-HX711 scale;
-Adafruit_NeoPixel pixel(1, led, NEO_GRB + NEO_KHZ800);
+  SoftwareSerial bt (pinRX, pinTx);
+  HX711 scale;
+  Adafruit_NeoPixel pixel(1, led, NEO_GRB + NEO_KHZ800);
 
 // * Metodos | Methods
 
@@ -47,10 +46,25 @@ Adafruit_NeoPixel pixel(1, led, NEO_GRB + NEO_KHZ800);
     return total;
   }
 
+  unsigned long drinkControl(){
+    currentWeight = findWeight();
+    float drunk = waterQuantity(prevWeight,currentWeight);
+    if(drunk > 0.01){
+      currentCapacity -= drunk;
+        totalDrunk += drunk;
+      lastActivity = clock;
+    }else if(drunk <-0.1){
+      currentCapacity += fabsf(drunk); // * Si se rellena la capacidad aumenta (fabs = valor absoluto) | If there is a refill, capacity increases (fabs = absolute value)
+    }
+    prevWeight = currentWeight;
+    return lastActivity;
+  }
+
+
   // * Controla el led en funcion de la hora de la ultima actividad | Controls the led in order of the last activity
   void ledControl (long lastDrink){
     long hours = lastDrink/3600000L;
-    if(hours<=1){
+      if(hours<=1){
         pixel.setPixelColor(0, pixel.Color(0, 0, 0));
         pixel.show();
       }else if((hours>1) && (hours<4)){
@@ -71,15 +85,23 @@ Adafruit_NeoPixel pixel(1, led, NEO_GRB + NEO_KHZ800);
         pixel.show();
       }
   }
-  
+
+  void irDetection(){
+    bool bottleDetected = !digitalRead(infraRed);
+    if(bottleDetected){
+      Serial.print("Botella presente");
+    }else{
+      Serial.print("Botella no colocada");
+    }
+  }
+
 void setup() {
   pinMode(led,OUTPUT);
   pinMode(buzzer,OUTPUT);
   pinMode(infraRed,INPUT);
-  pinMode(light,INPUT);
   
   // * Inicializacion de componentes seriales | Serial components initialize
-  scale.begin(weightOut,weightTrigger);
+  scale.begin(weight,weightSCK);
   bt.begin(9600);
   Serial.begin(9600);
   pixel.begin();
@@ -102,38 +124,20 @@ void loop() {
         }
   
   // * Control de los led por tiempo sin beber | Led control with time of last drink
-    ledControl(lastDrink);
 
-
-  // * Control de la vibración | Vibration control
-
-
+    ledControl(lastDrink);  
   
   // * Agua bebida y modificacion capacidad actual de la botella | Drunk water and modify current bottle's capacity
-    currentWeight = findWeight();
-    float drunk = waterQuantity(prevWeight,currentWeight);
-    if(drunk > 0.01){
-      currentCapacity -= drunk;
-        totalDrunk += drunk;
-      lastActivity = clock;
-    }else if(drunk <-0.1){
-      currentCapacity += fabs(drunk); // * Si se rellena la capacidad aumenta (fabs = valor absoluto) | If there is a refill, capacity increases (fabs = absolute value)
-    }
-    prevWeight = currentWeight;
-    
 
-
-
-
-
+    lastActivity = drinkControl();
+  
   // * Deteccion del sensor infrarrojo | IR sensor detection
+  
+    irDetection();
 
-
+  // * Control de la vibración | Vibration control
   
 
   // * Modo noche | Night mode
   
-  
-  
-
 }

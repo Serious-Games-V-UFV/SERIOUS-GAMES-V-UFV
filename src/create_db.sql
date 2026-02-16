@@ -153,7 +153,7 @@ FOREIGN KEY (bolso) REFERENCES bolso(id)ON UPDATE CASCADE ON DELETE RESTRICT);
 CREATE TABLE sensores(
 id int AUTO_INCREMENT NOT NULL PRIMARY KEY,
 tipo varchar(255) NOT NULL,
-estado boolean NOT NULL,
+estado boolean NOT NULL
 );
 
 CREATE TABLE bolso_sensores(

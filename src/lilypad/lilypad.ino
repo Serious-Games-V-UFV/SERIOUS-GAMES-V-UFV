@@ -3,6 +3,7 @@
 #include <HX711.h>
 #include <Adafruit_NeoPixel.h>
 #include <math.h>
+#include <BluetoothSerial.h>
 // * Configuracion pines sensores | Component's pin config
     const int nightButton = 4;
     const int led= 5;
@@ -124,6 +125,15 @@
     }
   }
 
+  void bluetoothControl(){
+    if (SerialBT.hasClient()) {
+      pixel.setPixelColor(0, pixel.Color(0, 0, 255));
+    } else {
+      pixel.setPixelColor(0, pixel.Color(255, 0, 0));
+    }
+  delay(1000);
+  }
+
 void setup() {
   pinMode(buzzer,OUTPUT);
   pinMode(infraRed,INPUT);
@@ -133,6 +143,7 @@ void setup() {
   //TODO Descomentar linea 130 cuando conectemos bascula
   // scale.begin(weight,weightSCK);
   Serial.begin(9600);
+  SerialBT.begin("MiESP32");
   pixel.begin();
   
     // * Configuracion scale | Scale config
@@ -176,6 +187,10 @@ void loop() {
   // * Deteccion del sensor infrarrojo | IR sensor detection
 
     irDetection();
+  
+  // * Bluetooth conectado
+
+    bluetoothControl();
 
   delay(2000);
 }

@@ -1,5 +1,4 @@
 //TODO Modificar la logica para que quede acorde al producto final, debuggear con el lilypad
-#include <SoftwareSerial.h>
 #include <HX711.h>
 #include <Adafruit_NeoPixel.h>
 #include <math.h>
@@ -30,10 +29,7 @@
 
 
 // * Configuracion de los pines bluetooth
-  const int pinRX = 8; // * Pin recepcion lilypad (Conecta al TX del modulo) | Reception pin lilypad (TX HC05)
-  const int pinTx = 9; // * Pin envio lilypad (Conecta al RX del modulo) | Transmission pin lilypad (RX HC05)
-
-  SoftwareSerial bt (pinRX, pinTx);
+  BluetoothSerial SerialBT(Serial,true);
 //TODO Descomentar linea 36 cuando conectemos bascula
   // HX711 scale;
   Adafruit_NeoPixel pixel(1, led, NEO_GRB + NEO_KHZ800);
@@ -125,22 +121,11 @@
     }
   }
 
-  void bluetoothControl(){
-    if (SerialBT.hasClient()) {
-      pixel.setPixelColor(0, pixel.Color(0, 0, 255));
-    } else {
-      pixel.setPixelColor(0, pixel.Color(255, 0, 0));
-    }
-  delay(1000);
-  }
   void bluetoothSend(long hours){
-    long hours = lastDrink/3600L;
-    bluetooth.print("Datos");
-    bluetooth.print(currentCapacity);
-    bluetooth.print();
-    bluetooth.print("|");
-    bluetooth.print(nivelLuz);
-    bluetooth.println();
+    hours = lastDrink/3600000L;
+    String message = "Datos:" + String(currentCapacity) + "|" + String(hours) + "|" + String(totalDrunk);
+    SerialBT.writeSerial(message);
+
   }
 
 void setup() {
@@ -151,9 +136,8 @@ void setup() {
   // * Inicializacion de componentes seriales | Serial components initialize
   //TODO Descomentar linea 130 cuando conectemos bascula
   // scale.begin(weight,weightSCK);
-  Serial.begin(9600);
- // SerialBT.begin("MiESP32");
-  bt.begin(9600);
+  Serial.begin(115200);
+  SerialBT.begin("Hidratacion");
   pixel.begin();
   
     // * Configuracion scale | Scale config
@@ -171,7 +155,7 @@ void loop() {
     nightControl();
   
   clock = millis();
-  lastDrink = (clock - lastActivity);
+  
 
   //TODO Borrar esto cuando consigamos tarar bien la bascula | Delete this when we tare the scale 
     // if (scale.is_ready()) {
@@ -193,14 +177,12 @@ void loop() {
   // * Agua bebida y modificacion capacidad actual de la botella | Drunk water and modify current bottle's capacity
 
     lastActivity = drinkControl();
-  
+    lastDrink = (clock - lastActivity);
   // * Deteccion del sensor infrarrojo | IR sensor detection
 
     irDetection();
   
   // * Bluetooth conectado
-
-    bluetoothControl();
 
     bluetoothSend(lastDrink);
   delay(2000);

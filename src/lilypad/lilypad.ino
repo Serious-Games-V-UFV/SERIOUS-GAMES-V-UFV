@@ -133,6 +133,15 @@
     }
   delay(1000);
   }
+  void bluetoothSend(long hours){
+    long hours = lastDrink/3600L;
+    bluetooth.print("Datos");
+    bluetooth.print(currentCapacity);
+    bluetooth.print();
+    bluetooth.print("|");
+    bluetooth.print(nivelLuz);
+    bluetooth.println();
+  }
 
 void setup() {
   pinMode(buzzer,OUTPUT);
@@ -143,7 +152,8 @@ void setup() {
   //TODO Descomentar linea 130 cuando conectemos bascula
   // scale.begin(weight,weightSCK);
   Serial.begin(9600);
-  SerialBT.begin("MiESP32");
+ // SerialBT.begin("MiESP32");
+  bt.begin(9600);
   pixel.begin();
   
     // * Configuracion scale | Scale config
@@ -192,5 +202,6 @@ void loop() {
 
     bluetoothControl();
 
+    bluetoothSend(lastDrink);
   delay(2000);
 }

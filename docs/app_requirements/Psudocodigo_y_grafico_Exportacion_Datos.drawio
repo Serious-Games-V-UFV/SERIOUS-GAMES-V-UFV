@@ -1,0 +1,63 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:147.0) Gecko/20100101 Firefox/147.0" version="29.3.6">
+  <diagram name="Página-1" id="RSL-tq_w6KPgDdkfHlCx">
+    <mxGraphModel dx="937" dy="564" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="GMvyvwT3D5JoBJ98pWFL-5" edge="1" parent="1" source="GMvyvwT3D5JoBJ98pWFL-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="GMvyvwT3D5JoBJ98pWFL-6">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="499.9999999999998" y="120" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GMvyvwT3D5JoBJ98pWFL-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Inicio" vertex="1">
+          <mxGeometry height="40" width="120" x="440" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="GMvyvwT3D5JoBJ98pWFL-2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Pseudocódigo Exportación de los datos" vertex="1">
+          <mxGeometry height="30" width="240" y="40" as="geometry" />
+        </mxCell>
+        <UserObject label="Insertar los registros en la base de datos con su fecha &#xa;&#xa;Consulta base de datos de un rango de fecha entre el 01 y el 31 del mes&#xa;&#xa;Exportar la lista en el formato deseado (Excel, XML, PDF)&#xa;&#xa;Servicio pide los datos del mes al módulo de consultas&#xa;y los añade al módulo de exportación&#xa;" link="https://chatgpt.com/share/698220bc-b654-8001-b277-63a399aac200" id="GMvyvwT3D5JoBJ98pWFL-4">
+          <mxCell parent="1" style="text;whiteSpace=wrap;" vertex="1">
+            <mxGeometry height="140" width="310" x="10" y="70" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="GMvyvwT3D5JoBJ98pWFL-8" edge="1" parent="1" source="GMvyvwT3D5JoBJ98pWFL-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="GMvyvwT3D5JoBJ98pWFL-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="GMvyvwT3D5JoBJ98pWFL-6" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;Módulo Consulta Mes&lt;/div&gt;&lt;div&gt;(consulta por fechas)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="440" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="GMvyvwT3D5JoBJ98pWFL-15" edge="1" parent="1" source="GMvyvwT3D5JoBJ98pWFL-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="GMvyvwT3D5JoBJ98pWFL-10">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="500" y="270" />
+              <mxPoint x="395" y="270" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GMvyvwT3D5JoBJ98pWFL-16" edge="1" parent="1" source="GMvyvwT3D5JoBJ98pWFL-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="GMvyvwT3D5JoBJ98pWFL-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="GMvyvwT3D5JoBJ98pWFL-7" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Servicio Exportar" vertex="1">
+          <mxGeometry height="40" width="120" x="440" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="GMvyvwT3D5JoBJ98pWFL-10" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;Exportador&lt;/div&gt;&lt;div&gt;Excel&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="70" x="360" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="GMvyvwT3D5JoBJ98pWFL-13" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;Exportador&lt;/div&gt;&lt;div&gt;XML&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="70" x="465" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="GMvyvwT3D5JoBJ98pWFL-14" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;Exportador&lt;/div&gt;&lt;div&gt;PDF&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="70" x="560" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="GMvyvwT3D5JoBJ98pWFL-17" edge="1" parent="1" source="GMvyvwT3D5JoBJ98pWFL-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.565;entryY=-0.083;entryDx=0;entryDy=0;entryPerimeter=0;" target="GMvyvwT3D5JoBJ98pWFL-14">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="500" y="270" />
+              <mxPoint x="600" y="270" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,65 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:147.0) Gecko/20100101 Firefox/147.0" version="29.3.8">
+  <diagram name="Page-1" id="g0OBfbmedhLsHkKjW_hR">
+    <mxGraphModel dx="874" dy="632" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="s4c1Q5fYxS0Dsv3pFAeD-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Pseudocódigo Modo Noche" vertex="1">
+          <mxGeometry height="40" width="200" x="40" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="s4c1Q5fYxS0Dsv3pFAeD-2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;div&gt;Inicio&lt;/div&gt;&lt;div&gt;Boolean nightBotton&lt;/div&gt;&lt;div&gt;If nightBotton == True&lt;/div&gt;&lt;div&gt;activar modo noche&lt;/div&gt;&lt;div&gt;if nightBotton == false&lt;/div&gt;&lt;div&gt;activar modo light&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="110" width="200" x="40" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="s4c1Q5fYxS0Dsv3pFAeD-5" edge="1" parent="1" source="s4c1Q5fYxS0Dsv3pFAeD-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="s4c1Q5fYxS0Dsv3pFAeD-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="s4c1Q5fYxS0Dsv3pFAeD-3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Inicio" vertex="1">
+          <mxGeometry height="40" width="120" x="400" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="s4c1Q5fYxS0Dsv3pFAeD-13" edge="1" parent="1" source="s4c1Q5fYxS0Dsv3pFAeD-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="s4c1Q5fYxS0Dsv3pFAeD-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="s4c1Q5fYxS0Dsv3pFAeD-4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;Boolean&amp;nbsp;&lt;/div&gt;&lt;div&gt;nightBotton = False&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="400" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="s4c1Q5fYxS0Dsv3pFAeD-15" edge="1" parent="1" source="s4c1Q5fYxS0Dsv3pFAeD-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="s4c1Q5fYxS0Dsv3pFAeD-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="s4c1Q5fYxS0Dsv3pFAeD-9" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="activateBotton" vertex="1">
+          <mxGeometry height="200" width="200" x="360" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="s4c1Q5fYxS0Dsv3pFAeD-10" parent="s4c1Q5fYxS0Dsv3pFAeD-9" style="whiteSpace=wrap;html=1;" value="Botton_On == True" vertex="1">
+          <mxGeometry height="60" width="120" x="40" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="s4c1Q5fYxS0Dsv3pFAeD-12" parent="s4c1Q5fYxS0Dsv3pFAeD-9" style="whiteSpace=wrap;html=1;" value="Botton_Off == False" vertex="1">
+          <mxGeometry height="60" width="120" x="40" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="s4c1Q5fYxS0Dsv3pFAeD-17" edge="1" parent="1" source="s4c1Q5fYxS0Dsv3pFAeD-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="s4c1Q5fYxS0Dsv3pFAeD-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="s4c1Q5fYxS0Dsv3pFAeD-18" connectable="0" parent="s4c1Q5fYxS0Dsv3pFAeD-17" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="False" vertex="1">
+          <mxGeometry relative="1" x="-0.2545" y="-1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s4c1Q5fYxS0Dsv3pFAeD-20" edge="1" parent="1" source="s4c1Q5fYxS0Dsv3pFAeD-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="s4c1Q5fYxS0Dsv3pFAeD-19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="s4c1Q5fYxS0Dsv3pFAeD-21" connectable="0" parent="s4c1Q5fYxS0Dsv3pFAeD-20" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="True" vertex="1">
+          <mxGeometry relative="1" x="0.1091" y="3" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s4c1Q5fYxS0Dsv3pFAeD-14" parent="1" style="rhombus;whiteSpace=wrap;html=1;" value="&lt;div&gt;if&amp;nbsp;&lt;/div&gt;&lt;div&gt;activateBotton == False&lt;/div&gt;" vertex="1">
+          <mxGeometry height="130" width="150" x="385" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="s4c1Q5fYxS0Dsv3pFAeD-16" parent="1" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;" value="Modo oscuro" vertex="1">
+          <mxGeometry height="80" width="120" x="320" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="s4c1Q5fYxS0Dsv3pFAeD-19" parent="1" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;" value="Modo claro" vertex="1">
+          <mxGeometry height="80" width="120" x="480" y="640" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

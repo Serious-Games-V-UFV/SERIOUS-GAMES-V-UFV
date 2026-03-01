@@ -2,9 +2,48 @@
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
-    <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
+    <Menu class="javax.swing.JMenuBar" name="jMenuBar2">
       <SubComponents>
-        <Menu class="javax.swing.JMenu" name="conStatus">
+        <Menu class="javax.swing.JMenu" name="jMenuCambiarUsuario">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Cambiar Usuario"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jMenuCambiarUsuarioMouseClicked"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuCambiarUsuarioActionPerformed"/>
+          </Events>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="jMenuUsuario">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Usuario"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jMenuUsuarioMouseClicked"/>
+          </Events>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="jMenuBolso">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Bolso"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jMenuBolsoMouseClicked"/>
+          </Events>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="jMenuEventos">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Eventos"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jMenuEventosMouseClicked"/>
+          </Events>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="jMenuRecuentoDiario">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Recuento Diario"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jMenuRecuentoDiarioMouseClicked"/>
+          </Events>
         </Menu>
       </SubComponents>
     </Menu>
@@ -13,7 +52,7 @@
     <Property name="defaultCloseOperation" type="int" value="3"/>
   </Properties>
   <SyntheticProperties>
-    <SyntheticProperty name="menuBar" type="java.lang.String" value="jMenuBar1"/>
+    <SyntheticProperty name="menuBar" type="java.lang.String" value="jMenuBar2"/>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
     <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
@@ -32,268 +71,22 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
-              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="idLabel" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="306" max="-2" attributes="0"/>
-                      <Component id="bagButton" min="-2" pref="125" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="eventsButton" min="-2" pref="125" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="starsButton" min="-2" pref="125" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jLabel3" min="-2" pref="250" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="weightLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="phoneLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="heightLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="nameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="weightTF" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
-                                  <Component id="phoneTF" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="heightTF" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="nameTF" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
-                                  <Component id="idTF" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="loginLabel" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="loginTF" min="-2" pref="100" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="waterLabel" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="waterTF" min="-2" pref="100" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="birthLabel" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="birthTF" min="-2" pref="100" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                      <Component id="resultsWindow" min="-2" pref="727" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-              <EmptySpace pref="892" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <Component id="resultsWindow" min="-2" pref="1122" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="798" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="starsButton" alignment="0" min="-2" pref="67" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="bagButton" alignment="3" min="-2" pref="67" max="-2" attributes="0"/>
-                                      <Component id="eventsButton" alignment="3" min="-2" pref="67" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="idLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="idTF" alignment="3" min="-2" pref="18" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="nameTF" alignment="3" min="-2" pref="18" max="-2" attributes="0"/>
-                          <Component id="nameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="phoneLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="phoneTF" alignment="3" min="-2" pref="18" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="heightLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="heightTF" alignment="3" min="-2" pref="18" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="weightLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="weightTF" alignment="3" min="-2" pref="18" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="birthLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="birthTF" alignment="3" min="-2" pref="18" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="waterLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="waterTF" alignment="3" min="-2" pref="18" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="loginLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="loginTF" alignment="3" min="-2" pref="18" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Component id="resultsWindow" alignment="0" min="-2" pref="265" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace pref="711" max="32767" attributes="0"/>
+              <Component id="resultsWindow" min="-2" pref="479" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="578" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="idLabel">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="ID usuario"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="nameLabel">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Nombre"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="phoneLabel">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Tel&#xe9;fono"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="heightLabel">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Altura"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="birthLabel">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Fecha nacimiento"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="waterLabel">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Agua deseada"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="loginLabel">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Ultimo login"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="loginTF">
-      <Properties>
-        <Property name="text" type="java.lang.String" value=" "/>
-        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[100, 16]"/>
-        </Property>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="weightLabel">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Peso"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="idTF">
-      <Properties>
-        <Property name="text" type="java.lang.String" value=" "/>
-        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[100, 16]"/>
-        </Property>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="weightTF">
-      <Properties>
-        <Property name="text" type="java.lang.String" value=" "/>
-        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[100, 16]"/>
-        </Property>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="birthTF">
-      <Properties>
-        <Property name="text" type="java.lang.String" value=" "/>
-        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[100, 16]"/>
-        </Property>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="heightTF">
-      <Properties>
-        <Property name="text" type="java.lang.String" value=" "/>
-        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[100, 16]"/>
-        </Property>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="waterTF">
-      <Properties>
-        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[100, 16]"/>
-        </Property>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="nameTF">
-      <Properties>
-        <Property name="text" type="java.lang.String" value=" "/>
-        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[100, 16]"/>
-        </Property>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="phoneTF">
-      <Properties>
-        <Property name="text" type="java.lang.String" value=" "/>
-        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[100, 16]"/>
-        </Property>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="bagButton">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Bolso"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="eventsButton">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Eventos"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="eventsButtonActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="starsButton">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Recuento"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="starsButtonActionPerformed"/>
-      </Events>
-    </Component>
     <Container class="javax.swing.JScrollPane" name="resultsWindow">
       <AuxValues>
         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
@@ -309,15 +102,5 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JLabel" name="jLabel2">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="USUARIO"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel3">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Usuario actual: Alejandro Fern&#xe1;ndez Morano"/>
-      </Properties>
-    </Component>
   </SubComponents>
 </Form>

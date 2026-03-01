@@ -1,32 +1,53 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package databasedesktop;
+
 import java.sql.*;
-/**
- *
- * @author LABORATORIOS
- */
-public class Database{
-    public String url = null;
-    public String user= null;
-    public String pswd = null;
-    public Database(){ 
-        url = "jdbc:mysql://localhost:3305/serious";
-        user= "root";
-        pswd = "root";
-    }
-    static Connection createConnection(String url, String user, String pswd){
-    Connection con1 = null;
-    try{
-        con1 = DriverManager.getConnection(url, user, pswd);
-        if(con1!=null){
-            System.out.println("Conexion correcta");
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+public class Database {
+
+    Connection conn1 = null;
+    
+    public Database() {
+        
+        String url = "jdbc:mysql://smiguels.net:3306/serious_game";
+        String user="serious";
+        String pass="game";
+        
+        try {
+            conn1 = DriverManager.getConnection(url, user, pass);
+            if(conn1 != null) {
+                System.out.println("Conectado a serious_game");
+            }
+        } catch (SQLException ex) {
+            System.out.println("Error!! conectando con la base de datos");
+            Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }catch(SQLException ex){
-        return null;        
     }
-    return con1;
-}
+    
+    public Integer insertarAlumno(String id, String nombre, String apellido, String email) {
+        Statement sta;
+        try {
+            sta = conn1.createStatement();
+            sta.executeUpdate("INSERT INTO alumno VALUES('"+id+"', '"+nombre+"', '"+apellido+"', '"+email+"', NULL, NULL, NULL);");
+            return 0;
+        } catch (SQLException ex) {
+            System.out.println(ex.toString());
+            return -1;
+        }
+    }
+    
+    public ResultSet selectTest(int id) {
+        Statement sta;
+        try {
+            sta = conn1.createStatement();
+            ResultSet rs = sta.executeQuery("SELECT * FROM cuenta WHERE '"+id+"' = 1");
+            
+            return rs;
+        } catch (SQLException ex) {
+            System.out.println(ex.toString());
+            return null;
+        }
+    }
+   
 }

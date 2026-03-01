@@ -49,5 +49,58 @@ public class Database {
             return null;
         }
     }
+    
+    public ResultSet generateList(int id) {
+        Statement sta;
+        try {
+            sta = conn1.createStatement();
+            ResultSet rs = sta.executeQuery("SELECT * FROM cuenta WHERE '"+id+"' = 1");
+            
+            return rs;
+        } catch (SQLException ex) {
+            System.out.println(ex.toString());
+            return null;
+        }
+    }
+    
+    public int getAmountUsers() {
+        Statement sta;
+        int result = 0;
+        
+        try {
+            sta = conn1.createStatement();
+            ResultSet rs = sta.executeQuery("SELECT COUNT(id) FROM cuenta;");
+            
+            if (rs.next()) {
+                result =  Integer.parseInt(rs.getString(1));
+            }
+            
+        } catch (SQLException ex) {
+            System.out.println(ex.toString());
+        }
+        
+        return result;
+        
+    }
+    
+    public String getUsersFromId(int id) {
+        Statement sta;
+        String result = "";
+        
+        try {
+            sta = conn1.createStatement();
+            ResultSet rs = sta.executeQuery("SELECT nombre FROM cuenta WHERE id = "+id+";");
+            
+            if (rs.next()) {
+                result = rs.getString(1);
+            }
+            
+        } catch (SQLException ex) {
+            System.out.println(ex.toString());
+        }
+        
+        return result;
+        
+    }
    
 }

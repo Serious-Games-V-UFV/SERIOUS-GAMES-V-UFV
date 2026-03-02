@@ -243,5 +243,4 @@ public class MainWindow extends javax.swing.JFrame {
         jTextFieldWater.setText(info[9]);
         jTextFieldLogin.setText(info[10]);
     }
-    
 }

@@ -25,56 +25,18 @@ public class Database {
         }
     }
     
-    public Integer insert(String[] data) {
-        PreparedStatement ps;
+    public Integer insertarAlumno(String id, String nombre, String apellido, String email) {
+        Statement sta;
         try {
-            String sql = "INSERT INTO cuenta VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-            ps = conn1.prepareStatement(sql);
-            
-            for (int i = 0; i < data.length; i++) {
-                ps.setString(i + 1, data[i]);
-            }
-            
-            ps.executeUpdate();
-            ps.close();
+            sta = conn1.createStatement();
+            sta.executeUpdate("INSERT INTO alumno VALUES('"+id+"', '"+nombre+"', '"+apellido+"', '"+email+"', NULL, NULL, NULL);");
             return 0;
         } catch (SQLException ex) {
             System.out.println(ex.toString());
             return -1;
         }
     }
-    public String selection (String id){
-         String sql = "SELECT id, nombre, apellido1, apellido2, telefono, email, " +
-                 "altura, peso, fecha_nacimiento, agua_deseada, last_login " +
-                 "FROM cuenta WHERE id = ?";
-         PreparedStatement ps;
-         ResultSet rs;
-         StringBuilder sb = new StringBuilder();
-         try{
-             ps = conn1.prepareStatement(sql);
-             ps.setInt(1,Integer.parseInt(id));
-                 rs = ps.executeQuery();
-                 if(rs.next()){
-                        sb.append(rs.getInt("id")).append("\n");
-                        sb.append(rs.getString("nombre")).append("\n");
-                        sb.append(rs.getString("apellido1")).append("\n");
-                        sb.append(rs.getString("apellido2")).append("\n");
-                        sb.append(rs.getString("telefono")).append("\n");
-                        sb.append(rs.getString("email")).append("\n");
-                        sb.append(rs.getInt("altura")).append("\n");
-                        sb.append(rs.getInt("peso")).append("\n");
-                        sb.append(rs.getDate("fecha_nacimiento")).append("\n");
-                        sb.append(rs.getInt("agua_deseada")).append("\n");
-                        sb.append(rs.getDate("last_login")).append("\n");   
-                 }else{
-                     System.out.println("No existe la cuenta con id= " + id);
-                 }
-             }catch(SQLException ex){
-                System.out.println("Error en la seleccion SQL" + ex.getMessage());
-                    
-         }
-        return sb.toString();
-    }
+    
     public ResultSet selectTest(int id) {
         Statement sta;
         try {
@@ -138,7 +100,23 @@ public class Database {
         }
         
         return result;
+     
+    }
+    public ResultSet rsTest(int id){
+        Statement sta;
+        ResultSet result;
         
+        try {
+            sta = conn1.createStatement();
+            result = sta.executeQuery("SELECT * FROM cuenta WHERE id = "+id+";");
+
+         
+        } catch (SQLException ex) {
+            System.out.println(ex.toString());
+            result = null;
+        }
+        
+        return result;
     }
    
 }

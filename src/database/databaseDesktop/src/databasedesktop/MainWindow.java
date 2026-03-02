@@ -1,6 +1,10 @@
 package databasedesktop;
 import java.awt.event.ActionEvent;
 import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.ImageIcon;
+import javax.swing.table.DefaultTableModel;
 
 public class MainWindow extends javax.swing.JFrame {
     
@@ -10,131 +14,210 @@ public class MainWindow extends javax.swing.JFrame {
     public MainWindow() {
         initComponents();
         initWindow();
+        ImageIcon icono = new ImageIcon(getClass().getResource("img/iconOPI.png"));
+        jLabel2.setIcon(icono);
     }
 
     private void initWindow(){
         this.setSize(1280,520);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
-        connectToDatabase();
-        
+       // connectToDatabase();
+        /*try {
+            resultsetToTableModel(db.rsTest(1));
+        } catch (SQLException ex) {
+            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }*/
     }
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        resultsWindow = new javax.swing.JScrollPane();
-        results = new javax.swing.JTextArea();
-        jMenuBar2 = new javax.swing.JMenuBar();
-        jMenuCambiarUsuario = new javax.swing.JMenu();
-        jMenuUsuario = new javax.swing.JMenu();
-        jMenuBolso = new javax.swing.JMenu();
-        jMenuEventos = new javax.swing.JMenu();
-        jMenuRecuentoDiario = new javax.swing.JMenu();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanelUsuario = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jPanelBolso = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable3 = new javax.swing.JTable();
+        jPanelEventos = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTable4 = new javax.swing.JTable();
+        jPanelRecuentoDiario = new javax.swing.JPanel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTable5 = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        results.setColumns(20);
-        results.setRows(5);
-        resultsWindow.setViewportView(results);
-
-        jMenuCambiarUsuario.setText("Cambiar Usuario");
-        jMenuCambiarUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenuCambiarUsuarioMouseClicked(evt);
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
             }
-        });
-        jMenuCambiarUsuario.addActionListener(this::jMenuCambiarUsuarioActionPerformed);
-        jMenuBar2.add(jMenuCambiarUsuario);
+        ));
+        jScrollPane1.setViewportView(jTable1);
 
-        jMenuUsuario.setText("Usuario");
-        jMenuUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenuUsuarioMouseClicked(evt);
+        javax.swing.GroupLayout jPanelUsuarioLayout = new javax.swing.GroupLayout(jPanelUsuario);
+        jPanelUsuario.setLayout(jPanelUsuarioLayout);
+        jPanelUsuarioLayout.setHorizontalGroup(
+            jPanelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 698, Short.MAX_VALUE)
+        );
+        jPanelUsuarioLayout.setVerticalGroup(
+            jPanelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelUsuarioLayout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 517, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jTabbedPane1.addTab("Usuario", jPanelUsuario);
+
+        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
             }
-        });
-        jMenuBar2.add(jMenuUsuario);
+        ));
+        jScrollPane3.setViewportView(jTable3);
 
-        jMenuBolso.setText("Bolso");
-        jMenuBolso.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenuBolsoMouseClicked(evt);
+        javax.swing.GroupLayout jPanelBolsoLayout = new javax.swing.GroupLayout(jPanelBolso);
+        jPanelBolso.setLayout(jPanelBolsoLayout);
+        jPanelBolsoLayout.setHorizontalGroup(
+            jPanelBolsoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 698, Short.MAX_VALUE)
+        );
+        jPanelBolsoLayout.setVerticalGroup(
+            jPanelBolsoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelBolsoLayout.createSequentialGroup()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 517, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jTabbedPane1.addTab("Bolso", jPanelBolso);
+
+        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
             }
-        });
-        jMenuBar2.add(jMenuBolso);
+        ));
+        jScrollPane4.setViewportView(jTable4);
 
-        jMenuEventos.setText("Eventos");
-        jMenuEventos.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenuEventosMouseClicked(evt);
+        javax.swing.GroupLayout jPanelEventosLayout = new javax.swing.GroupLayout(jPanelEventos);
+        jPanelEventos.setLayout(jPanelEventosLayout);
+        jPanelEventosLayout.setHorizontalGroup(
+            jPanelEventosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 698, Short.MAX_VALUE)
+        );
+        jPanelEventosLayout.setVerticalGroup(
+            jPanelEventosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelEventosLayout.createSequentialGroup()
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 517, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jTabbedPane1.addTab("Eventos", jPanelEventos);
+
+        jTable5.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
             }
-        });
-        jMenuBar2.add(jMenuEventos);
+        ));
+        jScrollPane5.setViewportView(jTable5);
 
-        jMenuRecuentoDiario.setText("Recuento Diario");
-        jMenuRecuentoDiario.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenuRecuentoDiarioMouseClicked(evt);
-            }
-        });
-        jMenuBar2.add(jMenuRecuentoDiario);
+        javax.swing.GroupLayout jPanelRecuentoDiarioLayout = new javax.swing.GroupLayout(jPanelRecuentoDiario);
+        jPanelRecuentoDiario.setLayout(jPanelRecuentoDiarioLayout);
+        jPanelRecuentoDiarioLayout.setHorizontalGroup(
+            jPanelRecuentoDiarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 698, Short.MAX_VALUE)
+        );
+        jPanelRecuentoDiarioLayout.setVerticalGroup(
+            jPanelRecuentoDiarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelRecuentoDiarioLayout.createSequentialGroup()
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 517, Short.MAX_VALUE)
+                .addContainerGap())
+        );
 
-        setJMenuBar(jMenuBar2);
+        jTabbedPane1.addTab("Recuento diario", jPanelRecuentoDiario);
+
+        jLabel1.setText("OPI");
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconOPI.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jTabbedPane1)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(resultsWindow, javax.swing.GroupLayout.PREFERRED_SIZE, 1122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 798, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addGap(63, 63, 63)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(resultsWindow, javax.swing.GroupLayout.PREFERRED_SIZE, 479, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 578, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel2)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 558, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuCambiarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuCambiarUsuarioActionPerformed
+    
+    private void resultsetToTableModel(ResultSet rs) throws SQLException{
+        DefaultTableModel tbm = new DefaultTableModel();
+        ResultSetMetaData metaData =  rs.getMetaData();
+        int columnCount = metaData.getColumnCount();
+        for ( int i = 1; i <= columnCount; i++){
+            tbm.addColumn(metaData.getColumnLabel(i));
+        }
         
-    }//GEN-LAST:event_jMenuCambiarUsuarioActionPerformed
-
-    private void jMenuCambiarUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuCambiarUsuarioMouseClicked
-        results.setText("Cambio usuario");
-    }//GEN-LAST:event_jMenuCambiarUsuarioMouseClicked
-
-    private void jMenuUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuUsuarioMouseClicked
-        results.setText("Usuario");
-    }//GEN-LAST:event_jMenuUsuarioMouseClicked
-
-    private void jMenuBolsoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuBolsoMouseClicked
-        results.setText("Bolso");
-    }//GEN-LAST:event_jMenuBolsoMouseClicked
-
-    private void jMenuEventosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuEventosMouseClicked
-        results.setText("Eventos");
-    }//GEN-LAST:event_jMenuEventosMouseClicked
-
-    private void jMenuRecuentoDiarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuRecuentoDiarioMouseClicked
-        results.setText("RecuentoDiario");
-    }//GEN-LAST:event_jMenuRecuentoDiarioMouseClicked
-
-    private void jButtonInsertActionPerformed(java.awt.event.ActionEvent evt){
-        String [] insertion = insertionData();
-        db.insert(insertion);
+        Object[] row = new Object[columnCount];
+        
+        while(rs.next()){
+            for ( int i = 0; i<columnCount;i++){
+                row[i] = rs.getObject(i+1);
+            }
+            tbm.addRow(row);
+        }
+        jTable1.setModel(tbm);
     }
-    private void jButtonSelectActionPerformed(java.awt.event.ActionEvent evt){
-        String selection = selectionData();
-        String data = db.selection(selection);
-        showData(data);
-    }
-   
-
+/*
     public void connectToDatabase() {
         db = new Database();
         
@@ -144,18 +227,17 @@ public class MainWindow extends javax.swing.JFrame {
             conStatus.setText("No Conection");
         }
     } 
-     
-
+*/        
+        
     
     public static void main(String args[]) {
         
         java.awt.EventQueue.invokeLater(() -> {
             new MainWindow().setVisible(true);
-        
         });
+        
     }
-    
-    
+    /*
     public  void setStatus(Connection con1) {
         if(con1 != null){
             conStatus.setText("Conectado");
@@ -163,84 +245,30 @@ public class MainWindow extends javax.swing.JFrame {
             conStatus.setText("Error en la conexión");
         }
     }
-    
-    public String[] insertionData(){
-        String id = null;
-        String name = null;
-        String surname1 = null;
-        String surname2 = null;
-        String phone = null;
-        String email = null;
-        String height = null;
-        String weight = null;
-        String birth = null;
-        String water = null;
-        String login = null;
-        
-        id = jTextFieldId.getText().trim();
-        name = jTextFieldName.getText().trim();
-        surname1 = jTextFieldSurname1.getText().trim();
-        surname2 = jTextFieldSurname2.getText().trim();
-        phone = jTextFieldPhone.getText().trim();
-        email = jTextFieldEmail.getText().trim();
-        height = jTextFieldHeight.getText().trim();
-        weight = jTextFieldWeight.getText().trim();
-        birth = jTextFieldBirth.getText().trim();
-        water = jTextFieldWater.getText().trim();
-        login = jTextFieldLogin.getText().trim();
-        
-        String[] insertion = new String[11];
-        
-        insertion[0] = id;
-        insertion[1] = name;
-        insertion[2] = surname1;
-        insertion[3] = surname2;
-        insertion[4] = phone;
-        insertion[5] = email;
-        insertion[6] = height;
-        insertion[7] = weight;
-        insertion[8] = birth;
-        insertion[9] = water;
-        insertion[10] = login;
-        
-        return insertion;
-    }
-    
-    public String selectionData(){        
-        return jTextFieldId.getText().trim();
-    }
+*/
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuBar jMenuBar2;
-    private javax.swing.JMenu jMenuBolso;
-    private javax.swing.JMenu jMenuCambiarUsuario;
-    private javax.swing.JMenu jMenuEventos;
-    private javax.swing.JMenu jMenuRecuentoDiario;
-    private javax.swing.JMenu jMenuUsuario;
-    private javax.swing.JTextArea results;
-    private javax.swing.JScrollPane resultsWindow;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanelBolso;
+    private javax.swing.JPanel jPanelEventos;
+    private javax.swing.JPanel jPanelRecuentoDiario;
+    private javax.swing.JPanel jPanelUsuario;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable3;
+    private javax.swing.JTable jTable4;
+    private javax.swing.JTable jTable5;
     // End of variables declaration//GEN-END:variables
 
-    
     private void eventsButtonActionPerformed(ActionEvent e) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     private void starsButtonActionPerformed(ActionEvent e) {
         throw new UnsupportedOperationException("Not supported yet."); 
-    }
-
-    private void showData(String data) {
-        String[] info = data.split("\n");
-        jTextFieldId.setText(info[0]);
-        jTextFieldName.setText(info[1]);
-        jTextFieldSurname1.setText(info[2]);
-        jTextFieldSurname2.setText(info[3]);
-        jTextFieldPhone.setText(info[4]);
-        jTextFieldEmail.setText(info[5]);
-        jTextFieldHeight.setText(info[6]);
-        jTextFieldWeight.setText(info[7]);
-        jTextFieldBirth.setText(info[8]);
-        jTextFieldWater.setText(info[9]);
-        jTextFieldLogin.setText(info[10]);
     }
 }

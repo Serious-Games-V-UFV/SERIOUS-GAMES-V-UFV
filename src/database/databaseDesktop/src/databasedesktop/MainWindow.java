@@ -14,8 +14,8 @@ public class MainWindow extends javax.swing.JFrame {
     public MainWindow() {
         initComponents();
         initWindow();
-        ImageIcon icono = new ImageIcon(getClass().getResource("img/iconOPI.png"));
-        jLabel2.setIcon(icono);
+        // ImageIcon icono = new ImageIcon(getClass().getResource("img/iconOPI.png"));
+        // jLabel2.setIcon(icono);
     }
 
     private void initWindow(){

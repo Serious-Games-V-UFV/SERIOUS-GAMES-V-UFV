@@ -16,7 +16,7 @@ public class MainWindow extends javax.swing.JFrame {
         this.setSize(1280,520);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
-       // connectToDatabase();
+        connectToDatabase();
         
     }
     
@@ -124,8 +124,17 @@ public class MainWindow extends javax.swing.JFrame {
         results.setText("RecuentoDiario");
     }//GEN-LAST:event_jMenuRecuentoDiarioMouseClicked
 
-    
-/*
+    private void jButtonInsertActionPerformed(java.awt.event.ActionEvent evt){
+        String [] insertion = insertionData();
+        db.insert(insertion);
+    }
+    private void jButtonSelectActionPerformed(java.awt.event.ActionEvent evt){
+        String selection = selectionData();
+        String data = db.selection(selection);
+        showData(data);
+    }
+   
+
     public void connectToDatabase() {
         db = new Database();
         
@@ -135,16 +144,18 @@ public class MainWindow extends javax.swing.JFrame {
             conStatus.setText("No Conection");
         }
     } 
-*/        
+     
 
     
     public static void main(String args[]) {
         
         java.awt.EventQueue.invokeLater(() -> {
             new MainWindow().setVisible(true);
+        
         });
     }
-    /*
+    
+    
     public  void setStatus(Connection con1) {
         if(con1 != null){
             conStatus.setText("Conectado");
@@ -152,7 +163,52 @@ public class MainWindow extends javax.swing.JFrame {
             conStatus.setText("Error en la conexión");
         }
     }
-*/
+    
+    public String[] insertionData(){
+        String id = null;
+        String name = null;
+        String surname1 = null;
+        String surname2 = null;
+        String phone = null;
+        String email = null;
+        String height = null;
+        String weight = null;
+        String birth = null;
+        String water = null;
+        String login = null;
+        
+        id = jTextFieldId.getText().trim();
+        name = jTextFieldName.getText().trim();
+        surname1 = jTextFieldSurname1.getText().trim();
+        surname2 = jTextFieldSurname2.getText().trim();
+        phone = jTextFieldPhone.getText().trim();
+        email = jTextFieldEmail.getText().trim();
+        height = jTextFieldHeight.getText().trim();
+        weight = jTextFieldWeight.getText().trim();
+        birth = jTextFieldBirth.getText().trim();
+        water = jTextFieldWater.getText().trim();
+        login = jTextFieldLogin.getText().trim();
+        
+        String[] insertion = new String[11];
+        
+        insertion[0] = id;
+        insertion[1] = name;
+        insertion[2] = surname1;
+        insertion[3] = surname2;
+        insertion[4] = phone;
+        insertion[5] = email;
+        insertion[6] = height;
+        insertion[7] = weight;
+        insertion[8] = birth;
+        insertion[9] = water;
+        insertion[10] = login;
+        
+        return insertion;
+    }
+    
+    public String selectionData(){        
+        return jTextFieldId.getText().trim();
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenu jMenuBolso;
@@ -164,6 +220,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JScrollPane resultsWindow;
     // End of variables declaration//GEN-END:variables
 
+    
     private void eventsButtonActionPerformed(ActionEvent e) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
@@ -171,4 +228,20 @@ public class MainWindow extends javax.swing.JFrame {
     private void starsButtonActionPerformed(ActionEvent e) {
         throw new UnsupportedOperationException("Not supported yet."); 
     }
+
+    private void showData(String data) {
+        String[] info = data.split("\n");
+        jTextFieldId.setText(info[0]);
+        jTextFieldName.setText(info[1]);
+        jTextFieldSurname1.setText(info[2]);
+        jTextFieldSurname2.setText(info[3]);
+        jTextFieldPhone.setText(info[4]);
+        jTextFieldEmail.setText(info[5]);
+        jTextFieldHeight.setText(info[6]);
+        jTextFieldWeight.setText(info[7]);
+        jTextFieldBirth.setText(info[8]);
+        jTextFieldWater.setText(info[9]);
+        jTextFieldLogin.setText(info[10]);
+    }
+    
 }

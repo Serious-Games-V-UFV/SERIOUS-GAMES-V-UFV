@@ -25,30 +25,6 @@ public class Database {
         }
     }
     
-    public Integer insertarAlumno(String id, String nombre, String apellido, String email) {
-        Statement sta;
-        try {
-            sta = conn1.createStatement();
-            sta.executeUpdate("INSERT INTO alumno VALUES('"+id+"', '"+nombre+"', '"+apellido+"', '"+email+"', NULL, NULL, NULL);");
-            return 0;
-        } catch (SQLException ex) {
-            System.out.println(ex.toString());
-            return -1;
-        }
-    }
-    
-    public ResultSet selectTest(int id) {
-        Statement sta;
-        try {
-            sta = conn1.createStatement();
-            ResultSet rs = sta.executeQuery("SELECT * FROM cuenta WHERE '"+id+"' = 1");
-            
-            return rs;
-        } catch (SQLException ex) {
-            System.out.println(ex.toString());
-            return null;
-        }
-    }
     
     public ResultSet generateList(int id) {
         Statement sta;
@@ -100,23 +76,93 @@ public class Database {
         }
         
         return result;
-     
+        
     }
-    public ResultSet rsTest(int id){
+   
+    
+    public ResultSet getAllUsers() {
         Statement sta;
-        ResultSet result;
+        try {
+            sta = conn1.createStatement();
+            ResultSet rs = sta.executeQuery("SELECT * FROM cuenta");
+            
+            return rs;
+        } catch (SQLException ex) {
+            System.out.println(ex.toString());
+            return null;
+        }
+    }
+    
+    
+    public ResultSet getUser(int id) {
+        Statement sta;
+        try {
+            sta = conn1.createStatement();
+            ResultSet rs = sta.executeQuery("SELECT * FROM cuenta WHERE id = "+id+";");
+            
+            return rs;
+        } catch (SQLException ex) {
+            System.out.println(ex.toString());
+            return null;
+        }
+    }
+    
+    
+    public ResultSet getAllBags() {
+        Statement sta;
+        try {
+            sta = conn1.createStatement();
+            ResultSet rs = sta.executeQuery("SELECT * FROM bolso");
+            
+            return rs;
+        } catch (SQLException ex) {
+            System.out.println(ex.toString());
+            return null;
+        }
+    }
+    
+    
+    public ResultSet getBagsFromUser(int id) {
+        Statement sta;
+        try {
+            sta = conn1.createStatement();
+            ResultSet rs = sta.executeQuery("SELECT * FROM bolso WHERE id_cuenta = "+id+";");
+            
+            return rs;
+        } catch (SQLException ex) {
+            System.out.println(ex.toString());
+            return null;
+        }
+    }
+    
+    
+    public String getDatum(String table, String column_name,int id) {
+        Statement sta;
+        String datum = "";
+        try {
+            sta = conn1.createStatement();
+            ResultSet rs = sta.executeQuery("SELECT "+column_name+" FROM "+table+" WHERE id = "+id+";");
+            
+            return datum;
+        } catch (SQLException ex) {
+            System.out.println(ex.toString());
+            return "";
+        }
+    }
+    
+    
+    public int updateUserData(String column_name, int id) {
+        Statement sta;
+        int returnCode = 0;
         
         try {
             sta = conn1.createStatement();
-            result = sta.executeQuery("SELECT * FROM cuenta WHERE id = "+id+";");
-
-         
+            returnCode = sta.executeUpdate("UPDATE cuenta SET "+column_name+" = 0 WHERE id = "+id+";");
         } catch (SQLException ex) {
             System.out.println(ex.toString());
-            result = null;
+            return -1;
         }
         
-        return result;
+        return returnCode;
     }
-   
 }

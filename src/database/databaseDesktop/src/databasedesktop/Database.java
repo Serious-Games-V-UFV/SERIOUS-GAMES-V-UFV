@@ -118,5 +118,57 @@ public class Database {
         
         return result;
     }
+    public String getEmail() {
+    Statement sta;
+    ResultSet rs = null;
+    String resultado = "Error";
+    String query = "SELECT email FROM serious_game.cuenta WHERE id = 1";
+
+    try {
+        sta = conn1.createStatement();
+        rs = sta.executeQuery(query);
+
+        if (rs.next()) {
+            resultado = rs.getString("email");
+        }
+
+    } catch (SQLException ex) {
+        System.out.println(ex.toString());
+    }
+
+    return resultado;
+}
+    public String getPassword(){
+        Statement sta;
+        ResultSet rs = null;
+        String resultado = "";
+        String query = "SELECT contrasena FROM serious_game.cuenta WHERE id = 1";
+        try {
+            sta = conn1.createStatement();
+            rs = sta.executeQuery(query);
+            if(rs.next()){
+                resultado = rs.getString("contrasena");
+            }
+        }catch (SQLException ex){
+            System.out.println(ex.toString());
+        }
+        return resultado;
+    }
+    public String obtenerNombre(int id){
+        Statement sta;
+        ResultSet rs = null;
+        String resultado = "";
+        String query = "SELECT nombre FROM serious_game.cuenta WHERE id = " + id;
+        try {
+            sta = conn1.createStatement();
+            rs = sta.executeQuery(query);
+            if(rs.next()){
+                resultado = rs.getString("nombre");
+            }
+        }catch(SQLException ex){
+            System.out.println(ex.toString());
+        }
+        return resultado;
+    }
    
 }

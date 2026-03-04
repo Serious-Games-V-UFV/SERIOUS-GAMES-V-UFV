@@ -164,6 +164,7 @@ public class Database {
         }
         
         return returnCode;
+<<<<<<< HEAD
     }
     public ResultSet getAllEvents() {
         Statement sta;
@@ -215,4 +216,7 @@ public class Database {
     }
    
     
+=======
+    }
+>>>>>>> 562c41d29f3f7d049564b49e4eacee0c074fba72
 }

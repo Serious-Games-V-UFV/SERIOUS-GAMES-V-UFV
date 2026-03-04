@@ -117,6 +117,7 @@ public class Database {
         }
         
         return result;
+<<<<<<< HEAD
     }
    
 <<<<<<< HEAD
@@ -262,4 +263,60 @@ public class Database {
 >>>>>>> 562c41d29f3f7d049564b49e4eacee0c074fba72
 =======
 >>>>>>> parent of a3a1f05 (updated database desktop app)
+=======
+    }
+    public String getEmail() {
+    Statement sta;
+    ResultSet rs = null;
+    String resultado = "Error";
+    String query = "SELECT email FROM serious_game.cuenta WHERE id = 1";
+
+    try {
+        sta = conn1.createStatement();
+        rs = sta.executeQuery(query);
+
+        if (rs.next()) {
+            resultado = rs.getString("email");
+        }
+
+    } catch (SQLException ex) {
+        System.out.println(ex.toString());
+    }
+
+    return resultado;
+}
+    public String getPassword(){
+        Statement sta;
+        ResultSet rs = null;
+        String resultado = "";
+        String query = "SELECT contrasena FROM serious_game.cuenta WHERE id = 1";
+        try {
+            sta = conn1.createStatement();
+            rs = sta.executeQuery(query);
+            if(rs.next()){
+                resultado = rs.getString("contrasena");
+            }
+        }catch (SQLException ex){
+            System.out.println(ex.toString());
+        }
+        return resultado;
+    }
+    public String obtenerNombre(int id){
+        Statement sta;
+        ResultSet rs = null;
+        String resultado = "";
+        String query = "SELECT nombre FROM serious_game.cuenta WHERE id = " + id;
+        try {
+            sta = conn1.createStatement();
+            rs = sta.executeQuery(query);
+            if(rs.next()){
+                resultado = rs.getString("nombre");
+            }
+        }catch(SQLException ex){
+            System.out.println(ex.toString());
+        }
+        return resultado;
+    }
+   
+>>>>>>> parent of 562c41d (Merge branch 'sw-develop' of https://github.com/Serious-Games-V-UFV/opi into sw-develop)
 }

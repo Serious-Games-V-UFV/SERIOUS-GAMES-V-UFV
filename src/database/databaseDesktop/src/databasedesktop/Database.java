@@ -25,6 +25,30 @@ public class Database {
         }
     }
     
+    public Integer insertarAlumno(String id, String nombre, String apellido, String email) {
+        Statement sta;
+        try {
+            sta = conn1.createStatement();
+            sta.executeUpdate("INSERT INTO alumno VALUES('"+id+"', '"+nombre+"', '"+apellido+"', '"+email+"', NULL, NULL, NULL);");
+            return 0;
+        } catch (SQLException ex) {
+            System.out.println(ex.toString());
+            return -1;
+        }
+    }
+    
+    public ResultSet selectTest(int id) {
+        Statement sta;
+        try {
+            sta = conn1.createStatement();
+            ResultSet rs = sta.executeQuery("SELECT * FROM cuenta WHERE '"+id+"' = 1");
+            
+            return rs;
+        } catch (SQLException ex) {
+            System.out.println(ex.toString());
+            return null;
+        }
+    }
     
     public ResultSet generateList(int id) {
         Statement sta;
@@ -76,9 +100,26 @@ public class Database {
         }
         
         return result;
+     
+    }
+    public ResultSet rsTest(int id){
+        Statement sta;
+        ResultSet result;
         
+        try {
+            sta = conn1.createStatement();
+            result = sta.executeQuery("SELECT * FROM cuenta WHERE id = "+id+";");
+
+         
+        } catch (SQLException ex) {
+            System.out.println(ex.toString());
+            result = null;
+        }
+        
+        return result;
     }
    
+<<<<<<< HEAD
     
     public ResultSet getAllUsers() {
         Statement sta;
@@ -219,4 +260,6 @@ public class Database {
 =======
     }
 >>>>>>> 562c41d29f3f7d049564b49e4eacee0c074fba72
+=======
+>>>>>>> parent of a3a1f05 (updated database desktop app)
 }

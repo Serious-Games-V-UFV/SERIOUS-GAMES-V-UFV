@@ -25,30 +25,6 @@ public class Database {
         }
     }
     
-    public Integer insertarAlumno(String id, String nombre, String apellido, String email) {
-        Statement sta;
-        try {
-            sta = conn1.createStatement();
-            sta.executeUpdate("INSERT INTO alumno VALUES('"+id+"', '"+nombre+"', '"+apellido+"', '"+email+"', NULL, NULL, NULL);");
-            return 0;
-        } catch (SQLException ex) {
-            System.out.println(ex.toString());
-            return -1;
-        }
-    }
-    
-    public ResultSet selectTest(int id) {
-        Statement sta;
-        try {
-            sta = conn1.createStatement();
-            ResultSet rs = sta.executeQuery("SELECT * FROM cuenta WHERE '"+id+"' = 1");
-            
-            return rs;
-        } catch (SQLException ex) {
-            System.out.println(ex.toString());
-            return null;
-        }
-    }
     
     public ResultSet generateList(int id) {
         Statement sta;
@@ -83,7 +59,7 @@ public class Database {
         
     }
     
-    public String getUsersFromId(int id) {
+    public String getUserFromId(int id) {
         Statement sta;
         String result = "";
         
@@ -100,27 +76,9 @@ public class Database {
         }
         
         return result;
-     
-    }
-    public ResultSet rsTest(int id){
-        Statement sta;
-        ResultSet result;
         
-        try {
-            sta = conn1.createStatement();
-            result = sta.executeQuery("SELECT * FROM cuenta WHERE id = "+id+";");
-
-         
-        } catch (SQLException ex) {
-            System.out.println(ex.toString());
-            result = null;
-        }
-        
-        return result;
-<<<<<<< HEAD
     }
    
-<<<<<<< HEAD
     
     public ResultSet getAllUsers() {
         Statement sta;
@@ -206,117 +164,37 @@ public class Database {
         }
         
         return returnCode;
-<<<<<<< HEAD
     }
-    public ResultSet getAllEvents() {
-        Statement sta;
-        try {
-            sta = conn1.createStatement();
-            ResultSet rs = sta.executeQuery("SELECT * FROM evento");
-            
-            return rs;
-        } catch (SQLException ex) {
-            System.out.println(ex.toString());
-            return null;
-        }
-    }
-    public ResultSet getDailyCountFromUser(int id) {
-        Statement sta;
-        try {
-            sta = conn1.createStatement();
-            ResultSet rs = sta.executeQuery("SELECT * FROM recuerdo_diario WHERE id_cuenta = "+id+";");
-            
-            return rs;
-        } catch (SQLException ex) {
-            System.out.println(ex.toString());
-            return null;
-        }
-    }
-    public ResultSet getEventsFromUser(int id) {
-        Statement sta;
-        try {
-            sta = conn1.createStatement();
-            ResultSet rs = sta.executeQuery("SELECT * FROM evento WHERE id_bolso = "+id+";");
-            
-            return rs;
-        } catch (SQLException ex) {
-            System.out.println(ex.toString());
-            return null;
-        }
-    }
-    public ResultSet getAllDailyCount() {
-        Statement sta;
-        try {
-            sta = conn1.createStatement();
-            ResultSet rs = sta.executeQuery("SELECT * FROM recuerdo_diario");
-            
-            return rs;
-        } catch (SQLException ex) {
-            System.out.println(ex.toString());
-            return null;
-        }
-    }
-   
     
-=======
-    }
->>>>>>> 562c41d29f3f7d049564b49e4eacee0c074fba72
-=======
->>>>>>> parent of a3a1f05 (updated database desktop app)
-=======
-    }
-    public String getEmail() {
-    Statement sta;
-    ResultSet rs = null;
-    String resultado = "Error";
-    String query = "SELECT email FROM serious_game.cuenta WHERE id = 1";
-
-    try {
-        sta = conn1.createStatement();
-        rs = sta.executeQuery(query);
-
-        if (rs.next()) {
-            resultado = rs.getString("email");
-        }
-
-    } catch (SQLException ex) {
-        System.out.println(ex.toString());
-    }
-
-    return resultado;
-}
-    public String getPassword(){
+    
+    public int deleteUser(int id) {
         Statement sta;
-        ResultSet rs = null;
-        String resultado = "";
-        String query = "SELECT contrasena FROM serious_game.cuenta WHERE id = 1";
+        int returnCode = 0;
+        
         try {
             sta = conn1.createStatement();
-            rs = sta.executeQuery(query);
-            if(rs.next()){
-                resultado = rs.getString("contrasena");
-            }
-        }catch (SQLException ex){
+            returnCode = sta.executeUpdate("DELETE FROM cuenta WHERE id = "+id+";");
+        } catch (SQLException ex) {
             System.out.println(ex.toString());
+            return -1;
         }
-        return resultado;
+        
+        return returnCode;
     }
-    public String obtenerNombre(int id){
+    
+    public int insertUser(Object[] userdata) {
         Statement sta;
-        ResultSet rs = null;
-        String resultado = "";
-        String query = "SELECT nombre FROM serious_game.cuenta WHERE id = " + id;
+        int returnCode = 0;
+        
         try {
             sta = conn1.createStatement();
-            rs = sta.executeQuery(query);
-            if(rs.next()){
-                resultado = rs.getString("nombre");
-            }
-        }catch(SQLException ex){
+            System.out.println("INSERT INTO cuenta VALUES("+userdata[0]+",'"+userdata[1]+"','"+userdata[2]+"','"+userdata[3]+"','"+userdata[4]+"','"+userdata[5]+"','"+userdata[6]+"',"+userdata[7]+","+userdata[8]+",'"+userdata[9]+"',"+userdata[10]+", NULL)");
+            returnCode = sta.executeUpdate("INSERT INTO cuenta VALUES("+userdata[0]+",'"+userdata[1]+"','"+userdata[2]+"','"+userdata[3]+"','"+userdata[4]+"','"+userdata[5]+"','"+userdata[6]+"',"+userdata[7]+","+userdata[8]+",'"+userdata[9]+"',"+userdata[10]+", NULL)");
+        } catch (SQLException ex) {
             System.out.println(ex.toString());
+            returnCode = -1;
         }
-        return resultado;
+        
+        return returnCode;
     }
-   
->>>>>>> parent of 562c41d (Merge branch 'sw-develop' of https://github.com/Serious-Games-V-UFV/opi into sw-develop)
 }

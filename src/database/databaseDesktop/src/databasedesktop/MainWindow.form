@@ -23,7 +23,6 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jTabbedPane1" alignment="0" max="32767" attributes="0"/>
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
@@ -31,6 +30,7 @@
               <Component id="jLabel1" min="-2" pref="34" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
+          <Component id="jTabbedPane1" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -46,9 +46,8 @@
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="28" max="32767" attributes="0"/>
-              <Component id="jTabbedPane1" min="-2" pref="558" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
+              <Component id="jTabbedPane1" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -70,15 +69,120 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jScrollPane1" alignment="0" pref="698" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jScrollPane1" min="-2" pref="740" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="jLabelAdId" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelAdName" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jLabelAdSurname1" alignment="0" max="32767" attributes="0"/>
+                          </Group>
+                          <Component id="jLabelAdSurname2" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelAdPhone" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelAdEmail" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelAdPassword" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelAdHeight" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelAdWeight" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelAdBirth" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelAdWater" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButtonAdSearch" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                              <Component id="jButtonAdInsert" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace pref="26" max="32767" attributes="0"/>
+                              <Component id="jButtonAdDelete" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="jTextFieldAdId" max="32767" attributes="0"/>
+                                  <Component id="jTextFieldAdName" max="32767" attributes="0"/>
+                                  <Component id="jTextFieldAdSurname1" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jTextFieldAdSurname2" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jTextFieldAdPhone" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jTextFieldAdEmail" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jTextFieldAdHeight" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jTextFieldAdWeight" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jTextFieldAdBirth" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jTextFieldAdWater" alignment="0" pref="100" max="32767" attributes="0"/>
+                                  <Component id="jTextFieldAdPassword" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace pref="24" max="32767" attributes="0"/>
+                  </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jScrollPane1" pref="517" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="jTextFieldAdId" max="32767" attributes="0"/>
+                          <Component id="jLabelAdId" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="jTextFieldAdName" max="32767" attributes="0"/>
+                          <Component id="jLabelAdName" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jTextFieldAdSurname1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelAdSurname1" alignment="3" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jTextFieldAdSurname2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelAdSurname2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jTextFieldAdPhone" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelAdPhone" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jTextFieldAdEmail" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelAdEmail" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelAdPassword" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldAdPassword" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jTextFieldAdHeight" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelAdHeight" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jTextFieldAdWeight" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelAdWeight" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jTextFieldAdBirth" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelAdBirth" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jTextFieldAdWater" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelAdWater" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="255" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jButtonAdSearch" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButtonAdInsert" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButtonAdDelete" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
+                  <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -90,7 +194,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTable" name="jTable1">
+                <Component class="javax.swing.JTable" name="jTableAdUser">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="4" rowCount="4">
@@ -101,9 +205,113 @@
                       </Table>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTableAdUserMouseClicked"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
+            <Component class="javax.swing.JTextField" name="jTextFieldAdId">
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldAdName">
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldAdSurname1">
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldAdSurname2">
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldAdPhone">
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldAdEmail">
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldAdPassword">
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldAdHeight">
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldAdWeight">
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldAdBirth">
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldAdWater">
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelAdId">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="ID:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelAdName">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Nombre:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelAdSurname1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Apellido 1:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelAdSurname2">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Apellido 2:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelAdPhone">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Tel&#xe9;fono"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelAdEmail">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Email"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelAdPassword">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Contrase&#xf1;a"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelAdHeight">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Altura"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelAdWeight">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Peso"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelAdBirth">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Fecha nacimiento"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelAdWater">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Agua deseada"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="jButtonAdSearch">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Buscar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAdSearchActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="jButtonAdInsert">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Insertar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAdInsertActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="jButtonAdDelete">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Borrar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAdDeleteActionPerformed"/>
+              </Events>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanelBolso">
@@ -118,13 +326,13 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jScrollPane3" alignment="0" pref="698" max="32767" attributes="0"/>
+                  <Component id="jScrollPane3" alignment="0" pref="1038" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jScrollPane3" pref="517" max="32767" attributes="0"/>
+                      <Component id="jScrollPane3" pref="586" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -166,13 +374,13 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jScrollPane4" alignment="0" pref="698" max="32767" attributes="0"/>
+                  <Component id="jScrollPane4" alignment="0" pref="1038" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="jScrollPane4" pref="517" max="32767" attributes="0"/>
+                      <Component id="jScrollPane4" pref="586" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -214,13 +422,13 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jScrollPane5" alignment="0" pref="698" max="32767" attributes="0"/>
+                  <Component id="jScrollPane5" alignment="0" pref="1038" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jScrollPane5" pref="517" max="32767" attributes="0"/>
+                      <Component id="jScrollPane5" pref="586" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>

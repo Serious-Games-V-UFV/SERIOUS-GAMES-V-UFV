@@ -17,7 +17,7 @@ public class UserListWindow extends javax.swing.JDialog {
         String[] users = new String[mw.db.getAmountUsers()];
                 
         for (int i=0; i<users.length; i++) {
-            users[i] = mw.db.getUsersFromId(i+1);
+            users[i] = mw.db.getUserFromId(i+1);
         }
         
         jListUsers.setListData(users);

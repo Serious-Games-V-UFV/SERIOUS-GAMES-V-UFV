@@ -181,7 +181,20 @@ public class Database {
         
         return returnCode;
     }
-    
+    public int deleteBags(int id) {
+        Statement sta;
+        int returnCode = 0;
+        
+        try {
+            sta = conn1.createStatement();
+            returnCode = sta.executeUpdate("DELETE FROM bolso WHERE id = "+id+";");
+        } catch (SQLException ex) {
+            System.out.println(ex.toString());
+            return -1;
+        }
+        
+        return returnCode;
+    }
     public int insertUser(Object[] userdata) {
         Statement sta;
         int returnCode = 0;
@@ -196,5 +209,68 @@ public class Database {
         }
         
         return returnCode;
+    }
+    public int insertBags(Object[] userdata) {
+        Statement sta;
+        int returnCode = 0;
+        
+        try {
+            sta = conn1.createStatement();
+            System.out.println("INSERT INTO bolso VALUES("+userdata[0]+",'"+userdata[1]+"','"+userdata[2]+"','"+ "NULL" +"','"+userdata[3] + ")" );
+            returnCode = sta.executeUpdate("INSERT INTO bolso VALUES("+userdata[0]+",'"+userdata[1]+"','"+userdata[2]+"',"+ "NULL" +","+userdata[3]+ ")");
+        } catch (SQLException ex) {
+            System.out.println(ex.toString());
+            returnCode = -1;
+        }
+        
+        return returnCode;
+    }
+    public ResultSet getAllEvents() {
+        Statement sta;
+        try {
+            sta = conn1.createStatement();
+            ResultSet rs = sta.executeQuery("SELECT * FROM evento");
+            
+            return rs;
+        } catch (SQLException ex) {
+            System.out.println(ex.toString());
+            return null;
+        }
+    }
+    public ResultSet getAllDailyCount() {
+        Statement sta;
+        try {
+            sta = conn1.createStatement();
+            ResultSet rs = sta.executeQuery("SELECT * FROM recuerdo_diario");
+            
+            return rs;
+        } catch (SQLException ex) {
+            System.out.println(ex.toString());
+            return null;
+        }
+    }
+    public ResultSet getEventsFromBags(int id) {
+        Statement sta;
+        try {
+            sta = conn1.createStatement();
+            ResultSet rs = sta.executeQuery("SELECT * FROM evento WHERE id_bolso = "+id+";");
+            
+            return rs;
+        } catch (SQLException ex) {
+            System.out.println(ex.toString());
+            return null;
+        }
+    }
+    public ResultSet getDailyCountFromUser(int id) {
+        Statement sta;
+        try {
+            sta = conn1.createStatement();
+            ResultSet rs = sta.executeQuery("SELECT * FROM recuerdo_diario WHERE id_cuenta = "+id+";");
+            
+            return rs;
+        } catch (SQLException ex) {
+            System.out.println(ex.toString());
+            return null;
+        }
     }
 }

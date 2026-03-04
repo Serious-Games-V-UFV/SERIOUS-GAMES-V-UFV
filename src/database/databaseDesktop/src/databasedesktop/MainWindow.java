@@ -26,10 +26,18 @@ public class MainWindow extends javax.swing.JFrame {
         //this.setResizable(false);
         jTableAdUser.setDefaultEditor(Object.class, null);
         jTableAdUser.setSelectionMode(0);
+        jTableAdBolso.setDefaultEditor(Object.class, null);
+        jTableAdBolso.setSelectionMode(0);
+        jTableAdEventos.setDefaultEditor(Object.class, null);
+        jTableAdEventos.setSelectionMode(0);
+        jTableAdRecuentoDiario.setDefaultEditor(Object.class, null);
+        jTableAdRecuentoDiario.setSelectionMode(0);
         try {
             connectToDatabase();
             resultSetToTableModel(db.getAllUsers(), this.jTableAdUser);
-            
+            resultSetToTableModel(db.getAllBags(), this.jTableAdBolso);
+            resultSetToTableModel(db.getAllBags(), this.jTableAdEventos);
+            resultSetToTableModel(db.getAllBags(), this.jTableAdRecuentoDiario);
         } catch (SQLException ex) {
             System.err.println("Couldn't fill table");
         }
@@ -44,7 +52,7 @@ public class MainWindow extends javax.swing.JFrame {
         jPanelUsuario = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableAdUser = new javax.swing.JTable();
-        jTextFieldAdId = new javax.swing.JTextField();
+        jTextFieldAdIdUser = new javax.swing.JTextField();
         jTextFieldAdName = new javax.swing.JTextField();
         jTextFieldAdSurname1 = new javax.swing.JTextField();
         jTextFieldAdSurname2 = new javax.swing.JTextField();
@@ -68,16 +76,35 @@ public class MainWindow extends javax.swing.JFrame {
         jLabelAdWater = new javax.swing.JLabel();
         jButtonAdSearch = new javax.swing.JButton();
         jButtonAdInsert = new javax.swing.JButton();
-        jButtonAdDelete = new javax.swing.JButton();
+        jButtonAdDeleteUser = new javax.swing.JButton();
         jPanelBolso = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        jTableAdBolso = new javax.swing.JTable();
+        jLabelAdId1 = new javax.swing.JLabel();
+        jLabelAdName1 = new javax.swing.JLabel();
+        jLabelAdSurname3 = new javax.swing.JLabel();
+        jLabelAdSurname4 = new javax.swing.JLabel();
+        jLabelAdPhone1 = new javax.swing.JLabel();
+        jTextFieldAdIdBag = new javax.swing.JTextField();
+        jTextFieldAdTipoBag = new javax.swing.JTextField();
+        jTextFieldAdColorBag = new javax.swing.JTextField();
+        jTextFieldAdPrimeraConexionBag = new javax.swing.JTextField();
+        jTextFieldAdIdCuentaBag = new javax.swing.JTextField();
+        jButtonAdSearchBags = new javax.swing.JButton();
+        jButtonAdInsert1 = new javax.swing.JButton();
+        jButtonAdDeleteBags = new javax.swing.JButton();
         jPanelEventos = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable();
+        jTableAdEventos = new javax.swing.JTable();
+        jLabelAdId3 = new javax.swing.JLabel();
+        jTextFieldAdIdEvent = new javax.swing.JTextField();
+        jButtonAdSearchEvents = new javax.swing.JButton();
         jPanelRecuentoDiario = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTable5 = new javax.swing.JTable();
+        jTableAdRecuentoDiario = new javax.swing.JTable();
+        jLabelAdId2 = new javax.swing.JLabel();
+        jTextFieldAdIdDailyCount = new javax.swing.JTextField();
+        jButtonAdSearchDailyCount = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
@@ -129,8 +156,8 @@ public class MainWindow extends javax.swing.JFrame {
         jButtonAdInsert.setText("Insertar");
         jButtonAdInsert.addActionListener(this::jButtonAdInsertActionPerformed);
 
-        jButtonAdDelete.setText("Borrar");
-        jButtonAdDelete.addActionListener(this::jButtonAdDeleteActionPerformed);
+        jButtonAdDeleteUser.setText("Borrar");
+        jButtonAdDeleteUser.addActionListener(this::jButtonAdDeleteUserActionPerformed);
 
         javax.swing.GroupLayout jPanelUsuarioLayout = new javax.swing.GroupLayout(jPanelUsuario);
         jPanelUsuario.setLayout(jPanelUsuarioLayout);
@@ -158,11 +185,11 @@ public class MainWindow extends javax.swing.JFrame {
                         .addGap(4, 4, 4)
                         .addComponent(jButtonAdInsert)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                        .addComponent(jButtonAdDelete))
+                        .addComponent(jButtonAdDeleteUser))
                     .addGroup(jPanelUsuarioLayout.createSequentialGroup()
                         .addGap(74, 74, 74)
                         .addGroup(jPanelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextFieldAdId)
+                            .addComponent(jTextFieldAdIdUser)
                             .addComponent(jTextFieldAdName)
                             .addComponent(jTextFieldAdSurname1)
                             .addComponent(jTextFieldAdSurname2)
@@ -173,14 +200,14 @@ public class MainWindow extends javax.swing.JFrame {
                             .addComponent(jTextFieldAdBirth)
                             .addComponent(jTextFieldAdWater, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
                             .addComponent(jTextFieldAdPassword))))
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelUsuarioLayout.setVerticalGroup(
             jPanelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelUsuarioLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextFieldAdId)
+                    .addComponent(jTextFieldAdIdUser)
                     .addComponent(jLabelAdId, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -222,18 +249,18 @@ public class MainWindow extends javax.swing.JFrame {
                 .addGroup(jPanelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldAdWater, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelAdWater))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 255, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 240, Short.MAX_VALUE)
                 .addGroup(jPanelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonAdSearch)
                     .addComponent(jButtonAdInsert)
-                    .addComponent(jButtonAdDelete))
+                    .addComponent(jButtonAdDeleteUser))
                 .addContainerGap())
             .addComponent(jScrollPane1)
         );
 
         jTabbedPane1.addTab("Usuario", jPanelUsuario);
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        jTableAdBolso.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -244,24 +271,98 @@ public class MainWindow extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane3.setViewportView(jTable3);
+        jScrollPane3.setViewportView(jTableAdBolso);
+
+        jLabelAdId1.setText("ID:");
+
+        jLabelAdName1.setText("Tipo:");
+
+        jLabelAdSurname3.setText("Color:");
+
+        jLabelAdSurname4.setText("Primera_conexion:");
+
+        jLabelAdPhone1.setText("Id_cuenta:");
+
+        jButtonAdSearchBags.setText("Buscar");
+        jButtonAdSearchBags.addActionListener(this::jButtonAdSearchBagsActionPerformed);
+
+        jButtonAdInsert1.setText("Insertar");
+        jButtonAdInsert1.addActionListener(this::jButtonAdInsert1ActionPerformed);
+
+        jButtonAdDeleteBags.setText("Borrar");
+        jButtonAdDeleteBags.addActionListener(this::jButtonAdDeleteBagsActionPerformed);
 
         javax.swing.GroupLayout jPanelBolsoLayout = new javax.swing.GroupLayout(jPanelBolso);
         jPanelBolso.setLayout(jPanelBolsoLayout);
         jPanelBolsoLayout.setHorizontalGroup(
             jPanelBolsoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 1038, Short.MAX_VALUE)
+            .addGroup(jPanelBolsoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 757, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelBolsoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelBolsoLayout.createSequentialGroup()
+                        .addGroup(jPanelBolsoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelBolsoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabelAdId1)
+                                .addComponent(jLabelAdName1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabelAdSurname3))
+                            .addComponent(jLabelAdSurname4)
+                            .addComponent(jLabelAdPhone1))
+                        .addGap(112, 112, 112)
+                        .addGroup(jPanelBolsoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextFieldAdIdBag, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                            .addComponent(jTextFieldAdTipoBag)
+                            .addComponent(jTextFieldAdColorBag)
+                            .addComponent(jTextFieldAdPrimeraConexionBag)
+                            .addComponent(jTextFieldAdIdCuentaBag))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanelBolsoLayout.createSequentialGroup()
+                        .addComponent(jButtonAdSearchBags)
+                        .addGap(4, 4, 4)
+                        .addComponent(jButtonAdInsert1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
+                        .addComponent(jButtonAdDeleteBags)))
+                .addContainerGap())
         );
         jPanelBolsoLayout.setVerticalGroup(
             jPanelBolsoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelBolsoLayout.createSequentialGroup()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 586, Short.MAX_VALUE)
+                .addGroup(jPanelBolsoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3)
+                    .addGroup(jPanelBolsoLayout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addGroup(jPanelBolsoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextFieldAdIdBag)
+                            .addComponent(jLabelAdId1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanelBolsoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextFieldAdTipoBag)
+                            .addComponent(jLabelAdName1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanelBolsoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextFieldAdColorBag, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelAdSurname3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanelBolsoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextFieldAdPrimeraConexionBag, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelAdSurname4))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanelBolsoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextFieldAdIdCuentaBag, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelAdPhone1))
+                        .addGap(368, 368, 368)
+                        .addGroup(jPanelBolsoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButtonAdSearchBags)
+                            .addComponent(jButtonAdInsert1)
+                            .addComponent(jButtonAdDeleteBags))
+                        .addGap(9, 9, 9)))
                 .addContainerGap())
         );
 
         jTabbedPane1.addTab("Bolso", jPanelBolso);
 
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+        jTableAdEventos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -272,24 +373,46 @@ public class MainWindow extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane4.setViewportView(jTable4);
+        jScrollPane4.setViewportView(jTableAdEventos);
+
+        jLabelAdId3.setText("ID:");
+
+        jButtonAdSearchEvents.setText("Buscar");
+        jButtonAdSearchEvents.addActionListener(this::jButtonAdSearchEventsActionPerformed);
 
         javax.swing.GroupLayout jPanelEventosLayout = new javax.swing.GroupLayout(jPanelEventos);
         jPanelEventos.setLayout(jPanelEventosLayout);
         jPanelEventosLayout.setHorizontalGroup(
             jPanelEventosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 1038, Short.MAX_VALUE)
+            .addGroup(jPanelEventosLayout.createSequentialGroup()
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 784, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanelEventosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelEventosLayout.createSequentialGroup()
+                        .addComponent(jLabelAdId3)
+                        .addGap(72, 72, 72)
+                        .addComponent(jTextFieldAdIdEvent, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButtonAdSearchEvents))
+                .addContainerGap(83, Short.MAX_VALUE))
         );
         jPanelEventosLayout.setVerticalGroup(
             jPanelEventosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelEventosLayout.createSequentialGroup()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 586, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 571, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(jPanelEventosLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jPanelEventosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldAdIdEvent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelAdId3, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonAdSearchEvents)
+                .addGap(61, 61, 61))
         );
 
         jTabbedPane1.addTab("Eventos", jPanelEventos);
 
-        jTable5.setModel(new javax.swing.table.DefaultTableModel(
+        jTableAdRecuentoDiario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -300,23 +423,48 @@ public class MainWindow extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane5.setViewportView(jTable5);
+        jScrollPane5.setViewportView(jTableAdRecuentoDiario);
+
+        jLabelAdId2.setText("ID:");
+
+        jButtonAdSearchDailyCount.setText("Buscar");
+        jButtonAdSearchDailyCount.addActionListener(this::jButtonAdSearchDailyCountActionPerformed);
 
         javax.swing.GroupLayout jPanelRecuentoDiarioLayout = new javax.swing.GroupLayout(jPanelRecuentoDiario);
         jPanelRecuentoDiario.setLayout(jPanelRecuentoDiarioLayout);
         jPanelRecuentoDiarioLayout.setHorizontalGroup(
             jPanelRecuentoDiarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 1038, Short.MAX_VALUE)
+            .addGroup(jPanelRecuentoDiarioLayout.createSequentialGroup()
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 749, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanelRecuentoDiarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelRecuentoDiarioLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabelAdId2)
+                        .addGap(104, 104, 104)
+                        .addComponent(jTextFieldAdIdDailyCount, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelRecuentoDiarioLayout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addComponent(jButtonAdSearchDailyCount)))
+                .addContainerGap(93, Short.MAX_VALUE))
         );
         jPanelRecuentoDiarioLayout.setVerticalGroup(
             jPanelRecuentoDiarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelRecuentoDiarioLayout.createSequentialGroup()
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 586, Short.MAX_VALUE)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 571, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(jPanelRecuentoDiarioLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelRecuentoDiarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelAdId2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldAdIdDailyCount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonAdSearchDailyCount)
+                .addGap(72, 72, 72))
         );
 
         jTabbedPane1.addTab("Recuento diario", jPanelRecuentoDiario);
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jLabel1.setText("OPI");
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconOPI.png"))); // NOI18N
@@ -328,8 +476,8 @@ public class MainWindow extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2)
-                .addGap(63, 63, 63)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jTabbedPane1)
         );
@@ -338,11 +486,11 @@ public class MainWindow extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel2)))
+                        .addComponent(jLabel2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTabbedPane1))
         );
@@ -352,8 +500,8 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void jButtonAdSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdSearchActionPerformed
         try {
-            if (jTextFieldAdId.getText().isBlank() == false) {
-                resultSetToTableModel(db.getUser(Integer.parseInt(jTextFieldAdId.getText())), this.jTableAdUser);
+            if (jTextFieldAdIdUser.getText().isBlank() == false) {
+                resultSetToTableModel(db.getUser(Integer.parseInt(jTextFieldAdIdUser.getText())), this.jTableAdUser);
             } else {
                 resultSetToTableModel(db.getAllUsers(), this.jTableAdUser);
             }
@@ -372,22 +520,22 @@ public class MainWindow extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jTableAdUserMouseClicked
 
-    private void jButtonAdDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdDeleteActionPerformed
+    private void jButtonAdDeleteUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdDeleteUserActionPerformed
         int successCode;
         int confirmMessage;
         
         confirmMessage = JOptionPane.showConfirmDialog(this, "¿Quieres borrar este usuario?", "Delete user", JOptionPane.YES_NO_OPTION);
         
         if (confirmMessage == 0) {
-            successCode = db.deleteUser(Integer.parseInt(jTextFieldAdId.getText()));    
+            successCode = db.deleteUser(Integer.parseInt(jTextFieldAdIdUser.getText()));    
         }
         
-    }//GEN-LAST:event_jButtonAdDeleteActionPerformed
+    }//GEN-LAST:event_jButtonAdDeleteUserActionPerformed
 
     private void jButtonAdInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdInsertActionPerformed
         Object[] userdata = new Object[jTableAdUser.getColumnCount()];
         
-        userdata[0] = Integer.valueOf(jTextFieldAdId.getText());
+        userdata[0] = Integer.valueOf(jTextFieldAdIdUser.getText());
         userdata[1] = jTextFieldAdName.getText();
         userdata[2] = jTextFieldAdSurname1.getText();
         userdata[3] = jTextFieldAdSurname2.getText();
@@ -401,6 +549,65 @@ public class MainWindow extends javax.swing.JFrame {
         
         db.insertUser(userdata);
     }//GEN-LAST:event_jButtonAdInsertActionPerformed
+
+    private void jButtonAdSearchBagsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdSearchBagsActionPerformed
+        try {
+            if (jTextFieldAdIdBag.getText().isBlank() == false) {
+                resultSetToTableModel(db.getBagsFromUser(Integer.parseInt(jTextFieldAdIdBag.getText())), this.jTableAdBolso);
+            } else {
+                resultSetToTableModel(db.getAllBags(), this.jTableAdBolso);
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex.toString());
+        }
+    }//GEN-LAST:event_jButtonAdSearchBagsActionPerformed
+
+    private void jButtonAdInsert1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdInsert1ActionPerformed
+        Object[] userdata = new Object[jTableAdBolso.getColumnCount()];
+        
+        userdata[0] = Integer.valueOf(jTextFieldAdIdBag.getText());
+        userdata[1] = jTextFieldAdTipoBag.getText();
+        userdata[2] = jTextFieldAdColorBag.getText();
+        userdata[3] = jTextFieldAdIdCuentaBag.getText();
+        
+        db.insertUser(userdata);
+    }//GEN-LAST:event_jButtonAdInsert1ActionPerformed
+
+    private void jButtonAdDeleteBagsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdDeleteBagsActionPerformed
+        int successCode;
+        int confirmMessage;
+        
+        confirmMessage = JOptionPane.showConfirmDialog(this, "¿Quieres borrar este bolso?", "Delete bag", JOptionPane.YES_NO_OPTION);
+        
+        if (confirmMessage == 0) {
+            successCode = db.deleteBags(Integer.parseInt(jTextFieldAdIdBag.getText()));    
+        }
+        
+    }//GEN-LAST:event_jButtonAdDeleteBagsActionPerformed
+
+    private void jButtonAdSearchEventsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdSearchEventsActionPerformed
+        try {
+            if (jTextFieldAdIdEvent.getText().isBlank() == false) {
+                resultSetToTableModel(db.getEventsFromBags(Integer.parseInt(jTextFieldAdIdEvent.getText())), this.jTableAdEventos);
+            } else {
+                resultSetToTableModel(db.getAllBags(), this.jTableAdEventos);
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex.toString());
+        }
+    }//GEN-LAST:event_jButtonAdSearchEventsActionPerformed
+
+    private void jButtonAdSearchDailyCountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdSearchDailyCountActionPerformed
+        try {
+            if (jTextFieldAdIdDailyCount.getText().isBlank() == false) {
+                resultSetToTableModel(db.getEventsFromBags(Integer.parseInt(jTextFieldAdIdDailyCount.getText())), this.jTableAdRecuentoDiario);
+            } else {
+                resultSetToTableModel(db.getAllBags(), this.jTableAdRecuentoDiario);
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex.toString());
+        }
+    }//GEN-LAST:event_jButtonAdSearchDailyCountActionPerformed
 
     
     private void resultSetToTableModel(ResultSet rs, JTable jt) throws SQLException{
@@ -445,20 +652,32 @@ public class MainWindow extends javax.swing.JFrame {
     }
 */
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonAdDelete;
+    private javax.swing.JButton jButtonAdDeleteBags;
+    private javax.swing.JButton jButtonAdDeleteUser;
     private javax.swing.JButton jButtonAdInsert;
+    private javax.swing.JButton jButtonAdInsert1;
     private javax.swing.JButton jButtonAdSearch;
+    private javax.swing.JButton jButtonAdSearchBags;
+    private javax.swing.JButton jButtonAdSearchDailyCount;
+    private javax.swing.JButton jButtonAdSearchEvents;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelAdBirth;
     private javax.swing.JLabel jLabelAdEmail;
     private javax.swing.JLabel jLabelAdHeight;
     private javax.swing.JLabel jLabelAdId;
+    private javax.swing.JLabel jLabelAdId1;
+    private javax.swing.JLabel jLabelAdId2;
+    private javax.swing.JLabel jLabelAdId3;
     private javax.swing.JLabel jLabelAdName;
+    private javax.swing.JLabel jLabelAdName1;
     private javax.swing.JLabel jLabelAdPassword;
     private javax.swing.JLabel jLabelAdPhone;
+    private javax.swing.JLabel jLabelAdPhone1;
     private javax.swing.JLabel jLabelAdSurname1;
     private javax.swing.JLabel jLabelAdSurname2;
+    private javax.swing.JLabel jLabelAdSurname3;
+    private javax.swing.JLabel jLabelAdSurname4;
     private javax.swing.JLabel jLabelAdWater;
     private javax.swing.JLabel jLabelAdWeight;
     private javax.swing.JPanel jPanelBolso;
@@ -470,19 +689,26 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable3;
-    private javax.swing.JTable jTable4;
-    private javax.swing.JTable jTable5;
+    private javax.swing.JTable jTableAdBolso;
+    private javax.swing.JTable jTableAdEventos;
+    private javax.swing.JTable jTableAdRecuentoDiario;
     private javax.swing.JTable jTableAdUser;
     private javax.swing.JTextField jTextFieldAdBirth;
+    private javax.swing.JTextField jTextFieldAdColorBag;
     private javax.swing.JTextField jTextFieldAdEmail;
     private javax.swing.JTextField jTextFieldAdHeight;
-    private javax.swing.JTextField jTextFieldAdId;
+    private javax.swing.JTextField jTextFieldAdIdBag;
+    private javax.swing.JTextField jTextFieldAdIdCuentaBag;
+    private javax.swing.JTextField jTextFieldAdIdDailyCount;
+    private javax.swing.JTextField jTextFieldAdIdEvent;
+    private javax.swing.JTextField jTextFieldAdIdUser;
     private javax.swing.JTextField jTextFieldAdName;
     private javax.swing.JTextField jTextFieldAdPassword;
     private javax.swing.JTextField jTextFieldAdPhone;
+    private javax.swing.JTextField jTextFieldAdPrimeraConexionBag;
     private javax.swing.JTextField jTextFieldAdSurname1;
     private javax.swing.JTextField jTextFieldAdSurname2;
+    private javax.swing.JTextField jTextFieldAdTipoBag;
     private javax.swing.JTextField jTextFieldAdWater;
     private javax.swing.JTextField jTextFieldAdWeight;
     // End of variables declaration//GEN-END:variables

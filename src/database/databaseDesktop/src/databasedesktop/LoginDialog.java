@@ -38,10 +38,10 @@ public class LoginDialog extends javax.swing.JDialog {
     gestorBBDD = new Database();
     String email = jTextFieldEmail.getText().trim();
     String password = jPasswordField.getText().trim();
-
+    
     String emailadmin = gestorBBDD.getEmail();
     String passwordadmin = gestorBBDD.getPassword();
-
+    
     if(email.equals(emailadmin) && password.equals(passwordadmin)){
         JOptionPane.showMessageDialog(this, "Se ha logueado correctamente");
         logged = true;
@@ -53,7 +53,7 @@ public class LoginDialog extends javax.swing.JDialog {
     public boolean isLogged() {
     return logged;
 }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

@@ -11,7 +11,7 @@ import javax.swing.table.DefaultTableModel;
 public class MainWindow extends javax.swing.JFrame {
     
     int currentUser = 0;
-    Database db = null;
+    Database db = new Database();
     
     public MainWindow() {
         initComponents();
@@ -31,7 +31,7 @@ public class MainWindow extends javax.swing.JFrame {
         }
         System.out.println(db.getDatum("cuenta", "email", 1));
         this.setVisible(false);
-        LoginDialog login = new LoginDialog(null, true);
+        LoginDialog login = new LoginDialog(this, true);
             login.setLocationRelativeTo(null);
             login.setTitle("Login - Opi");
 
@@ -646,6 +646,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     public void connectToDatabase() {
         db = new Database();          
+        System.out.println(db.getEmailFromUser(1));
     } 
    
         

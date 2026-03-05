@@ -107,6 +107,45 @@ public class Database {
         }
     }
     
+    public String getEmailFromUser(int id) {
+        Statement sta;
+        String result = "";
+        
+        try {
+            sta = conn1.createStatement();
+            ResultSet rs = sta.executeQuery("SELECT email FROM cuenta WHERE id = "+id+";");
+            
+            if (rs.next()) {
+                result = rs.getString(1);
+            }
+            
+        } catch (SQLException ex) {
+            System.out.println(ex.toString());
+        }
+        
+        return result;
+        
+    }
+    
+    public String getPasswordFromUser(int id) {
+        Statement sta;
+        String result = "";
+        
+        try {
+            sta = conn1.createStatement();
+            ResultSet rs = sta.executeQuery("SELECT contrasena FROM cuenta WHERE id = "+id+";");
+            
+            if (rs.next()) {
+                result = rs.getString(1);
+            }
+            
+        } catch (SQLException ex) {
+            System.out.println(ex.toString());
+        }
+        
+        return result;
+        
+    }
     
     public ResultSet getAllBags() {
         Statement sta;

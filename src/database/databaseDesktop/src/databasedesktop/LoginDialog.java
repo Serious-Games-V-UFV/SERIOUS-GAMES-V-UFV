@@ -32,28 +32,30 @@ public class LoginDialog extends javax.swing.JDialog {
     jLabelLogo.setIcon(new ImageIcon(imagenEscalada));
     }
     private void iniciarSesion() {
-
-    this.gestorBBDD = mw.db;
         
-    String email = jTextFieldEmail.getText().trim();
-    String password = jPasswordField.getText().trim();
-    
-    String emailadmin = gestorBBDD.getEmailFromUser(1);
-    String passwordadmin = gestorBBDD.getPasswordFromUser(1);
-    
-    System.out.println(gestorBBDD.getDatum("cuenta", "email", 1));
-    
-    if(email.equals(emailadmin) && password.equals(passwordadmin)){
-        JOptionPane.showMessageDialog(this, "Se ha logueado correctamente");
-        logged = true;
-        dispose();
-    } else {
-        JOptionPane.showMessageDialog(this, "Datos incorrectos");
-    }
+        this.gestorBBDD = mw.db;
+        
+        String email = jTextFieldEmail.getText().trim();
+        String password = jPasswordField.getText().trim();
+        
+        String emailadmin = gestorBBDD.getEmailFromUser(1);
+        String passwordadmin = gestorBBDD.getPasswordFromUser(1);
+
+        System.out.println(gestorBBDD.getDatum("cuenta", "email", 1));
+
+        if(email.equals(emailadmin) && password.equals(passwordadmin)){
+            JOptionPane.showMessageDialog(this, "Se ha logueado correctamente");
+            logged = true;
+            dispose();
+        } else {
+            JOptionPane.showMessageDialog(this, "Datos incorrectos");
+        }
+        
+        mw.currentUser = gestorBBDD.getIdFromUser(email);
 }
     public boolean isLogged() {
-    return logged;
-}
+        return logged;
+    }
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

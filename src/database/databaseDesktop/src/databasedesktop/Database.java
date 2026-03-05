@@ -146,6 +146,21 @@ public class Database {
         return result;
         
     }
+    public int getIdFromUser(String email){
+        Statement sta;
+        int result = -1;
+        
+        try{
+            sta =conn1.createStatement();
+            ResultSet rs = sta.executeQuery("SELECT id FROM cuenta WHERE email ='"+email+"';");
+            if(rs.next()){
+                result = Integer.parseInt(rs.getString(1));
+            }
+        }catch(SQLException e){
+            System.out.println(e.toString());
+        }
+        return result;
+    }
     
     public ResultSet getAllBags() {
         Statement sta;

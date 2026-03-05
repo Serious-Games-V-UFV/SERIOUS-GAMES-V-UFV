@@ -11,7 +11,7 @@ import javax.swing.table.DefaultTableModel;
 
 public class MainWindow extends javax.swing.JFrame {
     
-    int currentUser = 0;
+    public int currentUser = 0;
     Database db = new Database();
     
     public MainWindow() {

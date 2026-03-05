@@ -132,9 +132,9 @@ public class MainWindow extends javax.swing.JFrame {
         jLabelNombrePerfil = new javax.swing.JLabel();
         jLabelPerfilApellido1 = new javax.swing.JLabel();
         jLabelPerfilEmail = new javax.swing.JLabel();
-        jLabelPerfilApellido3 = new javax.swing.JLabel();
-        jLabelPerfilApellido4 = new javax.swing.JLabel();
-        jLabelPerfilApellido5 = new javax.swing.JLabel();
+        jLabelPerfilTelefono = new javax.swing.JLabel();
+        jLabelPerfilApellido2 = new javax.swing.JLabel();
+        jLabelPerfilfechaNacim = new javax.swing.JLabel();
         jLabelPerfilAltura = new javax.swing.JLabel();
         jTextFieldAltura = new javax.swing.JTextField();
         jLabelPerfilPeso = new javax.swing.JLabel();
@@ -232,17 +232,17 @@ public class MainWindow extends javax.swing.JFrame {
         jLabelPerfilEmail.setForeground(new java.awt.Color(255, 255, 255));
         jLabelPerfilEmail.setText("Email: ");
 
-        jLabelPerfilApellido3.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
-        jLabelPerfilApellido3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelPerfilApellido3.setText("Teléfono: ");
+        jLabelPerfilTelefono.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
+        jLabelPerfilTelefono.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelPerfilTelefono.setText("Teléfono: ");
 
-        jLabelPerfilApellido4.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
-        jLabelPerfilApellido4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelPerfilApellido4.setText("Apellido 2: ");
+        jLabelPerfilApellido2.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
+        jLabelPerfilApellido2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelPerfilApellido2.setText("Apellido 2: ");
 
-        jLabelPerfilApellido5.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
-        jLabelPerfilApellido5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelPerfilApellido5.setText("Fecha de nacimiento:");
+        jLabelPerfilfechaNacim.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
+        jLabelPerfilfechaNacim.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelPerfilfechaNacim.setText("Fecha de nacimiento:");
 
         jLabelPerfilAltura.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
         jLabelPerfilAltura.setForeground(new java.awt.Color(255, 255, 255));
@@ -270,14 +270,14 @@ public class MainWindow extends javax.swing.JFrame {
                 .addComponent(jLabelIconoInformaticos, javax.swing.GroupLayout.PREFERRED_SIZE, 475, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelPerfilApellido5, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelPerfilfechaNacim, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanelProfileLayout.createSequentialGroup()
                         .addGroup(jPanelProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jLabelNombrePerfil, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabelPerfilApellido1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabelPerfilApellido3, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
-                                .addComponent(jLabelPerfilApellido4, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE))
+                                .addComponent(jLabelPerfilTelefono, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
+                                .addComponent(jLabelPerfilApellido2, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE))
                             .addComponent(jLabelPerfilEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(238, 238, 238)
                         .addGroup(jPanelProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -289,7 +289,7 @@ public class MainWindow extends javax.swing.JFrame {
                             .addComponent(jTextFieldAguaDeseada)
                             .addComponent(jTextFieldPeso)
                             .addComponent(jTextFieldAltura)
-                            .addComponent(jButtonActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))))
+                            .addComponent(jButtonActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(961, Short.MAX_VALUE))
         );
         jPanelProfileLayout.setVerticalGroup(
@@ -313,15 +313,15 @@ public class MainWindow extends javax.swing.JFrame {
                             .addGroup(jPanelProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabelPerfilPeso1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jTextFieldAguaDeseada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabelPerfilApellido4, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabelPerfilApellido2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanelProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelPerfilEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButtonActualizar))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabelPerfilApellido3, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabelPerfilTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabelPerfilApellido5, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabelPerfilfechaNacim, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanelProfileLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabelIconoInformaticos)))
@@ -1079,12 +1079,12 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelNombrePerfil;
     private javax.swing.JLabel jLabelPerfilAltura;
     private javax.swing.JLabel jLabelPerfilApellido1;
-    private javax.swing.JLabel jLabelPerfilApellido3;
-    private javax.swing.JLabel jLabelPerfilApellido4;
-    private javax.swing.JLabel jLabelPerfilApellido5;
+    private javax.swing.JLabel jLabelPerfilApellido2;
     private javax.swing.JLabel jLabelPerfilEmail;
     private javax.swing.JLabel jLabelPerfilPeso;
     private javax.swing.JLabel jLabelPerfilPeso1;
+    private javax.swing.JLabel jLabelPerfilTelefono;
+    private javax.swing.JLabel jLabelPerfilfechaNacim;
     private javax.swing.JLabel jLabelTitle;
     private javax.swing.JLabel jLabelWelcome;
     private javax.swing.JPanel jPanelBolso;

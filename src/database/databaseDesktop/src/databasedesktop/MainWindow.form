@@ -94,14 +94,14 @@
                       <Component id="jLabelIconoInformaticos" min="-2" pref="475" max="-2" attributes="0"/>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabelPerfilApellido5" alignment="0" min="-2" pref="184" max="-2" attributes="0"/>
+                          <Component id="jLabelPerfilfechaNacim" alignment="0" min="-2" pref="184" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="jLabelNombrePerfil" max="32767" attributes="0"/>
                                       <Component id="jLabelPerfilApellido1" max="32767" attributes="0"/>
-                                      <Component id="jLabelPerfilApellido3" alignment="0" pref="122" max="32767" attributes="0"/>
-                                      <Component id="jLabelPerfilApellido4" alignment="0" pref="122" max="32767" attributes="0"/>
+                                      <Component id="jLabelPerfilTelefono" alignment="0" pref="122" max="32767" attributes="0"/>
+                                      <Component id="jLabelPerfilApellido2" alignment="0" pref="122" max="32767" attributes="0"/>
                                   </Group>
                                   <Component id="jLabelPerfilEmail" alignment="0" min="-2" pref="122" max="-2" attributes="0"/>
                               </Group>
@@ -116,7 +116,7 @@
                                   <Component id="jTextFieldAguaDeseada" max="32767" attributes="0"/>
                                   <Component id="jTextFieldPeso" max="32767" attributes="0"/>
                                   <Component id="jTextFieldAltura" max="32767" attributes="0"/>
-                                  <Component id="jButtonActualizar" alignment="0" pref="100" max="32767" attributes="0"/>
+                                  <Component id="jButtonActualizar" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -149,7 +149,7 @@
                                       <Component id="jLabelPerfilPeso1" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                                       <Component id="jTextFieldAguaDeseada" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="jLabelPerfilApellido4" min="-2" pref="22" max="-2" attributes="0"/>
+                                  <Component id="jLabelPerfilApellido2" min="-2" pref="22" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -157,9 +157,9 @@
                                   <Component id="jButtonActualizar" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabelPerfilApellido3" min="-2" pref="22" max="-2" attributes="0"/>
+                              <Component id="jLabelPerfilTelefono" min="-2" pref="22" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jLabelPerfilApellido5" min="-2" pref="22" max="-2" attributes="0"/>
+                              <Component id="jLabelPerfilfechaNacim" min="-2" pref="22" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
@@ -205,7 +205,7 @@
                 <Property name="text" type="java.lang.String" value="Email: "/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabelPerfilApellido3">
+            <Component class="javax.swing.JLabel" name="jLabelPerfilTelefono">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="sansserif" size="13" style="1"/>
@@ -216,7 +216,7 @@
                 <Property name="text" type="java.lang.String" value="Tel&#xe9;fono: "/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabelPerfilApellido4">
+            <Component class="javax.swing.JLabel" name="jLabelPerfilApellido2">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="sansserif" size="13" style="1"/>
@@ -227,7 +227,7 @@
                 <Property name="text" type="java.lang.String" value="Apellido 2: "/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabelPerfilApellido5">
+            <Component class="javax.swing.JLabel" name="jLabelPerfilfechaNacim">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="sansserif" size="13" style="1"/>

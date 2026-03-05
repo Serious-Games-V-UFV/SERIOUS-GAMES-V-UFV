@@ -29,6 +29,7 @@ public class MainWindow extends javax.swing.JFrame {
             resultSetToTableModel(db.getAllBags(), this.jTableAdBolso);
             resultSetToTableModel(db.getAllEvents(), this.jTableAdEventos);
             resultSetToTableModel(db.getAllDailyCount(), this.jTableAdRecuentoDiario);
+            
         } catch (SQLException ex) {
             System.err.println("Couldn't fill table");
         }
@@ -47,36 +48,41 @@ public class MainWindow extends javax.swing.JFrame {
             }
     }
     private void initWindow(){
-        //this.setSize(1280,720);
-        this.setLocationRelativeTo(null);
-        this.setResizable(false);
-        jTableAdUser.setDefaultEditor(Object.class, null);
-        jTableAdUser.setSelectionMode(0);
-        jTableAdBolso.setDefaultEditor(Object.class, null);
-        jTableAdBolso.setSelectionMode(0);
-        jTableAdEventos.setDefaultEditor(Object.class, null);
-        jTableAdEventos.setSelectionMode(0);
-        jTableAdRecuentoDiario.setDefaultEditor(Object.class, null);
-        jTableAdRecuentoDiario.setSelectionMode(0);
-        
-        ImageIcon icono = new ImageIcon(getClass().getResource("/img/iconOPI.png"));
-        Image imagen = icono.getImage();
-        Image imagenEscalada = imagen.getScaledInstance(
-            jLabel2.getWidth(),
-            jLabel2.getHeight(),
-            Image.SCALE_SMOOTH
-        );
-        jLabel2.setIcon(new ImageIcon(imagenEscalada));
-        
-        
-        
+        try {
+            //this.setSize(1280,720);
+            this.setLocationRelativeTo(null);
+            this.setResizable(false);
+            jTableAdUser.setDefaultEditor(Object.class, null);
+            jTableAdUser.setSelectionMode(0);
+            jTableAdBolso.setDefaultEditor(Object.class, null);
+            jTableAdBolso.setSelectionMode(0);
+            jTableAdEventos.setDefaultEditor(Object.class, null);
+            jTableAdEventos.setSelectionMode(0);
+            jTableAdRecuentoDiario.setDefaultEditor(Object.class, null);
+            jTableAdRecuentoDiario.setSelectionMode(0);
+            
+            ImageIcon icono = new ImageIcon(getClass().getResource("/img/iconOPI.png"));
+            Image imagen = icono.getImage();
+            Image imagenEscalada = imagen.getScaledInstance(
+                    jLabel2.getWidth(),
+                    jLabel2.getHeight(),
+                    Image.SCALE_SMOOTH
+            );
+            jLabel2.setIcon(new ImageIcon(imagenEscalada));
+            
+            System.out.println(currentUser);
+            resultSetToTableModel(db.getDailyCountFromUser(currentUser), this.jTableRecuentoDiarioUsuario);
+            resultSetToTableModel(db.getBagsFromUser(currentUser), this.jTableBolsoUsuario);
+        } catch (SQLException ex) {
+            System.getLogger(MainWindow.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+        }
     }
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jTabbedPanePerfilUs = new javax.swing.JTabbedPane();
         jPanelUsuario = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableAdUser = new javax.swing.JTable();
@@ -134,10 +140,30 @@ public class MainWindow extends javax.swing.JFrame {
         jLabelAdId2 = new javax.swing.JLabel();
         jTextFieldAdIdDailyCount = new javax.swing.JTextField();
         jButtonAdSearchDailyCount = new javax.swing.JButton();
-        jTabbedPane2 = new javax.swing.JTabbedPane();
-        jLabel3 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jScrollPaneBolsoUsuario = new javax.swing.JScrollPane();
+        jTableBolsoUsuario = new javax.swing.JTable();
+        jPanelRecuentoDiarioUsuario = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTableRecuentoDiarioUsuario = new javax.swing.JTable();
+        jPanel1 = new javax.swing.JPanel();
+        jLabelNombrePerfil = new javax.swing.JLabel();
+        jLabelPerfilApellido1 = new javax.swing.JLabel();
+        jLabelPerfilEmail = new javax.swing.JLabel();
+        jLabelPerfilApellido3 = new javax.swing.JLabel();
+        jLabelPerfilApellido4 = new javax.swing.JLabel();
+        jLabelPerfilApellido5 = new javax.swing.JLabel();
+        jLabelPerfilAltura = new javax.swing.JLabel();
+        jTextFieldAltura = new javax.swing.JTextField();
+        jLabelPerfilPeso = new javax.swing.JLabel();
+        jTextFieldPeso = new javax.swing.JTextField();
+        jLabelPerfilPeso1 = new javax.swing.JLabel();
+        jTextFieldAguaDeseada = new javax.swing.JTextField();
+        jButtonActualizar = new javax.swing.JButton();
+        jLabelIconoInformaticos = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabelSaludo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -231,7 +257,7 @@ public class MainWindow extends javax.swing.JFrame {
                                     .addComponent(jTextFieldAdBirth)
                                     .addComponent(jTextFieldAdWater, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
                                     .addComponent(jTextFieldAdPassword))
-                                .addContainerGap(41, Short.MAX_VALUE))
+                                .addContainerGap(74, Short.MAX_VALUE))
                             .addGroup(jPanelUsuarioLayout.createSequentialGroup()
                                 .addGap(4, 4, 4)
                                 .addComponent(jButtonAdInsert)
@@ -298,10 +324,10 @@ public class MainWindow extends javax.swing.JFrame {
                     .addComponent(jButtonAdInsert)
                     .addComponent(jButtonAdDeleteUser))
                 .addContainerGap())
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 585, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("Usuario", jPanelUsuario);
+        jTabbedPanePerfilUs.addTab("Usuario", jPanelUsuario);
 
         jTableAdBolso.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -364,7 +390,7 @@ public class MainWindow extends javax.swing.JFrame {
                         .addComponent(jButtonAdSearchBags)
                         .addGap(4, 4, 4)
                         .addComponent(jButtonAdInsert1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
                         .addComponent(jButtonAdDeleteBags)))
                 .addContainerGap())
         );
@@ -403,7 +429,7 @@ public class MainWindow extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("Bolso", jPanelBolso);
+        jTabbedPanePerfilUs.addTab("Bolso", jPanelBolso);
 
         jTableAdEventos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -436,12 +462,12 @@ public class MainWindow extends javax.swing.JFrame {
                         .addGap(72, 72, 72)
                         .addComponent(jTextFieldAdIdEvent, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jButtonAdSearchEvents))
-                .addContainerGap(83, Short.MAX_VALUE))
+                .addContainerGap(117, Short.MAX_VALUE))
         );
         jPanelEventosLayout.setVerticalGroup(
             jPanelEventosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelEventosLayout.createSequentialGroup()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 594, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 579, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(jPanelEventosLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
@@ -453,7 +479,7 @@ public class MainWindow extends javax.swing.JFrame {
                 .addGap(61, 61, 61))
         );
 
-        jTabbedPane1.addTab("Eventos", jPanelEventos);
+        jTabbedPanePerfilUs.addTab("Eventos", jPanelEventos);
 
         jTableAdRecuentoDiario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -488,12 +514,12 @@ public class MainWindow extends javax.swing.JFrame {
                     .addGroup(jPanelRecuentoDiarioLayout.createSequentialGroup()
                         .addGap(42, 42, 42)
                         .addComponent(jButtonAdSearchDailyCount)))
-                .addContainerGap(93, Short.MAX_VALUE))
+                .addContainerGap(127, Short.MAX_VALUE))
         );
         jPanelRecuentoDiarioLayout.setVerticalGroup(
             jPanelRecuentoDiarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelRecuentoDiarioLayout.createSequentialGroup()
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 594, Short.MAX_VALUE)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 579, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(jPanelRecuentoDiarioLayout.createSequentialGroup()
                 .addContainerGap()
@@ -505,17 +531,162 @@ public class MainWindow extends javax.swing.JFrame {
                 .addGap(72, 72, 72))
         );
 
-        jTabbedPane1.addTab("Recuento diario", jPanelRecuentoDiario);
+        jTabbedPanePerfilUs.addTab("Recuento diario", jPanelRecuentoDiario);
 
-        jLabel3.setText("jLabel3");
-        jTabbedPane2.addTab("tab1", jLabel3);
+        jTableBolsoUsuario.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPaneBolsoUsuario.setViewportView(jTableBolsoUsuario);
 
-        jTabbedPane1.addTab("Perfil", jTabbedPane2);
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPaneBolsoUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 1118, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPaneBolsoUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 585, Short.MAX_VALUE)
+        );
+
+        jTabbedPanePerfilUs.addTab("Bolso", jPanel2);
+
+        jTableRecuentoDiarioUsuario.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(jTableRecuentoDiarioUsuario);
+
+        javax.swing.GroupLayout jPanelRecuentoDiarioUsuarioLayout = new javax.swing.GroupLayout(jPanelRecuentoDiarioUsuario);
+        jPanelRecuentoDiarioUsuario.setLayout(jPanelRecuentoDiarioUsuarioLayout);
+        jPanelRecuentoDiarioUsuarioLayout.setHorizontalGroup(
+            jPanelRecuentoDiarioUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1118, Short.MAX_VALUE)
+        );
+        jPanelRecuentoDiarioUsuarioLayout.setVerticalGroup(
+            jPanelRecuentoDiarioUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 585, Short.MAX_VALUE)
+        );
+
+        jTabbedPanePerfilUs.addTab("Recuento Diario", jPanelRecuentoDiarioUsuario);
+
+        jLabelNombrePerfil.setText("Nombre:");
+
+        jLabelPerfilApellido1.setText("Apellido 1: ");
+
+        jLabelPerfilEmail.setText("Email: ");
+
+        jLabelPerfilApellido3.setText("Teléfono: ");
+
+        jLabelPerfilApellido4.setText("Apellido 2: ");
+
+        jLabelPerfilApellido5.setText("Fecha de nacimiento:");
+
+        jLabelPerfilAltura.setText("Altura:");
+
+        jLabelPerfilPeso.setText("Peso:");
+
+        jLabelPerfilPeso1.setText("Agua deseada:");
+
+        jButtonActualizar.setText("Actualizar");
+
+        jLabelIconoInformaticos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconoDAM.png"))); // NOI18N
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(69, 69, 69)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelPerfilApellido5, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabelNombrePerfil, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabelPerfilApellido1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabelPerfilApellido3, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
+                                .addComponent(jLabelPerfilApellido4, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE))
+                            .addComponent(jLabelPerfilEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(238, 238, 238)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabelPerfilAltura, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabelPerfilPeso, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jTextFieldPeso, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jTextFieldAltura, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabelPerfilPeso1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jTextFieldAguaDeseada, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(114, 114, 114)
+                                .addComponent(jButtonActualizar)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabelIconoInformaticos, javax.swing.GroupLayout.PREFERRED_SIZE, 475, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelNombrePerfil)
+                    .addComponent(jLabelPerfilAltura, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldAltura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabelPerfilPeso, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextFieldPeso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelPerfilApellido1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabelPerfilPeso1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextFieldAguaDeseada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelPerfilApellido4, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelPerfilEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonActualizar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelPerfilApellido3, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabelPerfilApellido5, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jLabelIconoInformaticos, javax.swing.GroupLayout.PREFERRED_SIZE, 585, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        jTabbedPanePerfilUs.addTab("Perfil", jPanel1);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jLabel1.setText("OPI");
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconOPI.png"))); // NOI18N
+
+        jLabelSaludo.setText("Hola, ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -523,21 +694,29 @@ public class MainWindow extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jTabbedPane1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabelSaludo)
+                        .addGap(84, 84, 84))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jTabbedPanePerfilUs)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabelSaludo))
                 .addGap(39, 39, 39)
-                .addComponent(jTabbedPane1))
+                .addComponent(jTabbedPanePerfilUs))
         );
 
         pack();
@@ -718,6 +897,7 @@ public class MainWindow extends javax.swing.JFrame {
     }
 */
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonActualizar;
     private javax.swing.JButton jButtonAdDeleteBags;
     private javax.swing.JButton jButtonAdDeleteUser;
     private javax.swing.JButton jButtonAdInsert;
@@ -729,7 +909,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton jButtonAdUserLimpiar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabelAdBirth;
     private javax.swing.JLabel jLabelAdEmail;
     private javax.swing.JLabel jLabelAdHeight;
@@ -748,20 +927,37 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelAdSurname4;
     private javax.swing.JLabel jLabelAdWater;
     private javax.swing.JLabel jLabelAdWeight;
+    private javax.swing.JLabel jLabelIconoInformaticos;
+    private javax.swing.JLabel jLabelNombrePerfil;
+    private javax.swing.JLabel jLabelPerfilAltura;
+    private javax.swing.JLabel jLabelPerfilApellido1;
+    private javax.swing.JLabel jLabelPerfilApellido3;
+    private javax.swing.JLabel jLabelPerfilApellido4;
+    private javax.swing.JLabel jLabelPerfilApellido5;
+    private javax.swing.JLabel jLabelPerfilEmail;
+    private javax.swing.JLabel jLabelPerfilPeso;
+    private javax.swing.JLabel jLabelPerfilPeso1;
+    private javax.swing.JLabel jLabelSaludo;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanelBolso;
     private javax.swing.JPanel jPanelEventos;
     private javax.swing.JPanel jPanelRecuentoDiario;
+    private javax.swing.JPanel jPanelRecuentoDiarioUsuario;
     private javax.swing.JPanel jPanelUsuario;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTabbedPane jTabbedPane2;
+    private javax.swing.JScrollPane jScrollPaneBolsoUsuario;
+    private javax.swing.JTabbedPane jTabbedPanePerfilUs;
     private javax.swing.JTable jTableAdBolso;
     private javax.swing.JTable jTableAdEventos;
     private javax.swing.JTable jTableAdRecuentoDiario;
     private javax.swing.JTable jTableAdUser;
+    private javax.swing.JTable jTableBolsoUsuario;
+    private javax.swing.JTable jTableRecuentoDiarioUsuario;
     private javax.swing.JTextField jTextFieldAdBirth;
     private javax.swing.JTextField jTextFieldAdColorBag;
     private javax.swing.JTextField jTextFieldAdEmail;
@@ -780,6 +976,9 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldAdTipoBag;
     private javax.swing.JTextField jTextFieldAdWater;
     private javax.swing.JTextField jTextFieldAdWeight;
+    private javax.swing.JTextField jTextFieldAguaDeseada;
+    private javax.swing.JTextField jTextFieldAltura;
+    private javax.swing.JTextField jTextFieldPeso;
     // End of variables declaration//GEN-END:variables
 
     private void eventsButtonActionPerformed(ActionEvent e) {

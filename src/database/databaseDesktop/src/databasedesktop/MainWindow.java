@@ -134,6 +134,8 @@ public class MainWindow extends javax.swing.JFrame {
         jLabelAdId2 = new javax.swing.JLabel();
         jTextFieldAdIdDailyCount = new javax.swing.JTextField();
         jButtonAdSearchDailyCount = new javax.swing.JButton();
+        jTabbedPane2 = new javax.swing.JTabbedPane();
+        jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
@@ -229,7 +231,7 @@ public class MainWindow extends javax.swing.JFrame {
                                     .addComponent(jTextFieldAdBirth)
                                     .addComponent(jTextFieldAdWater, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
                                     .addComponent(jTextFieldAdPassword))
-                                .addContainerGap(43, Short.MAX_VALUE))
+                                .addContainerGap(41, Short.MAX_VALUE))
                             .addGroup(jPanelUsuarioLayout.createSequentialGroup()
                                 .addGap(4, 4, 4)
                                 .addComponent(jButtonAdInsert)
@@ -439,7 +441,7 @@ public class MainWindow extends javax.swing.JFrame {
         jPanelEventosLayout.setVerticalGroup(
             jPanelEventosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelEventosLayout.createSequentialGroup()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 571, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 594, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(jPanelEventosLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
@@ -486,12 +488,12 @@ public class MainWindow extends javax.swing.JFrame {
                     .addGroup(jPanelRecuentoDiarioLayout.createSequentialGroup()
                         .addGap(42, 42, 42)
                         .addComponent(jButtonAdSearchDailyCount)))
-                .addContainerGap(104, Short.MAX_VALUE))
+                .addContainerGap(93, Short.MAX_VALUE))
         );
         jPanelRecuentoDiarioLayout.setVerticalGroup(
             jPanelRecuentoDiarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelRecuentoDiarioLayout.createSequentialGroup()
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 571, Short.MAX_VALUE)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 594, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(jPanelRecuentoDiarioLayout.createSequentialGroup()
                 .addContainerGap()
@@ -504,6 +506,11 @@ public class MainWindow extends javax.swing.JFrame {
         );
 
         jTabbedPane1.addTab("Recuento diario", jPanelRecuentoDiario);
+
+        jLabel3.setText("jLabel3");
+        jTabbedPane2.addTab("tab1", jLabel3);
+
+        jTabbedPane1.addTab("Perfil", jTabbedPane2);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jLabel1.setText("OPI");
@@ -722,6 +729,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton jButtonAdUserLimpiar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabelAdBirth;
     private javax.swing.JLabel jLabelAdEmail;
     private javax.swing.JLabel jLabelAdHeight;
@@ -749,6 +757,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTable jTableAdBolso;
     private javax.swing.JTable jTableAdEventos;
     private javax.swing.JTable jTableAdRecuentoDiario;

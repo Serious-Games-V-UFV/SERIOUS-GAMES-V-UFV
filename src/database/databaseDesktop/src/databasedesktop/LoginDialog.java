@@ -21,7 +21,7 @@ public class LoginDialog extends javax.swing.JDialog {
         super(parent, modal);
         mw = (MainWindow)parent;
         initComponents();
-         getContentPane().setBackground(new Color(21, 119, 216));
+         getContentPane().setBackground(new Color(21, 87, 218));
     ImageIcon icono = new ImageIcon(getClass().getResource("/img/iconOPI.png"));
     Image imagen = icono.getImage();
     Image imagenEscalada = imagen.getScaledInstance(
@@ -87,7 +87,6 @@ private void iniciarSesion() {
         jLabelEmail.setForeground(new java.awt.Color(255, 255, 255));
         jLabelEmail.setText("EMAIL:");
 
-        jTextFieldEmail.setForeground(new java.awt.Color(21, 119, 216));
         jTextFieldEmail.setText("\n");
         jTextFieldEmail.setSelectionColor(new java.awt.Color(255, 255, 255));
         jTextFieldEmail.addActionListener(new java.awt.event.ActionListener() {

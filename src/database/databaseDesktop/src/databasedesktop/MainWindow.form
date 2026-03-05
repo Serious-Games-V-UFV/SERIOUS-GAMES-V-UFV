@@ -25,9 +25,9 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" pref="191" max="-2" attributes="0"/>
+              <Component id="jLabel2" min="-2" pref="87" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jLabel1" min="-2" pref="91" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
           <Component id="jTabbedPane1" alignment="0" max="32767" attributes="0"/>
@@ -36,17 +36,12 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" pref="126" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
               <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="jLabel2" min="-2" pref="80" max="-2" attributes="0"/>
+                  <Component id="jLabel1" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
               <Component id="jTabbedPane1" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -71,48 +66,58 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jScrollPane1" min="-2" pref="740" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jLabelAdId" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabelAdName" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jLabelAdSurname1" alignment="0" max="32767" attributes="0"/>
-                          </Group>
-                          <Component id="jLabelAdSurname2" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelAdPhone" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelAdEmail" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelAdPassword" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelAdHeight" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelAdWeight" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelAdBirth" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelAdWater" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButtonAdSearch" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                              <Component id="jButtonAdInsert" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="26" max="32767" attributes="0"/>
-                              <Component id="jButtonAdDeleteUser" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jTextFieldAdIdUser" max="32767" attributes="0"/>
-                                  <Component id="jTextFieldAdName" max="32767" attributes="0"/>
-                                  <Component id="jTextFieldAdSurname1" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jTextFieldAdSurname2" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jTextFieldAdPhone" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jTextFieldAdEmail" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jTextFieldAdHeight" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jTextFieldAdWeight" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jTextFieldAdBirth" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jTextFieldAdWater" alignment="0" pref="100" max="32767" attributes="0"/>
-                                  <Component id="jTextFieldAdPassword" max="32767" attributes="0"/>
+                              <EmptySpace pref="36" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="jLabelAdId" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelAdName" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jLabelAdSurname1" alignment="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Component id="jLabelAdSurname2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelAdPhone" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelAdEmail" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelAdPassword" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelAdHeight" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelAdWeight" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelAdBirth" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelAdWater" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jButtonAdSearch" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="jTextFieldAdIdUser" max="32767" attributes="0"/>
+                                          <Component id="jTextFieldAdName" max="32767" attributes="0"/>
+                                          <Component id="jTextFieldAdSurname1" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jTextFieldAdSurname2" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jTextFieldAdPhone" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jTextFieldAdEmail" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jTextFieldAdHeight" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jTextFieldAdWeight" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jTextFieldAdBirth" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jTextFieldAdWater" alignment="0" pref="100" max="32767" attributes="0"/>
+                                          <Component id="jTextFieldAdPassword" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace pref="43" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                                      <Component id="jButtonAdInsert" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="jButtonAdDeleteUser" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="jButtonAdUserLimpiar" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="136" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -174,7 +179,9 @@
                           <Component id="jTextFieldAdWater" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabelAdWater" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="240" max="32767" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="jButtonAdUserLimpiar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jButtonAdSearch" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jButtonAdInsert" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -182,7 +189,7 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
-                  <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" alignment="0" pref="600" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -310,6 +317,14 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAdDeleteUserActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="jButtonAdUserLimpiar">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Limpiar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAdUserLimpiarActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
@@ -592,7 +607,7 @@
                       <Component id="jScrollPane5" min="-2" pref="749" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="32767" attributes="0"/>
                               <Component id="jLabelAdId2" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
                               <Component id="jTextFieldAdIdDailyCount" min="-2" pref="112" max="-2" attributes="0"/>
@@ -602,7 +617,7 @@
                               <Component id="jButtonAdSearchDailyCount" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="93" max="32767" attributes="0"/>
+                      <EmptySpace pref="104" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>

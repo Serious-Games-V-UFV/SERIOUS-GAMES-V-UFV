@@ -1,4 +1,5 @@
 package databasedesktop;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.sql.*;
 import java.util.logging.Level;
@@ -18,14 +19,16 @@ public class MainWindow extends javax.swing.JFrame {
         hideWindow();
         // ImageIcon icono = new ImageIcon(getClass().getResource("img/iconOPI.png"));
         // jLabel2.setIcon(icono);
+        
+    
     }
     private void hideWindow(){
         try {
             connectToDatabase();
             resultSetToTableModel(db.getAllUsers(), this.jTableAdUser);
             resultSetToTableModel(db.getAllBags(), this.jTableAdBolso);
-            resultSetToTableModel(db.getAllBags(), this.jTableAdEventos);
-            resultSetToTableModel(db.getAllBags(), this.jTableAdRecuentoDiario);
+            resultSetToTableModel(db.getAllEvents(), this.jTableAdEventos);
+            resultSetToTableModel(db.getAllDailyCount(), this.jTableAdRecuentoDiario);
         } catch (SQLException ex) {
             System.err.println("Couldn't fill table");
         }
@@ -46,7 +49,7 @@ public class MainWindow extends javax.swing.JFrame {
     private void initWindow(){
         //this.setSize(1280,720);
         this.setLocationRelativeTo(null);
-        //this.setResizable(false);
+        this.setResizable(false);
         jTableAdUser.setDefaultEditor(Object.class, null);
         jTableAdUser.setSelectionMode(0);
         jTableAdBolso.setDefaultEditor(Object.class, null);
@@ -55,6 +58,16 @@ public class MainWindow extends javax.swing.JFrame {
         jTableAdEventos.setSelectionMode(0);
         jTableAdRecuentoDiario.setDefaultEditor(Object.class, null);
         jTableAdRecuentoDiario.setSelectionMode(0);
+        
+        ImageIcon icono = new ImageIcon(getClass().getResource("/img/iconOPI.png"));
+        Image imagen = icono.getImage();
+        Image imagenEscalada = imagen.getScaledInstance(
+            jLabel2.getWidth(),
+            jLabel2.getHeight(),
+            Image.SCALE_SMOOTH
+        );
+        jLabel2.setIcon(new ImageIcon(imagenEscalada));
+        
         
         
     }
@@ -92,6 +105,7 @@ public class MainWindow extends javax.swing.JFrame {
         jButtonAdSearch = new javax.swing.JButton();
         jButtonAdInsert = new javax.swing.JButton();
         jButtonAdDeleteUser = new javax.swing.JButton();
+        jButtonAdUserLimpiar = new javax.swing.JButton();
         jPanelBolso = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTableAdBolso = new javax.swing.JTable();
@@ -174,48 +188,58 @@ public class MainWindow extends javax.swing.JFrame {
         jButtonAdDeleteUser.setText("Borrar");
         jButtonAdDeleteUser.addActionListener(this::jButtonAdDeleteUserActionPerformed);
 
+        jButtonAdUserLimpiar.setText("Limpiar");
+        jButtonAdUserLimpiar.addActionListener(this::jButtonAdUserLimpiarActionPerformed);
+
         javax.swing.GroupLayout jPanelUsuarioLayout = new javax.swing.GroupLayout(jPanelUsuario);
         jPanelUsuario.setLayout(jPanelUsuarioLayout);
         jPanelUsuarioLayout.setHorizontalGroup(
             jPanelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelUsuarioLayout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 740, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabelAdId)
-                        .addComponent(jLabelAdName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabelAdSurname1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jLabelAdSurname2)
-                    .addComponent(jLabelAdPhone)
-                    .addComponent(jLabelAdEmail)
-                    .addComponent(jLabelAdPassword)
-                    .addComponent(jLabelAdHeight)
-                    .addComponent(jLabelAdWeight)
-                    .addComponent(jLabelAdBirth)
-                    .addComponent(jLabelAdWater)
-                    .addComponent(jButtonAdSearch))
-                .addGroup(jPanelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(jPanelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanelUsuarioLayout.createSequentialGroup()
-                        .addGap(4, 4, 4)
-                        .addComponent(jButtonAdInsert)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                        .addComponent(jButtonAdDeleteUser))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                        .addGroup(jPanelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabelAdId)
+                                .addComponent(jLabelAdName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabelAdSurname1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabelAdSurname2)
+                            .addComponent(jLabelAdPhone)
+                            .addComponent(jLabelAdEmail)
+                            .addComponent(jLabelAdPassword)
+                            .addComponent(jLabelAdHeight)
+                            .addComponent(jLabelAdWeight)
+                            .addComponent(jLabelAdBirth)
+                            .addComponent(jLabelAdWater)
+                            .addComponent(jButtonAdSearch))
+                        .addGroup(jPanelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelUsuarioLayout.createSequentialGroup()
+                                .addGap(74, 74, 74)
+                                .addGroup(jPanelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jTextFieldAdIdUser)
+                                    .addComponent(jTextFieldAdName)
+                                    .addComponent(jTextFieldAdSurname1)
+                                    .addComponent(jTextFieldAdSurname2)
+                                    .addComponent(jTextFieldAdPhone)
+                                    .addComponent(jTextFieldAdEmail)
+                                    .addComponent(jTextFieldAdHeight)
+                                    .addComponent(jTextFieldAdWeight)
+                                    .addComponent(jTextFieldAdBirth)
+                                    .addComponent(jTextFieldAdWater, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                                    .addComponent(jTextFieldAdPassword))
+                                .addContainerGap(43, Short.MAX_VALUE))
+                            .addGroup(jPanelUsuarioLayout.createSequentialGroup()
+                                .addGap(4, 4, 4)
+                                .addComponent(jButtonAdInsert)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButtonAdDeleteUser)
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jPanelUsuarioLayout.createSequentialGroup()
-                        .addGap(74, 74, 74)
-                        .addGroup(jPanelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextFieldAdIdUser)
-                            .addComponent(jTextFieldAdName)
-                            .addComponent(jTextFieldAdSurname1)
-                            .addComponent(jTextFieldAdSurname2)
-                            .addComponent(jTextFieldAdPhone)
-                            .addComponent(jTextFieldAdEmail)
-                            .addComponent(jTextFieldAdHeight)
-                            .addComponent(jTextFieldAdWeight)
-                            .addComponent(jTextFieldAdBirth)
-                            .addComponent(jTextFieldAdWater, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-                            .addComponent(jTextFieldAdPassword))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonAdUserLimpiar)
+                        .addGap(136, 136, 136))))
         );
         jPanelUsuarioLayout.setVerticalGroup(
             jPanelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -264,13 +288,15 @@ public class MainWindow extends javax.swing.JFrame {
                 .addGroup(jPanelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldAdWater, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelAdWater))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 240, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButtonAdUserLimpiar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonAdSearch)
                     .addComponent(jButtonAdInsert)
                     .addComponent(jButtonAdDeleteUser))
                 .addContainerGap())
-            .addComponent(jScrollPane1)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Usuario", jPanelUsuario);
@@ -453,14 +479,14 @@ public class MainWindow extends javax.swing.JFrame {
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 749, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanelRecuentoDiarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelRecuentoDiarioLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabelAdId2)
                         .addGap(104, 104, 104)
                         .addComponent(jTextFieldAdIdDailyCount, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanelRecuentoDiarioLayout.createSequentialGroup()
                         .addGap(42, 42, 42)
                         .addComponent(jButtonAdSearchDailyCount)))
-                .addContainerGap(93, Short.MAX_VALUE))
+                .addContainerGap(104, Short.MAX_VALUE))
         );
         jPanelRecuentoDiarioLayout.setVerticalGroup(
             jPanelRecuentoDiarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -490,23 +516,20 @@ public class MainWindow extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2)
-                .addGap(26, 26, 26)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jTabbedPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(39, 39, 39)
                 .addComponent(jTabbedPane1))
         );
 
@@ -563,6 +586,12 @@ public class MainWindow extends javax.swing.JFrame {
         userdata[10] = Integer.valueOf(jTextFieldAdWater.getText());
         
         db.insertUser(userdata);
+        
+        try {
+            resultSetToTableModel(db.getAllUsers(), this.jTableAdUser);
+        } catch (SQLException ex) {
+            System.err.println(ex.toString());
+        }
     }//GEN-LAST:event_jButtonAdInsertActionPerformed
 
     private void jButtonAdSearchBagsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdSearchBagsActionPerformed
@@ -605,7 +634,7 @@ public class MainWindow extends javax.swing.JFrame {
             if (jTextFieldAdIdEvent.getText().isBlank() == false) {
                 resultSetToTableModel(db.getEventsFromBags(Integer.parseInt(jTextFieldAdIdEvent.getText())), this.jTableAdEventos);
             } else {
-                resultSetToTableModel(db.getAllBags(), this.jTableAdEventos);
+                resultSetToTableModel(db.getAllEvents(), this.jTableAdEventos);
             }
         } catch (SQLException ex) {
             System.err.println(ex.toString());
@@ -615,14 +644,28 @@ public class MainWindow extends javax.swing.JFrame {
     private void jButtonAdSearchDailyCountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdSearchDailyCountActionPerformed
         try {
             if (jTextFieldAdIdDailyCount.getText().isBlank() == false) {
-                resultSetToTableModel(db.getEventsFromBags(Integer.parseInt(jTextFieldAdIdDailyCount.getText())), this.jTableAdRecuentoDiario);
+                resultSetToTableModel(db.getDailyCountFromUser(Integer.parseInt(jTextFieldAdIdDailyCount.getText())), this.jTableAdRecuentoDiario);
             } else {
-                resultSetToTableModel(db.getAllBags(), this.jTableAdRecuentoDiario);
+                resultSetToTableModel(db.getAllDailyCount(), this.jTableAdRecuentoDiario);
             }
         } catch (SQLException ex) {
             System.err.println(ex.toString());
         }
     }//GEN-LAST:event_jButtonAdSearchDailyCountActionPerformed
+
+    private void jButtonAdUserLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdUserLimpiarActionPerformed
+            jTextFieldAdIdUser.setText("");
+            jTextFieldAdName.setText("");
+            jTextFieldAdSurname1.setText("");
+            jTextFieldAdSurname2.setText("");
+            jTextFieldAdPhone.setText("");
+            jTextFieldAdEmail.setText("");
+            jTextFieldAdPassword.setText("");
+            jTextFieldAdHeight.setText("");
+            jTextFieldAdWeight.setText("");
+            jTextFieldAdBirth.setText("");
+            jTextFieldAdWater.setText("");
+    }//GEN-LAST:event_jButtonAdUserLimpiarActionPerformed
 
     
     private void resultSetToTableModel(ResultSet rs, JTable jt) throws SQLException{
@@ -676,6 +719,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton jButtonAdSearchBags;
     private javax.swing.JButton jButtonAdSearchDailyCount;
     private javax.swing.JButton jButtonAdSearchEvents;
+    private javax.swing.JButton jButtonAdUserLimpiar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelAdBirth;

@@ -15,11 +15,34 @@ public class MainWindow extends javax.swing.JFrame {
     
     public MainWindow() {
         initComponents();
-        initWindow();
+        hideWindow();
         // ImageIcon icono = new ImageIcon(getClass().getResource("img/iconOPI.png"));
         // jLabel2.setIcon(icono);
     }
+    private void hideWindow(){
+        try {
+            connectToDatabase();
+            resultSetToTableModel(db.getAllUsers(), this.jTableAdUser);
+            resultSetToTableModel(db.getAllBags(), this.jTableAdBolso);
+            resultSetToTableModel(db.getAllBags(), this.jTableAdEventos);
+            resultSetToTableModel(db.getAllBags(), this.jTableAdRecuentoDiario);
+        } catch (SQLException ex) {
+            System.err.println("Couldn't fill table");
+        }
+        System.out.println(db.getDatum("cuenta", "email", 1));
+        this.setVisible(false);
+        LoginDialog login = new LoginDialog(null, true);
+            login.setLocationRelativeTo(null);
+            login.setTitle("Login - Opi");
 
+            login.setVisible(true);
+
+            if (login.isLogged()) {
+                initWindow();
+            } else {
+                System.exit(0);
+            }
+    }
     private void initWindow(){
         //this.setSize(1280,720);
         this.setLocationRelativeTo(null);
@@ -32,15 +55,7 @@ public class MainWindow extends javax.swing.JFrame {
         jTableAdEventos.setSelectionMode(0);
         jTableAdRecuentoDiario.setDefaultEditor(Object.class, null);
         jTableAdRecuentoDiario.setSelectionMode(0);
-        try {
-            connectToDatabase();
-            resultSetToTableModel(db.getAllUsers(), this.jTableAdUser);
-            resultSetToTableModel(db.getAllBags(), this.jTableAdBolso);
-            resultSetToTableModel(db.getAllBags(), this.jTableAdEventos);
-            resultSetToTableModel(db.getAllBags(), this.jTableAdRecuentoDiario);
-        } catch (SQLException ex) {
-            System.err.println("Couldn't fill table");
-        }
+        
         
     }
     

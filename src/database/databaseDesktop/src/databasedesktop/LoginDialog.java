@@ -15,13 +15,16 @@ import javax.swing.JOptionPane;
  */
 
 public class LoginDialog extends javax.swing.JDialog {
-    Database gestorBBDD;
     private boolean logged = false;
+    Database gestorBBDD;
+    public MainWindow mw; 
     /**
      * Creates new form LoginDialog
      */
     public LoginDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
+        mw = (MainWindow)parent;
+        
         initComponents();
          getContentPane().setBackground(new Color(21, 119, 216));
     ImageIcon icono = new ImageIcon(getClass().getResource("/img/iconOPI.png"));
@@ -35,12 +38,14 @@ public class LoginDialog extends javax.swing.JDialog {
     }
     private void iniciarSesion() {
 
-    gestorBBDD = new Database();
+    
     String email = jTextFieldEmail.getText().trim();
     String password = jPasswordField.getText().trim();
     
-    String emailadmin = gestorBBDD.getEmail();
-    String passwordadmin = gestorBBDD.getPassword();
+    String emailadmin = gestorBBDD.getDatum("serious_game.cuenta", "email", 1);
+    String passwordadmin = gestorBBDD.getDatum("serious_game.cuenta", "contrasena", 1);
+    
+    System.out.println(gestorBBDD.getDatum("cuenta", "email", 1));
     
     if(email.equals(emailadmin) && password.equals(passwordadmin)){
         JOptionPane.showMessageDialog(this, "Se ha logueado correctamente");

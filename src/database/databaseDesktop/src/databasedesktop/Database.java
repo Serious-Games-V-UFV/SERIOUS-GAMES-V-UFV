@@ -195,7 +195,12 @@ public class Database {
         String datum = "";
         try {
             sta = conn1.createStatement();
+            System.out.println("SELECT "+column_name+" FROM "+table+" WHERE id = "+id+";");
             ResultSet rs = sta.executeQuery("SELECT "+column_name+" FROM "+table+" WHERE id = "+id+";");
+            
+            if (rs.next()) {
+                datum = rs.getString(1);
+            }
             
             return datum;
         } catch (SQLException ex) {

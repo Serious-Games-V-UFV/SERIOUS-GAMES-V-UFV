@@ -4,8 +4,6 @@ import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.sql.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -26,7 +24,6 @@ public class MainWindow extends javax.swing.JFrame {
     }
     private void hideWindow(){
         try {
-            connectToDatabase();
             resultSetToTableModel(db.getAllUsers(), this.jTableAdUser);
             resultSetToTableModel(db.getAllBags(), this.jTableAdBolso);
             resultSetToTableModel(db.getAllEvents(), this.jTableAdEventos);
@@ -35,7 +32,6 @@ public class MainWindow extends javax.swing.JFrame {
         } catch (SQLException ex) {
             System.err.println("Couldn't fill table");
         }
-        System.out.println(db.getDatum("cuenta", "email", 1));
         this.setVisible(false);
         LoginDialog login = new LoginDialog(this, true);
             login.setLocationRelativeTo(null);
@@ -50,6 +46,7 @@ public class MainWindow extends javax.swing.JFrame {
             }
     }
     private void initWindow(){
+        
         try {
             //this.setSize(1280,720);
             this.setExtendedState(javax.swing.JFrame.MAXIMIZED_BOTH);
@@ -112,14 +109,19 @@ public class MainWindow extends javax.swing.JFrame {
             );
             jLabelIcon.setIcon(new ImageIcon(imagenEscalada));
             
-            System.out.println(currentUser);
             resultSetToTableModel(db.getDailyCountFromUser(currentUser), this.jTableRecuentoDiarioUsuario);
             resultSetToTableModel(db.getBagsFromUser(currentUser), this.jTableBolsoUsuario);
             
             jLabelWelcome.setText(jLabelWelcome.getText() + db.getUserFromId(currentUser));
-            
         } catch (SQLException ex) {
             System.getLogger(MainWindow.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+        }
+        
+        System.out.println(currentUser);
+        if (currentUser != 1) {
+            for (int i=0; i<4; i++) {
+                jTabbedPanePerfilUs.remove(3);
+            }
         }
     }
     
@@ -184,12 +186,10 @@ public class MainWindow extends javax.swing.JFrame {
         jLabelAdId1 = new javax.swing.JLabel();
         jLabelAdName1 = new javax.swing.JLabel();
         jLabelAdSurname3 = new javax.swing.JLabel();
-        jLabelAdSurname4 = new javax.swing.JLabel();
         jLabelAdPhone1 = new javax.swing.JLabel();
         jTextFieldAdIdBag = new javax.swing.JTextField();
         jTextFieldAdTipoBag = new javax.swing.JTextField();
         jTextFieldAdColorBag = new javax.swing.JTextField();
-        jTextFieldAdPrimeraConexionBag = new javax.swing.JTextField();
         jTextFieldAdIdCuentaBag = new javax.swing.JTextField();
         jButtonAdSearchBags = new javax.swing.JButton();
         jButtonAdInsert1 = new javax.swing.JButton();
@@ -591,6 +591,11 @@ public class MainWindow extends javax.swing.JFrame {
             }
         ));
         jTableAdBolso.setGridColor(new java.awt.Color(0, 0, 0));
+        jTableAdBolso.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableAdBolsoMouseClicked(evt);
+            }
+        });
         jScrollPaneBolso.setViewportView(jTableAdBolso);
 
         jLabelAdId1.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
@@ -604,10 +609,6 @@ public class MainWindow extends javax.swing.JFrame {
         jLabelAdSurname3.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
         jLabelAdSurname3.setForeground(new java.awt.Color(255, 255, 255));
         jLabelAdSurname3.setText("Color:");
-
-        jLabelAdSurname4.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
-        jLabelAdSurname4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelAdSurname4.setText("Primera_conexion:");
 
         jLabelAdPhone1.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
         jLabelAdPhone1.setForeground(new java.awt.Color(255, 255, 255));
@@ -643,13 +644,11 @@ public class MainWindow extends javax.swing.JFrame {
                                 .addComponent(jLabelAdId1)
                                 .addComponent(jLabelAdName1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabelAdSurname3))
-                            .addComponent(jLabelAdSurname4)
                             .addComponent(jLabelAdPhone1))
-                        .addGap(51, 51, 51)
+                        .addGap(105, 105, 105)
                         .addGroup(jPanelBolsoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jTextFieldAdTipoBag, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
                             .addComponent(jTextFieldAdColorBag)
-                            .addComponent(jTextFieldAdPrimeraConexionBag)
                             .addComponent(jTextFieldAdIdCuentaBag)
                             .addComponent(jTextFieldAdIdBag)))
                     .addGroup(jPanelBolsoLayout.createSequentialGroup()
@@ -678,14 +677,10 @@ public class MainWindow extends javax.swing.JFrame {
                     .addComponent(jTextFieldAdColorBag, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelAdSurname3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelBolsoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTextFieldAdPrimeraConexionBag, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelAdSurname4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelBolsoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldAdIdCuentaBag, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelAdPhone1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelBolsoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonAdSearchBags)
                     .addComponent(jButtonAdDeleteBags))
@@ -871,12 +866,27 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void jTableAdUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableAdUserMouseClicked
         if (jTableAdUser.getSelectedRow() != -1) {
+            
+            int user = (int)jTableAdUser.getValueAt((Integer)jTableAdUser.getSelectedRow(), 0);
             try {
                 resultSetToTableModel(db.getUser((Integer)jTableAdUser.getValueAt(jTableAdUser.getSelectedRow(), 0)), this.jTableAdUser);
             } catch (SQLException ex) {
                 System.err.println(ex.toString());
             }
+            
+            jTextFieldAdIdUser.setText(db.getDatum("cuenta", "id", user));
+            jTextFieldAdName.setText(db.getDatum("cuenta", "nombre", user));
+            jTextFieldAdSurname1.setText(db.getDatum("cuenta", "apellido1", user));
+            jTextFieldAdSurname2.setText(db.getDatum("cuenta", "apellido2", user));
+            jTextFieldAdPhone.setText(db.getDatum("cuenta", "telefono", user));
+            jTextFieldAdEmail.setText(db.getDatum("cuenta", "email", user));
+            jTextFieldAdPassword.setText(db.getDatum("cuenta", "contrasena", user));
+            jTextFieldAdHeight.setText(db.getDatum("cuenta", "altura", user));
+            jTextFieldAdWeight.setText(db.getDatum("cuenta", "peso", user));
+            jTextFieldAdBirth.setText(db.getDatum("cuenta", "fecha_nacimiento", user));
+            jTextFieldAdWater.setText(db.getDatum("cuenta", "agua_deseada", user));
         }
+        
     }//GEN-LAST:event_jTableAdUserMouseClicked
 
     private void jButtonAdDeleteUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdDeleteUserActionPerformed
@@ -886,7 +896,12 @@ public class MainWindow extends javax.swing.JFrame {
         confirmMessage = JOptionPane.showConfirmDialog(this, "¿Quieres borrar este usuario?", "Delete user", JOptionPane.YES_NO_OPTION);
         
         if (confirmMessage == 0) {
-            successCode = db.deleteUser(Integer.parseInt(jTextFieldAdIdUser.getText()));    
+            successCode = db.deleteUser(Integer.parseInt(jTextFieldAdIdUser.getText()));
+            try {
+                resultSetToTableModel(db.getAllUsers(), this.jTableAdUser);
+            } catch (SQLException ex) {
+                System.err.println(ex.toString());
+            }   
         }
         
     }//GEN-LAST:event_jButtonAdDeleteUserActionPerformed
@@ -936,6 +951,12 @@ public class MainWindow extends javax.swing.JFrame {
         userdata[3] = jTextFieldAdIdCuentaBag.getText();
         
         db.insertUser(userdata);
+        
+        try {
+            resultSetToTableModel(db.getAllUsers(), this.jTableAdBolso);
+        } catch (SQLException ex) {
+            System.err.println(ex.toString());
+        }
     }//GEN-LAST:event_jButtonAdInsert1ActionPerformed
 
     private void jButtonAdDeleteBagsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdDeleteBagsActionPerformed
@@ -948,6 +969,11 @@ public class MainWindow extends javax.swing.JFrame {
             successCode = db.deleteBags(Integer.parseInt(jTextFieldAdIdBag.getText()));    
         }
         
+        try {
+            resultSetToTableModel(db.getAllUsers(), this.jTableAdBolso);
+        } catch (SQLException ex) {
+            System.err.println(ex.toString());
+        }
     }//GEN-LAST:event_jButtonAdDeleteBagsActionPerformed
 
     private void jButtonAdSearchEventsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdSearchEventsActionPerformed
@@ -992,13 +1018,32 @@ public class MainWindow extends javax.swing.JFrame {
         jTextFieldAdIdBag.setText("");
         jTextFieldAdTipoBag.setText("");
         jTextFieldAdColorBag.setText("");
-        jTextFieldAdPrimeraConexionBag.setText("");
         jTextFieldAdIdCuentaBag.setText("");
     }//GEN-LAST:event_jButtonAdInsert2ActionPerformed
 
     private void jButtonExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExitActionPerformed
+        System.out.println("Goodbye, JoJo!");
         System.exit(0);
     }//GEN-LAST:event_jButtonExitActionPerformed
+
+    private void jTableAdBolsoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableAdBolsoMouseClicked
+        if (jTableAdBolso.getSelectedRow() != -1) {
+            //int user = jTableAdUser.getSelectedRow()+1;
+            int bag = (int)jTableAdBolso.getValueAt((Integer)jTableAdBolso.getSelectedRow(), 0);
+            try {
+                resultSetToTableModel(db.getUser((Integer)jTableAdBolso.getValueAt(jTableAdBolso.getSelectedRow(), 0)), this.jTableAdBolso);
+            } catch (SQLException ex) {
+                System.err.println(ex.toString());
+            }
+            //System.out.println(db.getDatum("cuenta", "id", user));
+            jTextFieldAdIdBag.setText(db.getDatum("bolso", "id", bag));
+            jTextFieldAdTipoBag.setText(db.getDatum("bolso", "tipo", bag));
+            jTextFieldAdColorBag.setText(db.getDatum("bolso", "color", bag));
+            
+            jTextFieldAdIdCuentaBag.setText(db.getDatum("bolso", "id_cuenta", bag));
+            
+        }
+    }//GEN-LAST:event_jTableAdBolsoMouseClicked
 
     
     private void resultSetToTableModel(ResultSet rs, JTable jt) throws SQLException{
@@ -1071,7 +1116,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelAdSurname1;
     private javax.swing.JLabel jLabelAdSurname2;
     private javax.swing.JLabel jLabelAdSurname3;
-    private javax.swing.JLabel jLabelAdSurname4;
     private javax.swing.JLabel jLabelAdWater;
     private javax.swing.JLabel jLabelAdWeight;
     private javax.swing.JLabel jLabelIcon;
@@ -1119,7 +1163,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldAdName;
     private javax.swing.JTextField jTextFieldAdPassword;
     private javax.swing.JTextField jTextFieldAdPhone;
-    private javax.swing.JTextField jTextFieldAdPrimeraConexionBag;
     private javax.swing.JTextField jTextFieldAdSurname1;
     private javax.swing.JTextField jTextFieldAdSurname2;
     private javax.swing.JTextField jTextFieldAdTipoBag;

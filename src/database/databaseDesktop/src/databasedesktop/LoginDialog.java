@@ -43,8 +43,6 @@ private void iniciarSesion() {
         String emailUser = gestorBBDD.getEmailFromUser(identifier);
         String passwordUser = gestorBBDD.getPasswordFromUser(identifier);
 
-        System.out.println(gestorBBDD.getDatum("cuenta", "email", identifier));
-
         if(email.equals(emailUser) && password.equals(passwordUser)){
             JOptionPane.showMessageDialog(this, "Se ha logueado correctamente");
             logged = true;

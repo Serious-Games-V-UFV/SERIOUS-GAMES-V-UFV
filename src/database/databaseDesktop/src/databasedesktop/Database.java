@@ -39,6 +39,7 @@ public class Database {
         }
     }
     
+
     public int getAmountUsers() {
         Statement sta;
         int result = 0;
@@ -197,6 +198,9 @@ public class Database {
             sta = conn1.createStatement();
             System.out.println("SELECT "+column_name+" FROM "+table+" WHERE id = "+id+";");
             ResultSet rs = sta.executeQuery("SELECT "+column_name+" FROM "+table+" WHERE id = "+id+";");
+            if (rs.next()) {         
+                datum = rs.getString(1);
+            }
             
             if (rs.next()) {
                 datum = rs.getString(1);
@@ -331,5 +335,26 @@ public class Database {
             System.out.println(ex.toString());
             return null;
         }
+    }
+
+    int updateProfile(String datum, int code, int id) {
+        Statement sta;
+        
+        String column = null;
+        int returnCode = 0;
+        if(code == 1){
+            column = "altura";
+        }else if(code == 2){
+            column = "peso";
+        }else if(code == 3){
+            column = "agua_deseada";
+        }
+        try {
+            sta = conn1.createStatement();
+            returnCode = sta.executeUpdate("UPDATE cuenta SET " + column + " = " + datum + " WHERE id ="+id+";");
+        } catch (SQLException ex) {
+            System.out.println(ex.toString());
+        }
+    return returnCode;
     }
 }

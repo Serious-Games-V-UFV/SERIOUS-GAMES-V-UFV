@@ -3151,13 +3151,6 @@ id bounceBoth
 id bounceEnd
 id bounceStart
 id btn_add
-id btn_nav_goals
-id btn_nav_home
-id btn_nav_hydrate
-id btn_nav_profile
-id btn_nav_social
-id btn_nav_stats
-id btn_nav_tools
 id buttonPanel
 id cache_measures
 id callMeasure
@@ -3361,6 +3354,10 @@ id mtrl_picker_text_input_range_start
 id mtrl_picker_title_text
 id mtrl_view_tag_bottom_padding
 id multiply
+id navHome
+id navSocial
+id navStats
+id navTools
 id navigation_bar_item_active_indicator_view
 id navigation_bar_item_icon_container
 id navigation_bar_item_icon_view

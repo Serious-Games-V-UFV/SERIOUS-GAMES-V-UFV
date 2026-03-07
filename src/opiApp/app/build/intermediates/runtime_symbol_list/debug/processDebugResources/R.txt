@@ -3150,13 +3150,6 @@ int id bounceBoth 0x7f080060
 int id bounceEnd 0x7f080061
 int id bounceStart 0x7f080062
 int id btn_add 0x7f080063
-int id btn_nav_goals 0x7f080064
-int id btn_nav_home 0x7f080065
-int id btn_nav_hydrate 0x7f080066
-int id btn_nav_profile 0x7f080067
-int id btn_nav_social 0x7f080068
-int id btn_nav_stats 0x7f080069
-int id btn_nav_tools 0x7f08006a
 int id buttonPanel 0x7f08006b
 int id cache_measures 0x7f08006c
 int id callMeasure 0x7f08006d
@@ -3360,6 +3353,10 @@ int id mtrl_picker_text_input_range_start 0x7f080132
 int id mtrl_picker_title_text 0x7f080133
 int id mtrl_view_tag_bottom_padding 0x7f080134
 int id multiply 0x7f080135
+int id navHome 0x7f0801ff
+int id navSocial 0x7f080200
+int id navStats 0x7f080201
+int id navTools 0x7f080202
 int id navigation_bar_item_active_indicator_view 0x7f080136
 int id navigation_bar_item_icon_container 0x7f080137
 int id navigation_bar_item_icon_view 0x7f080138

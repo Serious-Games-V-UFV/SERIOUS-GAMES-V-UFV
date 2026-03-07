@@ -2,7 +2,6 @@
 /src/database/databaseDesktop/nbproject/private/
 /src/database/databaseDesktop/build/
 /src/databaseDesktop/nbproject/private/
-src/opiApp/local.properties
-
-src/opiApp/local.properties
-*.properties
+/src/opiApp/local.properties
+/src/opiApp/build
+/src/opiApp/.idea

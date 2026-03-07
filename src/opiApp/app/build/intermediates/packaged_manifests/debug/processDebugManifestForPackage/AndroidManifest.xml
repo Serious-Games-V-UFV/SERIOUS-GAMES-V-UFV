@@ -41,6 +41,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.example.opiapp.StatsActivity" />
+        <activity android:name="com.example.opiapp.ProfileActivity" />
+        <activity android:name="com.example.opiapp.SocialActivity" />
 
         <provider
             android:name="androidx.startup.InitializationProvider"

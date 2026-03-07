@@ -5,3 +5,4 @@
 src/opiApp/local.properties
 
 src/opiApp/local.properties
+*.properties

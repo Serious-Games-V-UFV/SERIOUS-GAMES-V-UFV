@@ -67,11 +67,16 @@ public class Database {
         return datum;
     }
 
+    /**
+     * Executes a query inserted by the user
+     * @param query query inserted by the user
+     * @return datum asked by the query
+     */
     public String query(String query) {
         Statement sta;
         String datum = "";
         try {
-            sta = con.createStatement();
+            sta = con.preparedStatement();
             ResultSet rs = sta.executeQuery(query);
 
             if (rs.next()) {
@@ -84,15 +89,46 @@ public class Database {
         }
         return datum;
     }
-    public void insertDatum(String table, String column_name, String value) {
+
+    /**
+     * inserts a specific datum into a selected table and column
+     * @param table the table in which the specific piece of datum is inserted
+     * @param column_name the column in which the specific piece of datum is inserted
+     * @param value datum inserted
+     * @return sta.executeUpdate() regarding database | -1 states an error
+     */
+    public int insertDatum(String table, String column_name, String value) {
         Statement sta;
         String query = "INSERT INTO "+table+" ("+column_name+") VALUES ('"+value+"');";
         try {
             sta = con.prepareStatement(query);
             System.out.println(query);
-            int result = sta.executeUpdate(query);
+            return sta.executeUpdate(query);
     } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+        return -1;
+    }
+
+    /**
+     * Updates a datum in an specified table and column
+     * @param table table in which the datum is updated
+     * @param column_name column in which the datum is updated
+     * @param value new value assigned to the datum
+     * @param id for sql syntax and conditional
+     * @return sta.executeUpdate() regarding database | -1 states an error
+     */
+    public int updateDatum(String table, String column_name,String value,String id){
+        Statement sta;
+        String primary= null;
+        String query = "UPDATE" +table+" "+ column_name + value+" WHERE " + id +"= id;";
+        try {
+            sta = con.prepareStatement(query);
+            return sta.executeUpdate(query);
+        } catch (SQLException e) {
+            return -1;
+        }
     }
 }
+
+

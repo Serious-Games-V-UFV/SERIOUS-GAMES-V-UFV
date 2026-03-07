@@ -4,12 +4,16 @@
             "outputFile": "com.example.opiapp-mergeDebugResources-29:/values-v16/values-v16.xml",
             "map": [
                 {
+<<<<<<< Updated upstream
 <<<<<<< HEAD
                     "source": "/home/xerve/.gradle/caches/8.13/transforms/bd0a1810a5afc21b1d7f67c446711275/transformed/core-1.9.0/res/values-v16/values-v16.xml",
 =======
 <<<<<<< HEAD
                     "source": "C:\\Users\\anoga\\.gradle\\caches\\8.13\\transforms\\bd0a1810a5afc21b1d7f67c446711275\\transformed\\core-1.9.0\\res\\values-v16\\values-v16.xml",
 >>>>>>> 73af91c90c095f8123266abe2e69a13ea77bded1
+=======
+                    "source": "C:\\Users\\Alejandro\\.gradle\\caches\\8.13\\transforms\\bd0a1810a5afc21b1d7f67c446711275\\transformed\\core-1.9.0\\res\\values-v16\\values-v16.xml",
+>>>>>>> Stashed changes
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -19,6 +23,7 @@
                     }
                 },
                 {
+<<<<<<< Updated upstream
 <<<<<<< HEAD
                     "source": "/home/xerve/.gradle/caches/8.13/transforms/1bebdb84f8928d9a039d41379e553a1f/transformed/appcompat-1.6.1/res/values-v16/values-v16.xml",
 =======
@@ -27,6 +32,9 @@
                     "source": "/home/smigs/.gradle/caches/8.13/transforms/1bebdb84f8928d9a039d41379e553a1f/transformed/appcompat-1.6.1/res/values-v16/values-v16.xml",
 >>>>>>> de4d7984a747298dd78d70150e26d5d1d574666e
 >>>>>>> 73af91c90c095f8123266abe2e69a13ea77bded1
+=======
+                    "source": "C:\\Users\\Alejandro\\.gradle\\caches\\8.13\\transforms\\1bebdb84f8928d9a039d41379e553a1f\\transformed\\appcompat-1.6.1\\res\\values-v16\\values-v16.xml",
+>>>>>>> Stashed changes
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -42,16 +50,6 @@
                         "endLines": "6",
                         "endColumns": "12",
                         "endOffsets": "289"
-                    }
-                },
-                {
-                    "source": "/home/smigs/.gradle/caches/8.13/transforms/bd0a1810a5afc21b1d7f67c446711275/transformed/core-1.9.0/res/values-v16/values-v16.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "65",
-                        "endOffsets": "116"
                     }
                 }
             ]

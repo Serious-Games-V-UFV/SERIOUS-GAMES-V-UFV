@@ -4,6 +4,7 @@
             "outputFile": "com.example.opiapp-mergeDebugResources-29:/values-v28/values-v28.xml",
             "map": [
                 {
+<<<<<<< Updated upstream
 <<<<<<< HEAD
                     "source": "/home/xerve/.gradle/caches/8.13/transforms/7d4abf3f63802da34012a61d4b46f1a4/transformed/material-1.10.0/res/values-v28/values-v28.xml",
 =======
@@ -13,6 +14,9 @@
                     "source": "/home/smigs/.gradle/caches/8.13/transforms/7d4abf3f63802da34012a61d4b46f1a4/transformed/material-1.10.0/res/values-v28/values-v28.xml",
 >>>>>>> de4d7984a747298dd78d70150e26d5d1d574666e
 >>>>>>> 73af91c90c095f8123266abe2e69a13ea77bded1
+=======
+                    "source": "C:\\Users\\Alejandro\\.gradle\\caches\\8.13\\transforms\\7d4abf3f63802da34012a61d4b46f1a4\\transformed\\material-1.10.0\\res\\values-v28\\values-v28.xml",
+>>>>>>> Stashed changes
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -31,6 +35,7 @@
                     }
                 },
                 {
+<<<<<<< Updated upstream
 <<<<<<< HEAD
                     "source": "/home/xerve/.gradle/caches/8.13/transforms/1bebdb84f8928d9a039d41379e553a1f/transformed/appcompat-1.6.1/res/values-v28/values-v28.xml",
 =======
@@ -40,6 +45,9 @@
                     "source": "/home/smigs/.gradle/caches/8.13/transforms/1bebdb84f8928d9a039d41379e553a1f/transformed/appcompat-1.6.1/res/values-v28/values-v28.xml",
 >>>>>>> de4d7984a747298dd78d70150e26d5d1d574666e
 >>>>>>> 73af91c90c095f8123266abe2e69a13ea77bded1
+=======
+                    "source": "C:\\Users\\Alejandro\\.gradle\\caches\\8.13\\transforms\\1bebdb84f8928d9a039d41379e553a1f\\transformed\\appcompat-1.6.1\\res\\values-v28\\values-v28.xml",
+>>>>>>> Stashed changes
                     "from": {
                         "startLines": "2,3,4,8",
                         "startColumns": "4,4,4,4",

@@ -4,6 +4,7 @@
             "outputFile": "com.example.opiapp-mergeDebugResources-29:/values-hdpi-v4/values-hdpi-v4.xml",
             "map": [
                 {
+<<<<<<< Updated upstream
 <<<<<<< HEAD
                     "source": "/home/xerve/.gradle/caches/8.13/transforms/1bebdb84f8928d9a039d41379e553a1f/transformed/appcompat-1.6.1/res/values-hdpi-v4/values-hdpi-v4.xml",
 =======
@@ -13,6 +14,9 @@
                     "source": "/home/smigs/.gradle/caches/8.13/transforms/1bebdb84f8928d9a039d41379e553a1f/transformed/appcompat-1.6.1/res/values-hdpi-v4/values-hdpi-v4.xml",
 >>>>>>> de4d7984a747298dd78d70150e26d5d1d574666e
 >>>>>>> 73af91c90c095f8123266abe2e69a13ea77bded1
+=======
+                    "source": "C:\\Users\\Alejandro\\.gradle\\caches\\8.13\\transforms\\1bebdb84f8928d9a039d41379e553a1f\\transformed\\appcompat-1.6.1\\res\\values-hdpi-v4\\values-hdpi-v4.xml",
+>>>>>>> Stashed changes
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

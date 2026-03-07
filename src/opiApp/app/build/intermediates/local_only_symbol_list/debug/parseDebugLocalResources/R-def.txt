@@ -24,6 +24,7 @@ layout activity_main
 mipmap ic_launcher
 mipmap ic_launcher_round
 string app_name
+string totalDrunk
 style Base.Theme.OpiApp
 style Theme.OpiApp
 xml backup_rules

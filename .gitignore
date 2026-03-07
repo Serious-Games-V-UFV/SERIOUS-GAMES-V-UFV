@@ -1,5 +1,9 @@
 /.vscode/
 /src/database/databaseDesktop/nbproject/private/
 /src/database/databaseDesktop/build/
+<<<<<<< HEAD
 src/opiApp/local.properties
+=======
+local.properties
+>>>>>>> 73af91c90c095f8123266abe2e69a13ea77bded1
 /src/databaseDesktop/nbproject/private/

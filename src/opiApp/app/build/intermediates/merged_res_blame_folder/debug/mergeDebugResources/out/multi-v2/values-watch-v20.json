@@ -4,7 +4,15 @@
             "outputFile": "com.example.opiapp-mergeDebugResources-29:/values-watch-v20/values-watch-v20.xml",
             "map": [
                 {
+<<<<<<< HEAD
                     "source": "/home/xerve/.gradle/caches/8.13/transforms/1bebdb84f8928d9a039d41379e553a1f/transformed/appcompat-1.6.1/res/values-watch-v20/values-watch-v20.xml",
+=======
+<<<<<<< HEAD
+                    "source": "C:\\Users\\anoga\\.gradle\\caches\\8.13\\transforms\\1bebdb84f8928d9a039d41379e553a1f\\transformed\\appcompat-1.6.1\\res\\values-watch-v20\\values-watch-v20.xml",
+=======
+                    "source": "/home/smigs/.gradle/caches/8.13/transforms/1bebdb84f8928d9a039d41379e553a1f/transformed/appcompat-1.6.1/res/values-watch-v20/values-watch-v20.xml",
+>>>>>>> de4d7984a747298dd78d70150e26d5d1d574666e
+>>>>>>> 73af91c90c095f8123266abe2e69a13ea77bded1
                     "from": {
                         "startLines": "2,5,8",
                         "startColumns": "4,4,4",

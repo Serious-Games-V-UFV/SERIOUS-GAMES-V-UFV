@@ -4,7 +4,15 @@
             "outputFile": "com.example.opiapp-mergeDebugResources-29:/values-w600dp-land-v13/values-w600dp-land-v13.xml",
             "map": [
                 {
+<<<<<<< HEAD
                     "source": "/home/xerve/.gradle/caches/8.13/transforms/7d4abf3f63802da34012a61d4b46f1a4/transformed/material-1.10.0/res/values-w600dp-land-v13/values-w600dp-land-v13.xml",
+=======
+<<<<<<< HEAD
+                    "source": "C:\\Users\\anoga\\.gradle\\caches\\8.13\\transforms\\7d4abf3f63802da34012a61d4b46f1a4\\transformed\\material-1.10.0\\res\\values-w600dp-land-v13\\values-w600dp-land-v13.xml",
+=======
+                    "source": "/home/smigs/.gradle/caches/8.13/transforms/7d4abf3f63802da34012a61d4b46f1a4/transformed/material-1.10.0/res/values-w600dp-land-v13/values-w600dp-land-v13.xml",
+>>>>>>> de4d7984a747298dd78d70150e26d5d1d574666e
+>>>>>>> 73af91c90c095f8123266abe2e69a13ea77bded1
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

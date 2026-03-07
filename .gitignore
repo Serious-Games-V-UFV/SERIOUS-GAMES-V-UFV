@@ -1,7 +1,39 @@
-/.vscode/
-/src/database/databaseDesktop/nbproject/private/
-/src/database/databaseDesktop/build/
-/src/databaseDesktop/nbproject/private/
-/src/opiApp/local.properties
-/src/opiApp/build
-/src/opiApp/.idea
+# Android Studio / IntelliJ
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# Gradle
+.gradle/
+build/
+gradle-app.setting
+!gradle-wrapper.jar
+
+# Local properties (SDK paths, keys)
+src/opiApp/local.properties
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# VS Code
+.vscode/
+
+# Logs
+*.log
+
+# Keystore (¡MUY IMPORTANTE! nunca subas claves)
+*.jks
+*.keystore
+
+# Generated files
+gen/
+out/
+
+# Vim/Nano temp files
+*.swp
+*.swo
+*~

@@ -3145,11 +3145,19 @@ id beginning
 id bestChoice
 id blocking
 id bottom
+id bottom_nav
 id bounce
 id bounceBoth
 id bounceEnd
 id bounceStart
 id btn_add
+id btn_nav_goals
+id btn_nav_home
+id btn_nav_hydrate
+id btn_nav_profile
+id btn_nav_social
+id btn_nav_stats
+id btn_nav_tools
 id buttonPanel
 id cache_measures
 id callMeasure
@@ -3283,6 +3291,7 @@ id jumpToEnd
 id jumpToStart
 id labeled
 id layout
+id lbl_interval
 id left
 id leftToRight
 id legacy
@@ -3482,6 +3491,7 @@ id submenuarrow
 id submit_area
 id supportScrollUp
 id tabMode
+id tabs
 id tag_accessibility_actions
 id tag_accessibility_clickable_spans
 id tag_accessibility_heading
@@ -3516,6 +3526,7 @@ id title
 id titleDividerNoCustom
 id title_template
 id toggle
+id toolbar
 id top
 id topPanel
 id touch_outside
@@ -3666,6 +3677,9 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_main
+layout activity_profile
+layout activity_social
+layout activity_stats
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog

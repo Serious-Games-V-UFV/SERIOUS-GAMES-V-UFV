@@ -3,6 +3,8 @@ package com.example.opiapp;
 import android.Manifest;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -93,6 +95,8 @@ public class MainActivity extends AppCompatActivity {
             });
         }
     }
+
+
 
     private void createNotificationChannel() {
         // Create the NotificationChannel, but only on API 26+ because

@@ -5,188 +5,213 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_dark"
-    tools:context=".MainActivity">
+    android:background="@color/bg_dark">
 
-    <!-- Header Section -->
+    <!-- 1. TOOLBAR SUPERIOR -->
     <LinearLayout
-        android:id="@+id/header"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="20dp"
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
         android:gravity="center_vertical"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        android:orientation="horizontal"
+        android:paddingHorizontal="16dp"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <View
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="@drawable/bg_card" />
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@android:drawable/ic_menu_sort_by_size"
+            app:tint="@color/white" />
 
-        <LinearLayout
+        <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_marginStart="12dp"
-            android:orientation="vertical">
+            android:gravity="center"
+            android:text="Community"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Good Morning,"
-                android:textColor="@color/text_secondary"
-                android:textSize="12sp" />
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@android:drawable/ic_popup_reminder"
+            app:tint="@color/white" />
+    </LinearLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Alex Rivers"
-                android:textColor="@color/text_primary"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-        </LinearLayout>
+    <!-- 2. SUB-TABS (Forum / Challenges) -->
+    <LinearLayout
+        android:id="@+id/tabs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingHorizontal="16dp"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_card"
-            android:paddingHorizontal="12dp"
-            android:paddingVertical="4dp"
-            android:text="● DEVICE CONNECTED"
-            android:textColor="@color/success_green"
-            android:textSize="10sp" />
-    </LinearLayout>
+            android:padding="12dp"
+            android:text="Forum"
+            android:textColor="@color/accent_blue"
+            android:textStyle="bold" />
 
-    <!-- Progress Circle Area -->
-    <FrameLayout
-        android:id="@+id/progress_container"
-        android:layout_width="240dp"
-        android:layout_height="240dp"
-        android:layout_marginTop="40dp"
-        android:background="@drawable/bg_circle_placeholder"
-        app:layout_constraintTop_toBottomOf="@id/header"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <LinearLayout
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/tv_progress_value"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/totalDrunk"
-                android:textColor="@color/text_primary"
-                android:textSize="32sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="HYDRATED"
-                android:textColor="@color/text_secondary"
-                android:textSize="14sp" />
-        </LinearLayout>
-    </FrameLayout>
-
-    <!-- Add Button -->
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_add"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:background="@drawable/bg_button_orange"
-        android:paddingHorizontal="32dp"
-        android:text="+ Add 250ml"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        app:layout_constraintTop_toBottomOf="@id/progress_container"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <!-- Stats Row -->
-    <LinearLayout
-        android:id="@+id/stats_row"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:paddingHorizontal="20dp"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/btn_add"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginEnd="10dp"
-            android:background="@drawable/bg_card"
-            android:padding="20dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="14 Days"
-                android:textColor="@color/text_primary"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Drinking Streak"
-                android:textColor="@color/text_secondary"
-                android:textSize="12sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginStart="10dp"
-            android:background="@drawable/bg_card"
-            android:padding="20dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="2.2L"
-                android:textColor="@color/text_primary"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Weekly Intake"
-                android:textColor="@color/text_secondary"
-                android:textSize="12sp" />
-        </LinearLayout>
+            android:padding="12dp"
+            android:text="Challenges"
+            android:textColor="@color/text_secondary" />
     </LinearLayout>
 
-    <!-- Bottom Navigation Mock -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/bottom_nav"
+        app:layout_constraintTop_toBottomOf="@id/tabs">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- 3. SECCIÓN ACTIVE VERSUS -->
+            <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Active Versus" android:textColor="@color/white" android:textSize="18sp" android:textStyle="bold" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentEnd="true" android:text="View All" android:textColor="@color/accent_blue" />
+            </RelativeLayout>
+
+            <!-- Card Horizontal (Versus) -->
+            <LinearLayout
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_card"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center" android:orientation="horizontal">
+                    <View android:layout_width="50dp" android:layout_height="50dp" android:background="@drawable/bg_circle_placeholder" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginHorizontal="10dp" android:text="VS" android:textColor="@color/accent_blue" android:textStyle="italic" />
+                    <View android:layout_width="50dp" android:layout_height="50dp" android:background="@drawable/bg_circle_placeholder" android:backgroundTint="#FF9800" />
+                </LinearLayout>
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:text="vs. Alex Rivera" android:textColor="@color/white" android:textStyle="bold" />
+                <ProgressBar style="@android:style/Widget.ProgressBar.Horizontal" android:layout_width="match_parent" android:layout_height="8dp" android:layout_marginTop="8dp" android:progress="60" android:progressTint="@color/accent_blue" />
+            </LinearLayout>
+
+            <!-- 4. SECCIÓN ACTIVE TOPICS (Feed) -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Active Topics"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <!-- Post Item 1 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="228dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_card"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/bg_circle_placeholder" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Marc Jacobs"
+                            android:textColor="@color/white"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="TIPS &amp; TRICKS"
+                            android:textColor="@color/accent_blue"
+                            android:textSize="10sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="&quot;How I finally hit 4L a day without constant bathroom breaks!&quot;"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="The secret isn't drinking more at once, but consistent small sips every 15 minutes..."
+                    android:textColor="@color/text_secondary"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <Button
+                android:layout_width="315dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="@color/bg_dark"
+                android:text="Load more topics..."
+                android:textAllCaps="false"
+                android:textColor="@color/text_secondary" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Botón Flotante (+) -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="24dp"
+        android:src="@android:drawable/ic_input_add"
+        android:contentDescription="Crear nueva publicación"
+        app:backgroundTint="@color/accent_blue"
+        app:layout_constraintBottom_toTopOf="@id/bottom_nav"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:tint="@color/white" />
+
+    <!-- 6. BOTTOM NAVIGATION (Igual que en las otras ventanas) -->
     <LinearLayout
+        android:id="@+id/bottom_nav"
         android:layout_width="0dp"
         android:layout_height="70dp"
         android:background="@drawable/bg_card"
         android:orientation="horizontal"
         android:gravity="center"
-        android:elevation="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="HOME" android:textColor="@color/accent_blue" android:gravity="center" android:textSize="10sp" android:textStyle="bold"/>
-        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="STATS" android:textColor="@color/text_secondary" android:gravity="center" android:textSize="10sp"/>
-        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="SOCIAL" android:textColor="@color/text_secondary" android:gravity="center" android:textSize="10sp"/>
-        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="TOOLS" android:textColor="@color/text_secondary" android:gravity="center" android:textSize="10sp"/>
+        <TextView android:id="@+id/btn_nav_home" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Home" android:textColor="@color/text_secondary" android:gravity="center" android:textSize="10sp" />
+        <TextView android:id="@+id/btn_nav_hydrate" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Hydrate" android:textColor="@color/text_secondary" android:gravity="center" android:textSize="10sp"/>
+        <TextView android:id="@+id/btn_nav_social" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Social" android:textColor="@color/accent_blue" android:gravity="center" android:textSize="10sp" android:textStyle="bold"/>
+        <TextView android:id="@+id/btn_nav_profile" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Profile" android:textColor="@color/text_secondary" android:gravity="center" android:textSize="10sp"/>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

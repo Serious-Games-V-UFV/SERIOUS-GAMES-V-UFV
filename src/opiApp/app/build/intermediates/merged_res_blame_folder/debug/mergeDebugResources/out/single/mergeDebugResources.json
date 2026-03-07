@@ -28,12 +28,20 @@
         "source": "com.example.opiapp-main-33:/xml/backup_rules.xml"
     },
     {
+        "merged": "com.example.opiapp-debug-31:/layout_activity_profile.xml.flat",
+        "source": "com.example.opiapp-main-33:/layout/activity_profile.xml"
+    },
+    {
         "merged": "com.example.opiapp-debug-31:/layout_activity_main.xml.flat",
         "source": "com.example.opiapp-main-33:/layout/activity_main.xml"
     },
     {
         "merged": "com.example.opiapp-debug-31:/mipmap-mdpi_ic_launcher.webp.flat",
         "source": "com.example.opiapp-main-33:/mipmap-mdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.opiapp-debug-31:/layout_activity_social.xml.flat",
+        "source": "com.example.opiapp-main-33:/layout/activity_social.xml"
     },
     {
         "merged": "com.example.opiapp-debug-31:/drawable_ic_launcher_foreground.xml.flat",
@@ -68,12 +76,16 @@
         "source": "com.example.opiapp-main-33:/drawable/bg_card.xml"
     },
     {
-        "merged": "com.example.opiapp-debug-31:/drawable_bg_button_orange.xml.flat",
-        "source": "com.example.opiapp-main-33:/drawable/bg_button_orange.xml"
+        "merged": "com.example.opiapp-debug-31:/layout_activity_stats.xml.flat",
+        "source": "com.example.opiapp-main-33:/layout/activity_stats.xml"
     },
     {
         "merged": "com.example.opiapp-debug-31:/mipmap-mdpi_ic_launcher_round.webp.flat",
         "source": "com.example.opiapp-main-33:/mipmap-mdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.opiapp-debug-31:/drawable_bg_button_orange.xml.flat",
+        "source": "com.example.opiapp-main-33:/drawable/bg_button_orange.xml"
     },
     {
         "merged": "com.example.opiapp-debug-31:/mipmap-xxhdpi_ic_launcher.webp.flat",

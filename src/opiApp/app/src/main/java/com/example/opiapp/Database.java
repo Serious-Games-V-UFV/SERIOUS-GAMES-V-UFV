@@ -44,10 +44,11 @@ public class Database {
     public String getDatum(String table, String column_name,int id) {
         Statement sta;
         String datum = "";
+        String query ="SELECT "+column_name+" FROM "+table+" WHERE id = "+id+";";
         try {
-            sta = con.createStatement();
-            System.out.println("SELECT "+column_name+" FROM "+table+" WHERE id = "+id+";");
-            ResultSet rs = sta.executeQuery("SELECT "+column_name+" FROM "+table+" WHERE id = "+id+";");
+            sta = con.prepareStatement(query);
+            System.out.println(query);
+            ResultSet rs = sta.executeQuery(query);
 
             if (rs.next()) {
                 datum = rs.getString(1);
@@ -59,7 +60,15 @@ public class Database {
         return datum;
     }
 
-    public String oyono() {
-        return "";
+    public void insertDatum(String table, String column_name, String value) {
+        Statement sta;
+        String query = "INSERT INTO "+table+" ("+column_name+") VALUES ('"+value+"');";
+        try {
+            sta = con.prepareStatement(query);
+            System.out.println(query);
+            int result = sta.executeUpdate(query);
+    } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }

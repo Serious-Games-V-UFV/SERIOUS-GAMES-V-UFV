@@ -4,7 +4,11 @@
             "outputFile": "com.example.opiapp-mergeDebugResources-29:/values-ldltr-v21/values-ldltr-v21.xml",
             "map": [
                 {
+<<<<<<< HEAD
                     "source": "C:\\Users\\anoga\\.gradle\\caches\\8.13\\transforms\\1bebdb84f8928d9a039d41379e553a1f\\transformed\\appcompat-1.6.1\\res\\values-ldltr-v21\\values-ldltr-v21.xml",
+=======
+                    "source": "/home/smigs/.gradle/caches/8.13/transforms/1bebdb84f8928d9a039d41379e553a1f/transformed/appcompat-1.6.1/res/values-ldltr-v21/values-ldltr-v21.xml",
+>>>>>>> de4d7984a747298dd78d70150e26d5d1d574666e
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

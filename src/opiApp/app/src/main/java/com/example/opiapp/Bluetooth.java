@@ -1,11 +1,11 @@
 package com.example.opiapp;
 
+import android.Manifest;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
-
+import androidx.annotation.RequiresPermission;
 import org.json.JSONObject;
-
 import java.io.InputStream;
 import java.util.UUID;
 
@@ -22,6 +22,7 @@ public class Bluetooth {
         blueadapter = BluetoothAdapter.getDefaultAdapter();
     }
 
+    @RequiresPermission(Manifest.permission.BLUETOOTH_CONNECT)
     public boolean connect(String deviceName) {
         try {
 
@@ -55,7 +56,7 @@ public class Bluetooth {
         try {
 
             byte[] buffer = new byte[1024];
-            int bytes = inputStream.read(buffer);
+            int bytes = inputStream.read();
 
             String message = new String(buffer, 0, bytes);
 

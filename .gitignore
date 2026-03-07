@@ -10,7 +10,7 @@ build/
 gradle-app.setting
 !gradle-wrapper.jar
 
-# Local properties (SDK paths, keys)
+# Local properties (SDK paths)
 src/opiApp/local.properties
 
 # macOS
@@ -25,7 +25,7 @@ Thumbs.db
 # Logs
 *.log
 
-# Keystore (¡MUY IMPORTANTE! nunca subas claves)
+# Keystore
 *.jks
 *.keystore
 

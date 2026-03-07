@@ -7,7 +7,7 @@ public class WaterData {
     public double totalDrunk;
     public boolean bottlePlaced;
 
-    public WaterData(double capacity, int hoursSinceDrink, double totalDrunk, boolean bottlePlaced) {
+    public WaterData(double capacity, int hoursSinceDrink, double totalDrunk, boolean bottlePlaced){
         this.capacity = capacity;
         this.hoursSinceDrink = hoursSinceDrink;
         this.totalDrunk = totalDrunk;

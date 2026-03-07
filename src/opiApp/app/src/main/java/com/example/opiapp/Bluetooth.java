@@ -22,6 +22,7 @@ public class Bluetooth {
         blueadapter = BluetoothAdapter.getDefaultAdapter();
     }
 
+
     @RequiresPermission(Manifest.permission.BLUETOOTH_CONNECT)
     public boolean connect(String deviceName) {
         try {
@@ -74,6 +75,14 @@ public class Bluetooth {
         }
 
         return null;
+    }
+    public WaterData readData(boolean develop){
+    //TODO: BORRAR AL TERMINAR EL DESARROLLO
+        double capacity = 740;
+        int hoursSinceDrink = 3;
+        double totalDrunk = 3.4;
+        boolean bottlePlaced = false;
+        return new WaterData(capacity, hoursSinceDrink, totalDrunk, bottlePlaced);
     }
 
     public void disconnect() {

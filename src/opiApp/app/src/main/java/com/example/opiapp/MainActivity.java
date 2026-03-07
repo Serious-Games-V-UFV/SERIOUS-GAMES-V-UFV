@@ -63,9 +63,9 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
         // TODO: Integrate it with ScheduledExecutorService (https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ScheduledExecutorService.html)
-            WaterData receivedData = btcon.readData();
+            WaterData receivedData = btcon.readData(true);
             processWaterData(receivedData);
-            
+
         createNotificationChannel();
         requestNotificationPermission();
 
@@ -160,9 +160,9 @@ public class MainActivity extends AppCompatActivity {
      * @param dataStream data received
      */
     private void processWaterData(WaterData dataStream){
-        capacity = water.capacity;
-        currentHydration += water.totalDrunk;
-        bottlePlaced = water.bottlePlaced;
-        hoursSinceDrink = water.hoursSinceDrink;
+        capacity = dataStream.capacity;
+        currentHydration += dataStream.totalDrunk;
+        bottlePlaced = dataStream.bottlePlaced;
+        hoursSinceDrink = dataStream.hoursSinceDrink;
     }
 }

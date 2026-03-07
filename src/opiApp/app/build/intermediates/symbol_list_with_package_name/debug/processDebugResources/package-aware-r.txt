@@ -1345,14 +1345,17 @@ color abc_tint_edittext
 color abc_tint_seek_thumb
 color abc_tint_spinner
 color abc_tint_switch_track
+color accent_blue
 color accent_material_dark
 color accent_material_light
+color accent_orange
 color androidx_core_ripple_material_light
 color androidx_core_secondary_text_default_material_light
 color background_floating_material_dark
 color background_floating_material_light
 color background_material_dark
 color background_material_light
+color bg_dark
 color black
 color bright_foreground_disabled_material_dark
 color bright_foreground_disabled_material_light
@@ -1362,6 +1365,7 @@ color bright_foreground_material_dark
 color bright_foreground_material_light
 color button_material_dark
 color button_material_light
+color card_dark
 color cardview_dark_background
 color cardview_light_background
 color cardview_shadow_end_color
@@ -2054,12 +2058,15 @@ color secondary_text_default_material_dark
 color secondary_text_default_material_light
 color secondary_text_disabled_material_dark
 color secondary_text_disabled_material_light
+color success_green
 color switch_thumb_disabled_material_dark
 color switch_thumb_disabled_material_light
 color switch_thumb_material_dark
 color switch_thumb_material_light
 color switch_thumb_normal_material_dark
 color switch_thumb_normal_material_light
+color text_primary
+color text_secondary
 color tooltip_background_dark
 color tooltip_background_light
 color white
@@ -2939,6 +2946,9 @@ drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable avd_hide_password
 drawable avd_show_password
+drawable bg_button_orange
+drawable bg_card
+drawable bg_circle_placeholder
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
 drawable btn_checkbox_unchecked_mtrl
@@ -3139,6 +3149,7 @@ id bounce
 id bounceBoth
 id bounceEnd
 id bounceStart
+id btn_add
 id buttonPanel
 id cache_measures
 id callMeasure
@@ -3247,6 +3258,7 @@ id graph_wrap
 id group_divider
 id grouping
 id groups
+id header
 id header_title
 id hideable
 id home
@@ -3394,6 +3406,7 @@ id position
 id postLayout
 id pressed
 id progress_circular
+id progress_container
 id progress_horizontal
 id radio
 id ratio
@@ -3462,6 +3475,7 @@ id startToEnd
 id startVertical
 id staticLayout
 id staticPostLayout
+id stats_row
 id stop
 id stretch
 id submenuarrow
@@ -3513,6 +3527,7 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id triangle
+id tv_progress_value
 id unchecked
 id uniform
 id unlabeled

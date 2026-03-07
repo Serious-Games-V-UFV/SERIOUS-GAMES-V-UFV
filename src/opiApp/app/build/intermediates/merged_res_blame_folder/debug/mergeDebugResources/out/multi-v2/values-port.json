@@ -4,7 +4,7 @@
             "outputFile": "com.example.opiapp-mergeDebugResources-29:/values-port/values-port.xml",
             "map": [
                 {
-                    "source": "/home/smigs/.gradle/caches/8.13/transforms/1bebdb84f8928d9a039d41379e553a1f/transformed/appcompat-1.6.1/res/values-port/values-port.xml",
+                    "source": "C:\\Users\\Alejandro\\.gradle\\caches\\8.13\\transforms\\1bebdb84f8928d9a039d41379e553a1f\\transformed\\appcompat-1.6.1\\res\\values-port\\values-port.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

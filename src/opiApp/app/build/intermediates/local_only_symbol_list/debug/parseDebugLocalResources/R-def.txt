@@ -1,10 +1,25 @@
 R_DEF: Internal format may change without notice
 local
+color accent_blue
+color accent_orange
+color bg_dark
 color black
+color card_dark
+color success_green
+color text_primary
+color text_secondary
 color white
+drawable bg_button_orange
+drawable bg_card
+drawable bg_circle_placeholder
 drawable ic_launcher_background
 drawable ic_launcher_foreground
+id btn_add
+id header
 id main
+id progress_container
+id stats_row
+id tv_progress_value
 layout activity_main
 mipmap ic_launcher
 mipmap ic_launcher_round

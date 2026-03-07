@@ -61,4 +61,6 @@ public class MainActivity extends AppCompatActivity {
         String progressText = String.format("%.1f / %.1fL", currentHydration, targetHydration);
         tvProgressValue.setText(progressText);
     }
+
+    
 }

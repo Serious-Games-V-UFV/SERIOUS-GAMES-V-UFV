@@ -19,6 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "opiApp"
+rootProject.name = "Opi App"
 include(":app")
- 

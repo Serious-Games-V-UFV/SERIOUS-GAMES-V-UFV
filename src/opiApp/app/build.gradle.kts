@@ -4,14 +4,13 @@ plugins {
 
 android {
     namespace = "com.example.opiapp"
-    compileSdk {
-        version = release(36)
-    }
+    // Se cambia a 35 (Android 15) que es la versión estable actual
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.opiapp"
         minSdk = 31
-        targetSdk = 36
+        targetSdk = 35 // Ajustado a 35 para coincidir con compileSdk
         versionCode = 1
         versionName = "1.0"
 
@@ -27,6 +26,7 @@ android {
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11

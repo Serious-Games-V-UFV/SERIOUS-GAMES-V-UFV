@@ -171,7 +171,7 @@ void setup() {
   //TODO Descomentar linea siguiente cuando conectemos bascula | Delete following comment when the scale is connected
   // scale.begin(weight, weightSCK);
   Serial.begin(115200);
-  SerialBT.begin("Hidratacion");
+  SerialBT.begin("OPI bag");
   pixel.begin();
   
   // * Configuracion scale | Scale config

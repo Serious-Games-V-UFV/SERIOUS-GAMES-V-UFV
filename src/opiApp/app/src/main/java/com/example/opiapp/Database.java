@@ -46,7 +46,6 @@ public class Database {
         String datum = "";
         try {
             sta = con.createStatement();
-            System.out.println("SELECT "+column_name+" FROM "+table+" WHERE id = "+id+";");
             ResultSet rs = sta.executeQuery("SELECT "+column_name+" FROM "+table+" WHERE id = "+id+";");
 
             if (rs.next()) {
@@ -59,7 +58,21 @@ public class Database {
         return datum;
     }
 
-    public String oyono() {
-        return "";
+    public String query(String query) {
+        Statement sta;
+        String datum = "";
+        try {
+            sta = con.createStatement();
+            ResultSet rs = sta.executeQuery(query);
+
+            if (rs.next()) {
+                datum = rs.getString(1);
+            }
+
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+
+        }
+        return datum;
     }
 }

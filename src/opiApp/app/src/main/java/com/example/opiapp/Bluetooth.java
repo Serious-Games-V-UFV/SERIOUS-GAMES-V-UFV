@@ -11,7 +11,7 @@ import java.util.UUID;
 
 public class Bluetooth {
 
-    private BluetoothAdapter adapter;
+    private BluetoothAdapter blueadapter;
     private BluetoothSocket socket;
     private InputStream inputStream;
 
@@ -19,25 +19,25 @@ public class Bluetooth {
             UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
 
     public Bluetooth() {
-        adapter = BluetoothAdapter.getDefaultAdapter();
+        blueadapter = BluetoothAdapter.getDefaultAdapter();
     }
 
     public boolean connect(String deviceName) {
         try {
 
-            BluetoothDevice device = null;
+            BluetoothDevice bluedevice = null;
 
-            for (BluetoothDevice d : adapter.getBondedDevices()) {
+            for (BluetoothDevice d : blueadapter.getBondedDevices()) {
                 if (d.getName().equals(deviceName)) {
-                    device = d;
+                    bluedevice = d;
                     break;
                 }
             }
 
-            if (device == null)
+            if (bluedevice == null)
                 return false;
 
-            socket = device.createRfcommSocketToServiceRecord(UUID_BT);
+            socket = bluedevice.createRfcommSocketToServiceRecord(UUID_BT);
             socket.connect();
 
             inputStream = socket.getInputStream();
@@ -45,7 +45,7 @@ public class Bluetooth {
             return true;
 
         } catch (Exception e) {
-            e.printStackTrace();
+            System.err.println(e.toString());
             return false;
         }
     }

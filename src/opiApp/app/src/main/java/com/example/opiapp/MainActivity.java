@@ -3,7 +3,6 @@ package com.example.opiapp;
 import android.Manifest;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
-import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -29,6 +28,13 @@ public class MainActivity extends AppCompatActivity {
     private Button btnAdd;
     private double currentHydration = 0.0;
     private final double targetHydration = 5;   // cambiarlo a que sea el valor de la variable de la base de datos aguaDeseada
+    private boolean bottlePlaced = false;
+    private int hoursSinceDrink = 0;
+    private double capacity = 750;
+
+    Bluetooth btcon = new Bluetooth();
+
+
 
     private static final String CHANNEL_ID = "hydration_notifications";
     private static final int NOTIFICATION_ID = 1;
@@ -56,7 +62,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-
+        // TODO: Integrate it with ScheduledExecutorService (https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ScheduledExecutorService.html)
+            WaterData receivedData = btcon.readData();
+            processWaterData(receivedData);
+            
         createNotificationChannel();
         requestNotificationPermission();
 
@@ -144,5 +153,16 @@ public class MainActivity extends AppCompatActivity {
         } catch (Exception e) {
             return 1;
         }
+    }
+
+    /**
+     * Process the data received by the bluetooth connection
+     * @param dataStream data received
+     */
+    private void processWaterData(WaterData dataStream){
+        capacity = water.capacity;
+        currentHydration += water.totalDrunk;
+        bottlePlaced = water.bottlePlaced;
+        hoursSinceDrink = water.hoursSinceDrink;
     }
 }

@@ -1,8 +1,0 @@
-[19:05:45 2026-03-05] FETCHING Version 2.42.13
-[19:05:45 2026-03-05] DOWNLOADING https://github.com/spicetify/cli/releases/download/v2.42.13/spicetify-2.42.13-linux-amd64.tar.gz
-[19:05:46 2026-03-05] EXTRACTING /home/xerve/.spicetify/spicetify.tar.gz
-[19:05:46 2026-03-05] SETTING EXECUTABLE PERMISSIONS TO /home/xerve/.spicetify/spicetify
-[19:05:46 2026-03-05] REMOVING /home/xerve/.spicetify/spicetify.tar.gz
-[19:05:46 2026-03-05] spicetify path already set in /home/xerve/.bashrc, continuing...
-[19:05:46 2026-03-05] spicetify v2.42.13 was installed successfully to /home/xerve/.spicetify
-[19:05:46 2026-03-05] Run 'spicetify --help' to get started

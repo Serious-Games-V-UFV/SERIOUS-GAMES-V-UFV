@@ -1,57 +1,49 @@
-CREATE DATABASE opi_backend
-CHARACTER SET utf8mb4
-COLLATE utf8mb4_unicode_ci;
- 
+CREATE DATABASE opi_backend;
 USE opi_backend;
+CREATE TABLE `account` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `first_name` VARCHAR(45) NOT NULL,
+  `last_name1` VARCHAR(45) NOT NULL,
+  `last_name2` VARCHAR(45) DEFAULT NULL,
+  `phone` VARCHAR(9) DEFAULT NULL,
+  `email` VARCHAR(45) NOT NULL,
+  `height` INT NOT NULL,
+  `weight` INT NOT NULL,
+  `birth_date` DATE DEFAULT NULL,
+  `desired_water` INT NOT NULL,
+  `last_login` DATE DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `email` (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-CREATE TABLE account(
-    dni VARCHAR(9) NOT NULL UNIQUE KEY,
-    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    email VARCHAR(255) NOT NULL UNIQUE KEY,
-    password VARCHAR(255) NOT NULL,
-    first_name VARCHAR(50) NULL,
-    last_name1 VARCHAR(100) NULL,
-    last_name2 VARCHAR(100) NULL,
-    weight DECIMAL(10,2) UNSIGNED NULL,
-    height SMALLINT UNSIGNED NULL,
-    phone VARCHAR(15) NULL,
-    birth_date DATE NULL,
-    desired_water DECIMAL DEFAULT 2.5,
-    last_login DATETIME DEFAULT NULL
-);
+CREATE TABLE `bag` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `type` VARCHAR(45) NOT NULL,
+  `color` VARCHAR(45) NOT NULL,
+  `first_connection` DATE DEFAULT NULL,
+  `account_id` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `bag_ibfk_1` (`account_id`),
+  CONSTRAINT `bag_ibfk_1` FOREIGN KEY (`account_id`) REFERENCES `account` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-CREATE TABLE bag(
-    id BIGINT AUTO_INCREMENT NOT NULL PRIMARY KEY,
-    color VARCHAR(40) NOT NULL,
-    first_connection DATE DEFAULT NULL,
-    account BIGINT UNSIGNED NOT NULL,
-    FOREIGN KEY (account) REFERENCES account(id) ON UPDATE CASCADE ON DELETE RESTRICT
-);
+CREATE TABLE `event` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `type` VARCHAR(45) NOT NULL,
+  `data` VARCHAR(45) NOT NULL,
+  `date` DATE DEFAULT NULL,
+  `bag_id` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `event_ibfk_1` (`bag_id`),
+  CONSTRAINT `event_ibfk_1` FOREIGN KEY (`bag_id`) REFERENCES `bag` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-CREATE TABLE sensors(
-    id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
-    type VARCHAR(255) NOT NULL,
-    status BOOLEAN NOT NULL
-);
-
-CREATE TABLE bag_sensors(
-    bag BIGINT NOT NULL,
-    sensor INT NOT NULL,
-    FOREIGN KEY (bag) REFERENCES bag(id) ON UPDATE CASCADE ON DELETE RESTRICT,
-    FOREIGN KEY (sensor) REFERENCES sensors(id) ON UPDATE CASCADE ON DELETE RESTRICT,
-    PRIMARY KEY (bag, sensor)
-);
-
-CREATE TABLE measurements(
-    id VARCHAR(255) NOT NULL PRIMARY KEY,
-    value DECIMAL(10,2) NOT NULL
-);
-
-CREATE TABLE sensor_measurements(
-    measurement VARCHAR(255) NOT NULL,
-    sensor INT NOT NULL,
-    measurement_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (sensor) REFERENCES sensors(id) ON UPDATE CASCADE ON DELETE RESTRICT,
-    FOREIGN KEY (measurement) REFERENCES measurements(id) ON UPDATE CASCADE ON DELETE RESTRICT,
-    PRIMARY KEY (sensor, measurement, measurement_date)
-);
+CREATE TABLE `daily_reminder` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `date` DATE DEFAULT NULL,
+  `amount_drunk` INT NOT NULL,
+  `account_id` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `daily_reminder_ibfk_1` (`account_id`),
+  CONSTRAINT `daily_reminder_ibfk_1` FOREIGN KEY (`account_id`) REFERENCES `account` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;

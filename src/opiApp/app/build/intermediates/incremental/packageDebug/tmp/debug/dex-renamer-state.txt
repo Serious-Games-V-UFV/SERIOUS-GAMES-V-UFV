@@ -1,7 +1,7 @@
-#Sat Mar 07 12:18:27 CET 2026
-base.0=/home/smigs/Scripts/Git_Repos/opi/src/opiApp/app/build/intermediates/dex/debug/mergeExtDexDebug/classes.dex
-base.1=/home/smigs/Scripts/Git_Repos/opi/src/opiApp/app/build/intermediates/dex/debug/mergeProjectDexDebug/0/classes.dex
-base.2=/home/smigs/Scripts/Git_Repos/opi/src/opiApp/app/build/intermediates/dex/debug/mergeProjectDexDebug/1/classes.dex
+#Sat Mar 07 14:26:28 CET 2026
+base.0=/home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/build/intermediates/dex/debug/mergeExtDexDebug/classes.dex
+base.1=/home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/build/intermediates/dex/debug/mergeProjectDexDebug/0/classes.dex
+base.2=/home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/build/intermediates/dex/debug/mergeProjectDexDebug/1/classes.dex
 path.0=classes.dex
 path.1=0/classes.dex
 path.2=1/classes.dex

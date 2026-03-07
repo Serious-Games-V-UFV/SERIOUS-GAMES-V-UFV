@@ -65,16 +65,5 @@ public class MainActivity extends AppCompatActivity {
         } catch (Exception e) {
             return 1;
         }
-            }
-        }
-<<<<<<< HEAD
-        
-        // Update the UI
-        String progressText = String.format("%.1f / %.1fL", currentHydration, targetHydration);
-        tvProgressValue.setText(progressText);
     }
-
-    
 }
-=======
->>>>>>> refs/remotes/origin/sw-develop

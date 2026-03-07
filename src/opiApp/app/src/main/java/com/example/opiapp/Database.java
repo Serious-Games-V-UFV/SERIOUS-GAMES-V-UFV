@@ -76,7 +76,7 @@ public class Database {
         Statement sta;
         String datum = "";
         try {
-            sta = con.preparedStatement();
+            sta = con.prepareStatement(query);
             ResultSet rs = sta.executeQuery(query);
 
             if (rs.next()) {

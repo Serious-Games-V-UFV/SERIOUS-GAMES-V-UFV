@@ -1,7 +1,7 @@
-#Sat Mar 07 13:57:22 CET 2026
-base.0=C\:\\Users\\Alejandro\\Documents\\GitHub\\SERIOUS-GAMES-V-UFV\\src\\opiApp\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
-base.1=C\:\\Users\\Alejandro\\Documents\\GitHub\\SERIOUS-GAMES-V-UFV\\src\\opiApp\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
-base.2=C\:\\Users\\Alejandro\\Documents\\GitHub\\SERIOUS-GAMES-V-UFV\\src\\opiApp\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\1\\classes.dex
+#Sat Mar 07 14:34:05 CET 2026
+base.0=C\:\\Users\\anoga\\Documents\\GitHub\\opi\\src\\opiApp\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
+base.1=C\:\\Users\\anoga\\Documents\\GitHub\\opi\\src\\opiApp\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
+base.2=C\:\\Users\\anoga\\Documents\\GitHub\\opi\\src\\opiApp\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\1\\classes.dex
 path.0=classes.dex
 path.1=0/classes.dex
 path.2=1/classes.dex

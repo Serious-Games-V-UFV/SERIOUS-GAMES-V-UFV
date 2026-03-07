@@ -154,10 +154,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <TextView android:id="@+id/btn_nav_home" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Home" android:textColor="@color/text_secondary" android:gravity="center" android:textSize="10sp" />
-        <TextView android:id="@+id/btn_nav_stats" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Stats" android:textColor="@color/accent_blue" android:gravity="center" android:textSize="10sp" android:textStyle="bold"/>
-        <TextView android:id="@+id/btn_nav_goals" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Social" android:textColor="@color/text_secondary" android:gravity="center" android:textSize="10sp"/>
-        <TextView android:id="@+id/btn_nav_profile" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Profile" android:textColor="@color/text_secondary" android:gravity="center" android:textSize="10sp"/>
+        <TextView android:id="@+id/navHome" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="HOME" android:textColor="@color/accent_blue" android:gravity="center" android:textSize="10sp" android:textStyle="bold"/>
+        <TextView android:id="@+id/navStats" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="STATS" android:textColor="@color/text_secondary" android:gravity="center" android:textSize="10sp"/>
+        <TextView android:id="@+id/navSocial" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="SOCIAL" android:textColor="@color/text_secondary" android:gravity="center" android:textSize="10sp"/>
+        <TextView android:id="@+id/navTools" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="TOOLS" android:textColor="@color/text_secondary" android:gravity="center" android:textSize="10sp"/>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

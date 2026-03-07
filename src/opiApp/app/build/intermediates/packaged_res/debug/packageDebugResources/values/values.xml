@@ -10,6 +10,7 @@
     <color name="text_secondary">#94A3B8</color>
     <color name="white">#FFFFFFFF</color>
     <string name="app_name">Opi App</string>
+    <string name="totalDrunk">0L / 2.5L</string>
     <style name="Base.Theme.OpiApp" parent="Theme.Material3.DayNight.NoActionBar">
         
         

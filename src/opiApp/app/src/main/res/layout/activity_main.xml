@@ -81,7 +81,7 @@
                 android:id="@+id/tv_progress_value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="0 / 5L"
+                android:text="@string/totalDrunk"
                 android:textColor="@color/text_primary"
                 android:textSize="32sp"
                 android:textStyle="bold" />

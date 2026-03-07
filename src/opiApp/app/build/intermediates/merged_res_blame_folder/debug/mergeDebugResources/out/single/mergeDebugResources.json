@@ -12,16 +12,16 @@
         "source": "C:\\Users\\Alejandro\\.gradle\\daemon\\8.13\\com.example.opiapp-main-33:\\mipmap-mdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\Alejandro\\.gradle\\daemon\\8.13\\com.example.opiapp-debug-31:\\xml_data_extraction_rules.xml.flat",
-        "source": "C:\\Users\\Alejandro\\.gradle\\daemon\\8.13\\com.example.opiapp-main-33:\\xml\\data_extraction_rules.xml"
+        "merged": "C:\\Users\\Alejandro\\.gradle\\daemon\\8.13\\com.example.opiapp-debug-31:\\drawable_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\Alejandro\\.gradle\\daemon\\8.13\\com.example.opiapp-main-33:\\drawable\\ic_launcher_foreground.xml"
     },
     {
         "merged": "C:\\Users\\Alejandro\\.gradle\\daemon\\8.13\\com.example.opiapp-debug-31:\\mipmap-anydpi_ic_launcher_round.xml.flat",
         "source": "C:\\Users\\Alejandro\\.gradle\\daemon\\8.13\\com.example.opiapp-main-33:\\mipmap-anydpi\\ic_launcher_round.xml"
     },
     {
-        "merged": "C:\\Users\\Alejandro\\.gradle\\daemon\\8.13\\com.example.opiapp-debug-31:\\drawable_ic_launcher_foreground.xml.flat",
-        "source": "C:\\Users\\Alejandro\\.gradle\\daemon\\8.13\\com.example.opiapp-main-33:\\drawable\\ic_launcher_foreground.xml"
+        "merged": "C:\\Users\\Alejandro\\.gradle\\daemon\\8.13\\com.example.opiapp-debug-31:\\xml_data_extraction_rules.xml.flat",
+        "source": "C:\\Users\\Alejandro\\.gradle\\daemon\\8.13\\com.example.opiapp-main-33:\\xml\\data_extraction_rules.xml"
     },
     {
         "merged": "C:\\Users\\Alejandro\\.gradle\\daemon\\8.13\\com.example.opiapp-debug-31:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",

@@ -110,6 +110,7 @@ public class Database {
         return -1;
     }
 
+    
     /**
      * Updates a datum in an specified table and column
      * @param table table in which the datum is updated

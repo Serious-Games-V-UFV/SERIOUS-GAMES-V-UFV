@@ -2,4 +2,13 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Paleta de colores para el Tema Oscuro (basada en tu imagen) -->
+    <color name="bg_dark">#0B0E1B</color>         <!-- Fondo principal muy oscuro -->
+    <color name="card_dark">#1A1F36</color>       <!-- Fondo de las tarjetas -->
+    <color name="accent_blue">#3D85E1</color>     <!-- Azul para progreso y selección -->
+    <color name="accent_orange">#FF8C42</color>   <!-- Naranja para botones de acción -->
+    <color name="text_primary">#FFFFFF</color>    <!-- Texto principal (blanco) -->
+    <color name="text_secondary">#94A3B8</color>  <!-- Texto secundario (gris azulado) -->
+    <color name="success_green">#4ADE80</color>   <!-- Verde para estados conectados -->
 </resources>

@@ -47,6 +47,11 @@ public class Database {
         try {
             sta = con.createStatement();
             ResultSet rs = sta.executeQuery("SELECT "+column_name+" FROM "+table+" WHERE id = "+id+";");
+        String query ="SELECT "+column_name+" FROM "+table+" WHERE id = "+id+";";
+        try {
+            sta = con.prepareStatement(query);
+            System.out.println(query);
+            ResultSet rs = sta.executeQuery(query);
 
             if (rs.next()) {
                 datum = rs.getString(1);
@@ -74,5 +79,15 @@ public class Database {
 
         }
         return datum;
+    public void insertDatum(String table, String column_name, String value) {
+        Statement sta;
+        String query = "INSERT INTO "+table+" ("+column_name+") VALUES ('"+value+"');";
+        try {
+            sta = con.prepareStatement(query);
+            System.out.println(query);
+            int result = sta.executeUpdate(query);
+    } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }

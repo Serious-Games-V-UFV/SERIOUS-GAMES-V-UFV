@@ -24,7 +24,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     private TextView tvProgressValue;
     private Button btnAdd;
@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private boolean bottlePlaced = false;
     private int hoursSinceDrink = 0;
     private double capacity = 750;
-
+    private String[] activity = new String[4];
     Bluetooth btcon = new Bluetooth();
 
 
@@ -64,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
+        setupBottomNavigation();
         // TODO: Integrate it with ScheduledExecutorService (https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ScheduledExecutorService.html)
             WaterData receivedData = btcon.readData(true);
             processWaterData(receivedData);
@@ -169,4 +170,5 @@ public class MainActivity extends AppCompatActivity {
         bottlePlaced = dataStream.bottlePlaced;
         hoursSinceDrink = dataStream.hoursSinceDrink;
     }
+
 }

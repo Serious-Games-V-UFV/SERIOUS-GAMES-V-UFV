@@ -58,4 +58,8 @@ public class Database {
         }
         return datum;
     }
+
+    public String oyono() {
+        return "";
+    }
 }

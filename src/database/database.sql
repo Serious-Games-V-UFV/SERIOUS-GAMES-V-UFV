@@ -1,47 +1,50 @@
-CREATE TABLE `cuenta` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(45) NOT NULL,
-  `apellido1` varchar(45) NOT NULL,
-  `apellido2` varchar(45) DEFAULT NULL,
-  `telefono` varchar(9) DEFAULT NULL,
-  `email` varchar(45) NOT NULL,
-  `altura` int NOT NULL,
-  `peso` int NOT NULL,
-  `fecha_nacimiento` date DEFAULT NULL,
-  `agua_deseada` int NOT NULL,
-  `last_login` date DEFAULT NULL,
+CREATE DATABASE opi_backend;
+USE opi_backend;
+
+CREATE TABLE `account` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `first_name` VARCHAR(45) NOT NULL,
+  `last_name1` VARCHAR(45) NOT NULL,
+  `last_name2` VARCHAR(45) DEFAULT NULL,
+  `phone` VARCHAR(9) DEFAULT NULL,
+  `email` VARCHAR(45) NOT NULL,
+  `height` INT NOT NULL,
+  `weight` INT NOT NULL,
+  `birth_date` DATE DEFAULT NULL,
+  `desired_water` INT NOT NULL,
+  `last_login` DATE DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-CREATE TABLE `bolso` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `tipo` varchar(45) NOT NULL,
-  `color` varchar(45) NOT NULL,
-  `primera_conexion` date DEFAULT NULL,
-  `id_cuenta` int NOT NULL,
+CREATE TABLE `bag` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `type` VARCHAR(45) NOT NULL,
+  `color` VARCHAR(45) NOT NULL,
+  `first_connection` DATE DEFAULT NULL,
+  `account_id` INT NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `bolso_ibfk_1` (`id_cuenta`),
-  CONSTRAINT `bolso_ibfk_1` FOREIGN KEY (`id_cuenta`) REFERENCES `cuenta` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE
+  KEY `bag_ibfk_1` (`account_id`),
+  CONSTRAINT `bag_ibfk_1` FOREIGN KEY (`account_id`) REFERENCES `account` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-CREATE TABLE `evento` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `tipo` varchar(45) NOT NULL,
-  `dato` varchar(45) NOT NULL,
-  `fecha` date DEFAULT NULL,
-  `id_bolso` int NOT NULL,
+CREATE TABLE `event` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `type` VARCHAR(45) NOT NULL,
+  `data` VARCHAR(45) NOT NULL,
+  `date` DATE DEFAULT NULL,
+  `bag_id` INT NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `evento_ibfk_1` (`id_bolso`),
-  CONSTRAINT `evento_ibfk_1` FOREIGN KEY (`id_bolso`) REFERENCES `bolso` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `event_ibfk_1` (`bag_id`),
+  CONSTRAINT `event_ibfk_1` FOREIGN KEY (`bag_id`) REFERENCES `bag` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-CREATE TABLE `recuerdo_diario` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `fecha` date DEFAULT NULL,
-  `cantidad_bebida` int NOT NULL,
-  `id_cuenta` int NOT NULL,
+CREATE TABLE `daily_reminder` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `date` DATE DEFAULT NULL,
+  `amount_drunk` INT NOT NULL,
+  `account_id` INT NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `recuerdo_ibfk_1` (`id_cuenta`),
-  CONSTRAINT `recuerdo_ibfk_1` FOREIGN KEY (`id_cuenta`) REFERENCES `cuenta` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE
+  KEY `daily_reminder_ibfk_1` (`account_id`),
+  CONSTRAINT `daily_reminder_ibfk_1` FOREIGN KEY (`account_id`) REFERENCES `account` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;

@@ -36,12 +36,20 @@
         "source": "C:\\Users\\Alejandro\\.gradle\\daemon\\8.13\\com.example.opiapp-main-33:\\mipmap-xxxhdpi\\ic_launcher.webp"
     },
     {
+        "merged": "com.example.opiapp-debug-31:/layout_activity_main.xml.flat",
+        "source": "com.example.opiapp-main-33:/layout/activity_main.xml"
+    },
+    {
         "merged": "C:\\Users\\Alejandro\\.gradle\\daemon\\8.13\\com.example.opiapp-debug-31:\\xml_backup_rules.xml.flat",
         "source": "C:\\Users\\Alejandro\\.gradle\\daemon\\8.13\\com.example.opiapp-main-33:\\xml\\backup_rules.xml"
     },
     {
         "merged": "C:\\Users\\Alejandro\\.gradle\\daemon\\8.13\\com.example.opiapp-debug-31:\\mipmap-hdpi_ic_launcher_round.webp.flat",
         "source": "C:\\Users\\Alejandro\\.gradle\\daemon\\8.13\\com.example.opiapp-main-33:\\mipmap-hdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\.gradle\\daemon\\8.13\\com.example.opiapp-debug-31:\\drawable_bg_circle_placeholder.xml.flat",
+        "source": "C:\\Users\\Alejandro\\.gradle\\daemon\\8.13\\com.example.opiapp-main-33:\\drawable\\bg_circle_placeholder.xml"
     },
     {
         "merged": "C:\\Users\\Alejandro\\.gradle\\daemon\\8.13\\com.example.opiapp-debug-31:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
@@ -54,10 +62,6 @@
     {
         "merged": "C:\\Users\\Alejandro\\.gradle\\daemon\\8.13\\com.example.opiapp-debug-31:\\layout_activity_main.xml.flat",
         "source": "C:\\Users\\Alejandro\\.gradle\\daemon\\8.13\\com.example.opiapp-main-33:\\layout\\activity_main.xml"
-    },
-    {
-        "merged": "com.example.opiapp-debug-31:/drawable_bg_circle_placeholder.xml.flat",
-        "source": "com.example.opiapp-main-33:/drawable/bg_circle_placeholder.xml"
     },
     {
         "merged": "C:\\Users\\Alejandro\\.gradle\\daemon\\8.13\\com.example.opiapp-debug-31:\\mipmap-xhdpi_ic_launcher.webp.flat",

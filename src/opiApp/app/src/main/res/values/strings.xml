@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Opi App</string>
+    <string name="totalDrunk">0L / 2.5L</string>
 </resources>

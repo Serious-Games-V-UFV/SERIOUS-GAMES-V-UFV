@@ -16,8 +16,8 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView tvProgressValue;
     private Button btnAdd;
-    private double currentHydration = 1.7;
-    private final double targetHydration = 2.5;
+    private double currentHydration = 0.0;
+    private final double targetHydration = 5;   // cambiarlo a que sea el valor de la variable de la base de datos aguaDeseada
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,12 +50,24 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void addWater(double amount) {
-        currentHydration += amount;
-        if (currentHydration > targetHydration) {
-            currentHydration = targetHydration;
-            Toast.makeText(this, "Target reached!", Toast.LENGTH_SHORT).show();
+    private int addWater(double amount) {
+        try{
+            currentHydration += amount;
+            if (currentHydration > targetHydration) {
+                currentHydration = targetHydration;
+                Toast.makeText(this, "Target reached!", Toast.LENGTH_SHORT).show();
+            }
+
+            // Update the UI
+            String progressText = String.format("%.2fL / %.1fL", currentHydration, targetHydration);
+            tvProgressValue.setText(progressText);
+            return 0;
+        } catch (Exception e) {
+            return 1;
         }
+            }
+        }
+<<<<<<< HEAD
         
         // Update the UI
         String progressText = String.format("%.1f / %.1fL", currentHydration, targetHydration);
@@ -64,3 +76,5 @@ public class MainActivity extends AppCompatActivity {
 
     
 }
+=======
+>>>>>>> refs/remotes/origin/sw-develop

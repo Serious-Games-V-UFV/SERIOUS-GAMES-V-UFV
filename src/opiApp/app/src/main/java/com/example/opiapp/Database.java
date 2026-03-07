@@ -44,11 +44,24 @@ public class Database {
     public String getDatum(String table, String column_name,int id) {
         Statement sta;
         String datum = "";
+        String query = null;
         try {
             sta = con.createStatement();
+<<<<<<< HEAD
             ResultSet rs = sta.executeQuery("SELECT "+column_name+" FROM "+table+" WHERE id = "+id+";");
         String query ="SELECT "+column_name+" FROM "+table+" WHERE id = "+id+";";
 
+=======
+            ResultSet rs = sta.executeQuery("SELECT " + column_name + " FROM " + table + " WHERE id = " + id + ";");
+            query = "SELECT " + column_name + " FROM " + table + " WHERE id = " + id + ";";
+        }catch(SQLException e){
+                System.out.println(e.getMessage());
+            }
+        try {
+            sta = con.prepareStatement(query);
+            System.out.println(query);
+            ResultSet rs = sta.executeQuery(query);
+>>>>>>> refs/remotes/origin/sw-develop
 
             if (rs.next()) {
                 datum = rs.getString(1);
@@ -83,7 +96,10 @@ public class Database {
         }
         return datum;
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> refs/remotes/origin/sw-develop
     public void insertDatum(String table, String column_name, String value) {
         Statement sta;
         String query = "INSERT INTO "+table+" ("+column_name+") VALUES ('"+value+"');";

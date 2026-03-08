@@ -10,6 +10,20 @@ build/
 gradle-app.setting
 !gradle-wrapper.jar
 src/opiApp/app/build/
+src/opiApp/build/
+src/opiApp/.gradle/
+
+# Allow essential Gradle files in opiApp
+!src/opiApp/gradle/
+!src/opiApp/gradlew
+!src/opiApp/gradlew.bat
+!src/opiApp/build.gradle.kts
+!src/opiApp/settings.gradle.kts
+!src/opiApp/gradle.properties
+!src/opiApp/app/build.gradle.kts
+
+src/opiApp/app/src/androidTest/
+src/opiApp/app/src/test/
 # Local properties (SDK paths)
 src/opiApp/local.properties
 

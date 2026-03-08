@@ -78,6 +78,23 @@
                     }
                 },
                 {
+                    "source": "/media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/res/values/colors.xml",
+                    "from": {
+                        "startLines": "8,9,6,2,7,12,10,11,3",
+                        "startColumns": "4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "380,470,213,55,299,735,560,644,97",
+                        "endColumns": "45,47,41,41,43,47,46,48,41",
+                        "endOffsets": "421,513,250,92,338,778,602,688,134"
+                    },
+                    "to": {
+                        "startLines": "632,635,642,643,652,955,960,961,964",
+                        "startColumns": "4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "32164,32365,32892,32934,33617,56118,56452,56499,56669",
+                        "endColumns": "45,47,41,41,43,47,46,48,41",
+                        "endOffsets": "32205,32408,32929,32971,33656,56161,56494,56543,56706"
+                    }
+                },
+                {
                     "source": "/home/xerve/.gradle/caches/8.13/transforms/0d0dfcd047f96ea9ef344b9625912144/transformed/appcompat-resources-1.6.1/res/values/values.xml",
                     "from": {
                         "startLines": "2,18,24,34,50",
@@ -116,20 +133,22 @@
                     }
                 },
                 {
-                    "source": "/home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/res/values/strings.xml",
+                    "source": "/media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/res/values/themes.xml",
                     "from": {
-                        "startLines": "1,2",
+                        "startLines": "2,7",
                         "startColumns": "4,4",
-                        "startOffsets": "16,61",
-                        "endColumns": "44,46",
-                        "endOffsets": "56,103"
+                        "startOffsets": "100,321",
+                        "endLines": "5,7",
+                        "endColumns": "12,60",
+                        "endOffsets": "315,377"
                     },
                     "to": {
-                        "startLines": "1972,2114",
+                        "startLines": "2541,6515",
                         "startColumns": "4,4",
-                        "startOffsets": "130517,150483",
-                        "endColumns": "44,46",
-                        "endOffsets": "130557,150525"
+                        "startOffsets": "178647,457286",
+                        "endLines": "2544,6515",
+                        "endColumns": "12,59",
+                        "endOffsets": "178756,457341"
                     }
                 },
                 {
@@ -166,6 +185,23 @@
                         "startOffsets": "123618",
                         "endColumns": "49",
                         "endOffsets": "123663"
+                    }
+                },
+                {
+                    "source": "/media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/res/values/strings.xml",
+                    "from": {
+                        "startLines": "1,2",
+                        "startColumns": "4,4",
+                        "startOffsets": "16,61",
+                        "endColumns": "44,46",
+                        "endOffsets": "56,103"
+                    },
+                    "to": {
+                        "startLines": "1972,2114",
+                        "startColumns": "4,4",
+                        "startOffsets": "130517,150483",
+                        "endColumns": "44,46",
+                        "endOffsets": "130557,150525"
                     }
                 },
                 {
@@ -258,25 +294,6 @@
                     }
                 },
                 {
-                    "source": "/home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/res/values/themes.xml",
-                    "from": {
-                        "startLines": "2,7",
-                        "startColumns": "4,4",
-                        "startOffsets": "100,321",
-                        "endLines": "5,7",
-                        "endColumns": "12,60",
-                        "endOffsets": "315,377"
-                    },
-                    "to": {
-                        "startLines": "2541,6515",
-                        "startColumns": "4,4",
-                        "startOffsets": "178647,457286",
-                        "endLines": "2544,6515",
-                        "endColumns": "12,59",
-                        "endOffsets": "178756,457341"
-                    }
-                },
-                {
                     "source": "/home/xerve/.gradle/caches/8.13/transforms/4f3810091c0f6c4e7ba541461e66e8a1/transformed/fragment-1.3.6/res/values/values.xml",
                     "from": {
                         "startLines": "2,3,4,5,10",
@@ -348,23 +365,6 @@
                         "startOffsets": "130434",
                         "endColumns": "82",
                         "endOffsets": "130512"
-                    }
-                },
-                {
-                    "source": "/home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/res/values/colors.xml",
-                    "from": {
-                        "startLines": "8,9,6,2,7,12,10,11,3",
-                        "startColumns": "4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "380,470,213,55,299,735,560,644,97",
-                        "endColumns": "45,47,41,41,43,47,46,48,41",
-                        "endOffsets": "421,513,250,92,338,778,602,688,134"
-                    },
-                    "to": {
-                        "startLines": "632,635,642,643,652,955,960,961,964",
-                        "startColumns": "4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "32164,32365,32892,32934,33617,56118,56452,56499,56669",
-                        "endColumns": "45,47,41,41,43,47,46,48,41",
-                        "endOffsets": "32205,32408,32929,32971,33656,56161,56494,56543,56706"
                     }
                 }
             ]

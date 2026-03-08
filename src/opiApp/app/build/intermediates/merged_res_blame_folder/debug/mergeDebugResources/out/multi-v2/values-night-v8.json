@@ -21,24 +21,7 @@
                     }
                 },
                 {
-                    "source": "/home/xerve/.gradle/caches/8.13/transforms/1bebdb84f8928d9a039d41379e553a1f/transformed/appcompat-1.6.1/res/values-night-v8/values-night-v8.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,125,209,293,389,491,593,687",
-                        "endColumns": "69,83,83,95,101,101,93,88",
-                        "endOffsets": "120,204,288,384,486,588,682,771"
-                    },
-                    "to": {
-                        "startLines": "6,7,8,9,10,11,12,38",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "169,239,323,407,503,605,707,3562",
-                        "endColumns": "69,83,83,95,101,101,93,88",
-                        "endOffsets": "234,318,402,498,600,702,796,3646"
-                    }
-                },
-                {
-                    "source": "/home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/res/values-night/themes.xml",
+                    "source": "/media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/res/values-night/themes.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -54,6 +37,23 @@
                         "endLines": "5",
                         "endColumns": "12",
                         "endOffsets": "164"
+                    }
+                },
+                {
+                    "source": "/home/xerve/.gradle/caches/8.13/transforms/1bebdb84f8928d9a039d41379e553a1f/transformed/appcompat-1.6.1/res/values-night-v8/values-night-v8.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,125,209,293,389,491,593,687",
+                        "endColumns": "69,83,83,95,101,101,93,88",
+                        "endOffsets": "120,204,288,384,486,588,682,771"
+                    },
+                    "to": {
+                        "startLines": "6,7,8,9,10,11,12,38",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "169,239,323,407,503,605,707,3562",
+                        "endColumns": "69,83,83,95,101,101,93,88",
+                        "endOffsets": "234,318,402,498,600,702,796,3646"
                     }
                 }
             ]

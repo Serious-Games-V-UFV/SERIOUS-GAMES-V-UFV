@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:2:1-33:12
-INJECTED from /home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:2:1-33:12
-INJECTED from /home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:2:1-33:12
-INJECTED from /home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:2:1-33:12
+ADDED from /media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:2:1-33:12
+INJECTED from /media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:2:1-33:12
+INJECTED from /media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:2:1-33:12
+INJECTED from /media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:2:1-33:12
 MERGED from [com.google.android.material:material:1.10.0] /home/xerve/.gradle/caches/8.13/transforms/7d4abf3f63802da34012a61d4b46f1a4/transformed/material-1.10.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /home/xerve/.gradle/caches/8.13/transforms/84419f5a1f02fef379bf691e47e8b3b3/transformed/constraintlayout-2.1.4/AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.appcompat:appcompat-resources:1.6.1] /home/xerve/.gradle/caches/8.13/transforms/0d0dfcd047f96ea9ef344b9625912144/transformed/appcompat-resources-1.6.1/AndroidManifest.xml:17:1-22:12
@@ -46,34 +46,34 @@ MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /home/x
 MERGED from [androidx.print:print:1.0.0] /home/xerve/.gradle/caches/8.13/transforms/7c4d2619a5dbe9d8b9f9a6ec9fde52af/transformed/print-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.annotation:annotation-experimental:1.3.0] /home/xerve/.gradle/caches/8.13/transforms/d832c118ef86ab24eada8ad626d4fda3/transformed/annotation-experimental-1.3.0/AndroidManifest.xml:17:1-22:12
 	package
-		INJECTED from /home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml
+		INJECTED from /media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml
 	android:versionName
-		INJECTED from /home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml
+		INJECTED from /media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml
 	xmlns:tools
-		ADDED from /home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:3:5-51
+		ADDED from /media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:3:5-51
 	android:versionCode
-		INJECTED from /home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml
+		INJECTED from /media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml
 	xmlns:android
-		ADDED from /home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:2:11-69
+		ADDED from /media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:2:11-69
 uses-permission#android.permission.BLUETOOTH
-ADDED from /home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:5:5-67
+ADDED from /media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:5:5-67
 	android:name
-		ADDED from /home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:5:22-65
+		ADDED from /media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:5:22-65
 uses-permission#android.permission.BLUETOOTH_ADMIN
-ADDED from /home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:6:5-73
+ADDED from /media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:6:5-73
 	android:name
-		ADDED from /home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:6:22-71
+		ADDED from /media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:6:22-71
 uses-permission#android.permission.BLUETOOTH_CONNECT
-ADDED from /home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:7:5-75
+ADDED from /media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:7:5-75
 	android:name
-		ADDED from /home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:7:22-73
+		ADDED from /media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:7:22-73
 uses-permission#android.permission.POST_NOTIFICATIONS
-ADDED from /home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:8:5-77
+ADDED from /media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:8:5-77
 	android:name
-		ADDED from /home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:8:22-74
+		ADDED from /media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:8:22-74
 application
-ADDED from /home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:10:5-31:19
-INJECTED from /home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:10:5-31:19
+ADDED from /media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:10:5-31:19
+INJECTED from /media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:10:5-31:19
 MERGED from [com.google.android.material:material:1.10.0] /home/xerve/.gradle/caches/8.13/transforms/7d4abf3f63802da34012a61d4b46f1a4/transformed/material-1.10.0/AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.10.0] /home/xerve/.gradle/caches/8.13/transforms/7d4abf3f63802da34012a61d4b46f1a4/transformed/material-1.10.0/AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /home/xerve/.gradle/caches/8.13/transforms/84419f5a1f02fef379bf691e47e8b3b3/transformed/constraintlayout-2.1.4/AndroidManifest.xml:9:5-20
@@ -91,57 +91,57 @@ MERGED from [androidx.startup:startup-runtime:1.1.1] /home/xerve/.gradle/caches/
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/xerve/.gradle/caches/8.13/transforms/8f54e93ec1de1243695b4faa5cdd376b/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/xerve/.gradle/caches/8.13/transforms/8f54e93ec1de1243695b4faa5cdd376b/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
 	android:extractNativeLibs
-		INJECTED from /home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml
+		INJECTED from /media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.9.0] /home/xerve/.gradle/caches/8.13/transforms/bd0a1810a5afc21b1d7f67c446711275/transformed/core-1.9.0/AndroidManifest.xml:28:18-86
 	android:supportsRtl
-		ADDED from /home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:17:9-35
+		ADDED from /media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:17:9-35
 	android:label
-		ADDED from /home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:15:9-41
+		ADDED from /media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:15:9-41
 	android:fullBackupContent
-		ADDED from /home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:13:9-54
+		ADDED from /media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:13:9-54
 	android:roundIcon
-		ADDED from /home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:16:9-54
+		ADDED from /media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:16:9-54
 	android:icon
-		ADDED from /home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:14:9-43
+		ADDED from /media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:14:9-43
 	android:allowBackup
-		ADDED from /home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:11:9-35
+		ADDED from /media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:11:9-35
 	android:theme
-		ADDED from /home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:18:9-44
+		ADDED from /media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:18:9-44
 	android:dataExtractionRules
-		ADDED from /home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:12:9-65
+		ADDED from /media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:12:9-65
 activity#com.example.opiapp.MainActivity
-ADDED from /home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:19:9-27:20
+ADDED from /media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:19:9-27:20
 	android:exported
-		ADDED from /home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:21:13-36
+		ADDED from /media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:21:13-36
 	android:name
-		ADDED from /home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:20:13-41
+		ADDED from /media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:20:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:22:13-26:29
+ADDED from /media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:22:13-26:29
 action#android.intent.action.MAIN
-ADDED from /home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:23:17-69
+ADDED from /media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:23:17-69
 	android:name
-		ADDED from /home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:23:25-66
+		ADDED from /media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:23:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:25:17-77
+ADDED from /media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:25:17-77
 	android:name
-		ADDED from /home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:25:27-74
+		ADDED from /media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:25:27-74
 activity#com.example.opiapp.StatsActivity
-ADDED from /home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:28:9-51
+ADDED from /media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:28:9-51
 	android:name
-		ADDED from /home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:28:19-48
+		ADDED from /media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:28:19-48
 activity#com.example.opiapp.ProfileActivity
-ADDED from /home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:29:9-53
+ADDED from /media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:29:9-53
 	android:name
-		ADDED from /home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:29:19-50
+		ADDED from /media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:29:19-50
 activity#com.example.opiapp.SocialActivity
-ADDED from /home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:30:9-52
+ADDED from /media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:30:9-52
 	android:name
-		ADDED from /home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:30:19-49
+		ADDED from /media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:30:19-49
 uses-sdk
-INJECTED from /home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from /home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml
-INJECTED from /home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml
+INJECTED from /media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml
+INJECTED from /media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml
 MERGED from [com.google.android.material:material:1.10.0] /home/xerve/.gradle/caches/8.13/transforms/7d4abf3f63802da34012a61d4b46f1a4/transformed/material-1.10.0/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.material:material:1.10.0] /home/xerve/.gradle/caches/8.13/transforms/7d4abf3f63802da34012a61d4b46f1a4/transformed/material-1.10.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /home/xerve/.gradle/caches/8.13/transforms/84419f5a1f02fef379bf691e47e8b3b3/transformed/constraintlayout-2.1.4/AndroidManifest.xml:5:5-7:41
@@ -225,9 +225,9 @@ MERGED from [androidx.print:print:1.0.0] /home/xerve/.gradle/caches/8.13/transfo
 MERGED from [androidx.annotation:annotation-experimental:1.3.0] /home/xerve/.gradle/caches/8.13/transforms/d832c118ef86ab24eada8ad626d4fda3/transformed/annotation-experimental-1.3.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.annotation:annotation-experimental:1.3.0] /home/xerve/.gradle/caches/8.13/transforms/d832c118ef86ab24eada8ad626d4fda3/transformed/annotation-experimental-1.3.0/AndroidManifest.xml:20:5-44
 	android:targetSdkVersion
-		INJECTED from /home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml
+		INJECTED from /media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from /home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml
+		INJECTED from /media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml
 provider#androidx.startup.InitializationProvider
 ADDED from [androidx.emoji2:emoji2:1.2.0] /home/xerve/.gradle/caches/8.13/transforms/007a73b5dae23234ec92f7a3b4ce38ca/transformed/emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
 MERGED from [androidx.lifecycle:lifecycle-process:2.6.1] /home/xerve/.gradle/caches/8.13/transforms/a91840e8707b7f87ada22cea8cf3254a/transformed/lifecycle-process-2.6.1/AndroidManifest.xml:24:9-32:20

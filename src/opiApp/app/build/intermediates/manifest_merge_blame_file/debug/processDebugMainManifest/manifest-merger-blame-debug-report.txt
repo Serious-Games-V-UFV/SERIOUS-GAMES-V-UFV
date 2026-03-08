@@ -9,17 +9,17 @@
 9        android:targetSdkVersion="36" />
 10
 11    <uses-permission android:name="android.permission.BLUETOOTH" />
-11-->/home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:5:5-67
-11-->/home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:5:22-65
+11-->/media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:5:5-67
+11-->/media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:5:22-65
 12    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
-12-->/home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:6:5-73
-12-->/home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:6:22-71
+12-->/media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:6:5-73
+12-->/media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:6:22-71
 13    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
-13-->/home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:7:5-75
-13-->/home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:7:22-73
+13-->/media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:7:5-75
+13-->/media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:7:22-73
 14    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
-14-->/home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:8:5-77
-14-->/home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:8:22-74
+14-->/media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:8:5-77
+14-->/media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:8:22-74
 15
 16    <permission
 16-->[androidx.core:core:1.9.0] /home/xerve/.gradle/caches/8.13/transforms/bd0a1810a5afc21b1d7f67c446711275/transformed/core-1.9.0/AndroidManifest.xml:22:5-24:47
@@ -33,54 +33,54 @@
 20-->[androidx.core:core:1.9.0] /home/xerve/.gradle/caches/8.13/transforms/bd0a1810a5afc21b1d7f67c446711275/transformed/core-1.9.0/AndroidManifest.xml:26:22-94
 21
 22    <application
-22-->/home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:10:5-31:19
+22-->/media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:10:5-31:19
 23        android:allowBackup="true"
-23-->/home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:11:9-35
+23-->/media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:11:9-35
 24        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 24-->[androidx.core:core:1.9.0] /home/xerve/.gradle/caches/8.13/transforms/bd0a1810a5afc21b1d7f67c446711275/transformed/core-1.9.0/AndroidManifest.xml:28:18-86
 25        android:dataExtractionRules="@xml/data_extraction_rules"
-25-->/home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:12:9-65
+25-->/media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:12:9-65
 26        android:debuggable="true"
 27        android:extractNativeLibs="false"
 28        android:fullBackupContent="@xml/backup_rules"
-28-->/home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:13:9-54
+28-->/media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:13:9-54
 29        android:icon="@mipmap/ic_launcher"
-29-->/home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:14:9-43
+29-->/media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:14:9-43
 30        android:label="@string/app_name"
-30-->/home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:15:9-41
+30-->/media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:15:9-41
 31        android:roundIcon="@mipmap/ic_launcher_round"
-31-->/home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:16:9-54
+31-->/media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:16:9-54
 32        android:supportsRtl="true"
-32-->/home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:17:9-35
+32-->/media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:17:9-35
 33        android:testOnly="true"
 34        android:theme="@style/Theme.OpiApp" >
-34-->/home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:18:9-44
+34-->/media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:18:9-44
 35        <activity
-35-->/home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:19:9-27:20
+35-->/media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:19:9-27:20
 36            android:name="com.example.opiapp.MainActivity"
-36-->/home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:20:13-41
+36-->/media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:20:13-41
 37            android:exported="true" >
-37-->/home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:21:13-36
+37-->/media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:21:13-36
 38            <intent-filter>
-38-->/home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:22:13-26:29
+38-->/media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:22:13-26:29
 39                <action android:name="android.intent.action.MAIN" />
-39-->/home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:23:17-69
-39-->/home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:23:25-66
+39-->/media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:23:17-69
+39-->/media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:23:25-66
 40
 41                <category android:name="android.intent.category.LAUNCHER" />
-41-->/home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:25:17-77
-41-->/home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:25:27-74
+41-->/media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:25:17-77
+41-->/media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:25:27-74
 42            </intent-filter>
 43        </activity>
 44        <activity android:name="com.example.opiapp.StatsActivity" />
-44-->/home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:28:9-51
-44-->/home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:28:19-48
+44-->/media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:28:9-51
+44-->/media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:28:19-48
 45        <activity android:name="com.example.opiapp.ProfileActivity" />
-45-->/home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:29:9-53
-45-->/home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:29:19-50
+45-->/media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:29:9-53
+45-->/media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:29:19-50
 46        <activity android:name="com.example.opiapp.SocialActivity" />
-46-->/home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:30:9-52
-46-->/home/xerve/Documents/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:30:19-49
+46-->/media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:30:9-52
+46-->/media/xerve/main/javi.exe/src/projects/opi/src/opiApp/app/src/main/AndroidManifest.xml:30:19-49
 47
 48        <provider
 48-->[androidx.emoji2:emoji2:1.2.0] /home/xerve/.gradle/caches/8.13/transforms/007a73b5dae23234ec92f7a3b4ce38ca/transformed/emoji2-1.2.0/AndroidManifest.xml:24:9-32:20

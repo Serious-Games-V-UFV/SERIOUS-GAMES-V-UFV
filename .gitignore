@@ -9,7 +9,7 @@
 build/
 gradle-app.setting
 !gradle-wrapper.jar
-
+src/opiApp/app/build/
 # Local properties (SDK paths)
 src/opiApp/local.properties
 

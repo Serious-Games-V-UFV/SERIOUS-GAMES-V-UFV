@@ -103,7 +103,7 @@
         android:layout_marginTop="32dp"
         android:background="@drawable/bg_button_orange"
         android:paddingHorizontal="32dp"
-        android:text="+ Add 250ml"
+        android:text="+ Add a glass of water"
         android:textAllCaps="false"
         android:textColor="@color/white"
         app:layout_constraintTop_toBottomOf="@id/progress_container"

@@ -113,7 +113,8 @@ public class BaseActivity extends AppCompatActivity {
      */
     protected void sendNotification(int code) {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
-                .setSmallIcon(android.R.drawable.ic_dialog_info)
+                .setSmallIcon(R.drawable.ic_notification)
+                .setColor(ContextCompat.getColor(this, R.color.white))
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
                 .setAutoCancel(true);

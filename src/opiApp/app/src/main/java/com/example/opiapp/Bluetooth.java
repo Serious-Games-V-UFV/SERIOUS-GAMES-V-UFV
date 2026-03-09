@@ -1,6 +1,7 @@
 package com.example.opiapp;
 
 import android.Manifest;
+import android.app.Service;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
@@ -9,7 +10,7 @@ import org.json.JSONObject;
 import java.io.InputStream;
 import java.util.UUID;
 
-public class Bluetooth {
+public class Bluetooth{ // extends Service {
 
     private BluetoothAdapter blueadapter;
     private BluetoothSocket socket;

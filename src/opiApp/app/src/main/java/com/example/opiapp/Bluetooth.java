@@ -55,12 +55,11 @@ public class Bluetooth {
     public WaterData readData() {
 
         try {
-
             byte[] buffer = new byte[1024];
-            int bytes = inputStream.read();
+            int bytes = inputStream.read(buffer);
+            if (bytes <0){return null;}
 
             String message = new String(buffer, 0, bytes);
-
             JSONObject json = new JSONObject(message);
 
             double capacity = json.getDouble("capacity");
@@ -80,7 +79,7 @@ public class Bluetooth {
     //TODO: BORRAR AL TERMINAR EL DESARROLLO
         double capacity = 740;
         int hoursSinceDrink = 3;
-        double totalDrunk = 3.4;
+        double totalDrunk = 0;
         boolean bottlePlaced = false;
         return new WaterData(capacity, hoursSinceDrink, totalDrunk, bottlePlaced);
     }

@@ -5,7 +5,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import static java.util.concurrent.TimeUnit.*;
 import androidx.activity.EdgeToEdge;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -16,7 +16,7 @@ public class MainActivity extends BaseActivity {
     private TextView tvProgressValue;
     private Button btnAdd;
     private double totalDrunk = 0.0;
-    private final double targetHydration = 5;   // cambiarlo a que sea el valor de la variable de la base de datos aguaDeseada
+    private final double targetHydration = 5;
     private boolean bottlePlaced = false;
     private int hoursSinceDrink = 0;
     private double capacity = 750;
@@ -72,10 +72,11 @@ public class MainActivity extends BaseActivity {
     private int addWaterGlass() {
         try{
             totalDrunk += 0.25;
+            // FIXME Avoid notification to be prompted everytime new water is added
             if (totalDrunk >= targetHydration) {
                 totalDrunk = targetHydration;
                 Toast.makeText(this, "Target reached!", Toast.LENGTH_SHORT).show();
-                sendNotification();
+                sendNotification(1);
             }
 
             // Update the UI
@@ -88,19 +89,21 @@ public class MainActivity extends BaseActivity {
     }
 
     /**
-     * Process the data received by the bluetooth connection
+     * Process the data received by the bluetooth connection (if not null)
      * If capacity received differs from stored value, updates stored
      * If totalDrunk received is greater than stored value, updates stored
      * @param dataStream data received
      */
     private void processWaterData(WaterData dataStream){
-        if(dataStream.capacity != capacity){
-            capacity = dataStream.capacity;
+        if(dataStream != null){
+            if(dataStream.capacity != capacity){
+                capacity = dataStream.capacity;
+            }
+            if(dataStream.totalDrunk > totalDrunk){
+                totalDrunk = dataStream.totalDrunk;
+            }
+            bottlePlaced = dataStream.bottlePlaced;
+            hoursSinceDrink = dataStream.hoursSinceDrink;
         }
-        if(dataStream.totalDrunk > totalDrunk){
-            totalDrunk = dataStream.totalDrunk;
-        }
-        bottlePlaced = dataStream.bottlePlaced;
-        hoursSinceDrink = dataStream.hoursSinceDrink;
     }
 }

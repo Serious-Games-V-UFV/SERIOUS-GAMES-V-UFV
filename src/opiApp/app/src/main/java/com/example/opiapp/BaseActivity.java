@@ -109,8 +109,9 @@ public class BaseActivity extends AppCompatActivity {
 
     /**
      * Sends specific notification based on a code
+     * @param code states the type of notification to be sent 
      */
-    protected int sendNotification(int code) {
+    protected void sendNotification(int code) {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setSmallIcon(android.R.drawable.ic_dialog_info)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
@@ -119,7 +120,7 @@ public class BaseActivity extends AppCompatActivity {
 
                 if(code == 1){
                     builder.setContentTitle("Meta conseguida");
-                    builder.setContentText("¡Felicidades! Has llegado a tu meta de hidratación.")
+                    builder.setContentText("¡Felicidades! Has llegado a tu meta de hidratación.");
                 }
 
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);

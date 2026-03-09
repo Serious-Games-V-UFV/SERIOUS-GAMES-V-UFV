@@ -89,24 +89,5 @@ public class MainActivity extends BaseActivity {
         }
     }
 
-    /**
-     * Process the data received by the bluetooth connection (if not null)
-     * If capacity received differs from stored value, updates stored
-     * If totalDrunk received is greater than stored value, updates stored
-     * @param dataStream data received
-     */
-    private void processWaterData(WaterData dataStream){
-        if(dataStream != null){
-            if(dataStream.capacity != capacity){
-                capacity = dataStream.capacity;
-            }
-            if(dataStream.totalDrunk > totalDrunk){
-                totalDrunk = dataStream.totalDrunk;
-            }
-            bottlePlaced = dataStream.bottlePlaced;
-            hoursSinceDrink = dataStream.hoursSinceDrink;
-        }else{
-            sendNotification(2);
-        }
-    }
+
 }

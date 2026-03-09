@@ -134,4 +134,24 @@ public class BaseActivity extends AppCompatActivity {
             notificationManager.notify(NOTIFICATION_ID, builder.build());
         }
     }
+    /**
+     * Process the data received by the bluetooth connection (if not null)
+     * If capacity received differs from stored value, updates stored
+     * If totalDrunk received is greater than stored value, updates stored
+     * @param dataStream data received
+     */
+    protected void processWaterData(WaterData dataStream){
+        if(dataStream != null){
+            if(dataStream.capacity != capacity){
+                capacity = dataStream.capacity;
+            }
+            if(dataStream.totalDrunk > totalDrunk){
+                totalDrunk = dataStream.totalDrunk;
+            }
+            bottlePlaced = dataStream.bottlePlaced;
+            hoursSinceDrink = dataStream.hoursSinceDrink;
+        }else{
+            sendNotification(2);
+        }
+    }
 }

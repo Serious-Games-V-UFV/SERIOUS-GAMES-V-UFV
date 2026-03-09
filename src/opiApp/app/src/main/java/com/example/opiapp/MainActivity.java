@@ -35,7 +35,8 @@ public class MainActivity extends BaseActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
         setupBottomNavigation();
-        // TODO: Integrate it with ScheduledExecutorService (https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ScheduledExecutorService.html)
+        // TODO: Integrate it with Service (developer.android.com/develop/background-work/services)
+        //  or ForegroundServices (https://developer.android.com/develop/background-work/services/fgs)
             WaterData receivedData = btcon.readData(true);
             processWaterData(receivedData);
 

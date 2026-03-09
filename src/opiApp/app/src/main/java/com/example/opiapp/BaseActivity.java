@@ -109,7 +109,7 @@ public class BaseActivity extends AppCompatActivity {
 
     /**
      * Sends specific notification based on a code
-     * @param code states the type of notification to be sent 
+     * @param code states the type of notification to be sent
      */
     protected void sendNotification(int code) {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)

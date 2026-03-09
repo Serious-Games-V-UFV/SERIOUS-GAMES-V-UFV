@@ -122,6 +122,9 @@ public class BaseActivity extends AppCompatActivity {
                 if(code == 1){
                     builder.setContentTitle("Meta conseguida");
                     builder.setContentText("¡Felicidades! Has llegado a tu meta de hidratación.");
+                }if(code == 2){
+                    builder.setContentTitle("Mochila no conectada");
+                    builder.setContentText("No se ha encontrado una conexion con la mochila, conectala");
                 }
 
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);

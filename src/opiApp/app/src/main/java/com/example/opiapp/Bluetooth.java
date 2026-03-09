@@ -76,14 +76,14 @@ public class Bluetooth{ // extends Service {
 
         return null;
     }
-    public WaterData readData(boolean develop){
+//    public WaterData readData(boolean develop){
     //TODO: BORRAR AL TERMINAR EL DESARROLLO
-        double capacity = 740;
-        int hoursSinceDrink = 3;
-        double totalDrunk = 0;
-        boolean bottlePlaced = false;
-        return new WaterData(capacity, hoursSinceDrink, totalDrunk, bottlePlaced);
-    }
+//        double capacity = 740;
+//        int hoursSinceDrink = 3;
+//        double totalDrunk = 0;
+//        boolean bottlePlaced = false;
+//        return new WaterData(capacity, hoursSinceDrink, totalDrunk, bottlePlaced);
+    //}
 
     public void disconnect() {
         try {

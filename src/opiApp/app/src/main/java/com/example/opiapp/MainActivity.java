@@ -37,7 +37,7 @@ public class MainActivity extends BaseActivity {
         setupBottomNavigation();
         // TODO: Integrate it with Service (developer.android.com/develop/background-work/services)
         //  or ForegroundServices (https://developer.android.com/develop/background-work/services/fgs)
-            WaterData receivedData = btcon.readData(true);
+            WaterData receivedData = btcon.readData();
             processWaterData(receivedData);
 
         super.createNotificationChannel("Hydration Goal","Notifications for reaching hydration goal");
@@ -105,6 +105,8 @@ public class MainActivity extends BaseActivity {
             }
             bottlePlaced = dataStream.bottlePlaced;
             hoursSinceDrink = dataStream.hoursSinceDrink;
+        }else{
+            sendNotification(2);
         }
     }
 }

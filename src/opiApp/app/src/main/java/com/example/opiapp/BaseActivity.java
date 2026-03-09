@@ -27,6 +27,11 @@ public class BaseActivity extends AppCompatActivity {
     final static int NOTIFICATION_PRIORITY = NotificationManager.IMPORTANCE_HIGH;
     protected static final String CHANNEL_ID = "hydration_notifications";
     protected static final int NOTIFICATION_ID = 1;
+    protected double totalDrank = 0.0;
+    protected final double targetHydration = 5;
+    protected boolean bottlePlaced = false;
+    protected int hoursSinceDrink = 0;
+    protected double capacity = 750;
 
     /**
      * Initializes and configures the click listeners for the bottom navigation bar.
@@ -145,8 +150,8 @@ public class BaseActivity extends AppCompatActivity {
             if(dataStream.capacity != capacity){
                 capacity = dataStream.capacity;
             }
-            if(dataStream.totalDrunk > totalDrunk){
-                totalDrunk = dataStream.totalDrunk;
+            if(dataStream.totalDrank > totalDrank){
+                totalDrank = dataStream.totalDrank;
             }
             bottlePlaced = dataStream.bottlePlaced;
             hoursSinceDrink = dataStream.hoursSinceDrink;

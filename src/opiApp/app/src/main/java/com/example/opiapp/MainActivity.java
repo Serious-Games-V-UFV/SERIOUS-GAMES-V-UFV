@@ -5,7 +5,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-import static java.util.concurrent.TimeUnit.*;
+
 import androidx.activity.EdgeToEdge;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -15,11 +15,7 @@ public class MainActivity extends BaseActivity {
 
     private TextView tvProgressValue;
     private Button btnAdd;
-    private double totalDrunk = 0.0;
-    private final double targetHydration = 5;
-    private boolean bottlePlaced = false;
-    private int hoursSinceDrink = 0;
-    private double capacity = 750;
+
     Bluetooth btcon = new Bluetooth();
 
 
@@ -72,16 +68,17 @@ public class MainActivity extends BaseActivity {
 
     private int addWaterGlass() {
         try{
-            totalDrunk += 0.25;
+            totalDrank += 0.25;
+            
             // FIXME Avoid notification to be prompted everytime new water is added
-            if (totalDrunk >= targetHydration) {
-                totalDrunk = targetHydration;
+            if (totalDrank >= targetHydration) {
+                totalDrank = targetHydration;
                 Toast.makeText(this, "Target reached!", Toast.LENGTH_SHORT).show();
                 sendNotification(1);
             }
 
             // Update the UI
-            String progressText = String.format("%.2fL / %.1fL", totalDrunk, targetHydration);
+            String progressText = String.format("%.2fL / %.1fL", totalDrank, targetHydration);
             tvProgressValue.setText(progressText);
             return 0;
         } catch (Exception e) {

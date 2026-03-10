@@ -238,8 +238,8 @@ void loop() {
     }
   }
 
-  // Envio Bluetooth cada 2 segundos
-  if (clock_ms - lastBTSend > 2000UL) {
+  // Envio Bluetooth cada 5 segundos
+  if (clock_ms - lastBTSend > 5000UL) {
     bluetoothSend(lastDrink);
     lastBTSend = clock_ms;
   }

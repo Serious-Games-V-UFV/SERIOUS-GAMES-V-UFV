@@ -79,12 +79,11 @@ public class Bluetooth{ // extends Service {
     }
  public WaterData readData(boolean develop){
     //TODO: BORRAR AL TERMINAR EL DESARROLLO
-//        double capacity = 740;
-//        int hoursSinceDrink = 3;
-//        double totalDrunk = 0;
-//        boolean bottlePlaced = false;
-//        return new WaterData(capacity, hoursSinceDrink, totalDrunk, bottlePlaced);
-     return null;
+        double capacity = 740;
+        int hoursSinceDrink = 3;
+        double totalDrunk = 0;
+        boolean isBottlePlaced = false;
+        return new WaterData(capacity, hoursSinceDrink, totalDrunk, isBottlePlaced);
     }
 
     public void disconnect() {

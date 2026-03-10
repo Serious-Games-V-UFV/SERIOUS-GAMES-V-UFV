@@ -43,7 +43,10 @@ public class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         requestNotificationPermission();
         createNotificationChannel("Hydration Goal","Notifications for reaching hydration goal");
-        processWaterData(btcon.readData(true));
+
+        // FIXME FOLLOWING METHODS CANT BE CALLED AT THE SAME EXEC (ONE IS FAKING WEIGHT REDUCTION)
+        // processWaterData(btcon.readData(true));
+        processWaterData(btcon.readData(true),true);
     }
 
     /**
@@ -169,6 +172,19 @@ public class BaseActivity extends AppCompatActivity {
                 totalDrank = dataStream.totalDrank;
             }
             isBottlePlaced = dataStream.isBottlePlaced;
+            hoursSinceDrink = dataStream.hoursSinceDrink;
+        }else{
+            sendNotification(2);
+        }
+    }
+    protected void processWaterData(WaterData dataStream,boolean isFaking){
+         double alterValue = 0.1 + (Math.random() * (0.5 - 0.1));
+        if(dataStream != null){
+            isBottlePlaced = dataStream.isBottlePlaced;
+            if(!isBottlePlaced){
+                capacity -= alterValue;
+                totalDrank += alterValue;
+            }
             hoursSinceDrink = dataStream.hoursSinceDrink;
         }else{
             sendNotification(2);

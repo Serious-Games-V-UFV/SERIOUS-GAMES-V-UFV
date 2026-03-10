@@ -1,229 +1,216 @@
-//TODO Modificar la logica para que quede acorde al producto final, debuggear con el lilypad
 #include <HX711.h>
 #include <Adafruit_NeoPixel.h>
 #include <math.h>
-#include <BluetoothSerial.h>
 
-// * Configuracion pines sensores | Component's pin config
+// * Configuracion pines
 const int nightButton = 4;
-const int led = 5;
-const int buzzer = 6;
-const int infraRed = 7;
-const int weight = A2;
-const int weightSCK = A3;
+const int LED_PIN     = 5;
+const int buzzer      = 6;
+const int infraRed    = 7;
+const int WEIGHT_DT   = A2;
+const int WEIGHT_SCK  = A3;
 
-// * Variables | variables
-static float bottleCapacity = 1.5;
+// * Variables globales
+static float bottleCapacity  = 1.5;
 static float currentCapacity = 1.5;
-static unsigned long clock = 0L;
-static unsigned long lastActivity = 0L;
-static unsigned long lastDrink = 0L;
-static float currentWeight = 0;
-static float prevWeight = 1.5;
-static float totalDrunk = 0;
-static unsigned long lastLED = 0;
-static bool nightMode = false;
-static bool bottlePlaced = false;
-static bool ledBlinkState = false;
-static unsigned long lastLedBlink = 0;
-static bool buzzerState = false;
-static unsigned long lastBuzzChange = 0;
-static unsigned long lastBluetoothSend = 0;
+static float currentWeight   = 0;
+static float prevWeight      = 1.5;
+static float totalDrunk      = 0;
 
-// * Constantes | Constants
-  const float DETECTION_THRESHOLD = 0.05; // * Umbral unificado para deteccion | Unified threshold for detection
-// * Configuracion de los pines bluetooth
-BluetoothSerial SerialBT(Serial, true);
-//TODO Descomentar linea siguiente cuando conectemos bascula
-  // HX711 scale;
-Adafruit_NeoPixel pixel(1, led, NEO_GRB + NEO_KHZ800);
+static unsigned long clock_ms       = 0UL;
+static unsigned long lastActivity   = 0UL;
+static unsigned long lastDrink      = 0UL;
+static unsigned long lastLED        = 0UL;
+static unsigned long lastLedBlink   = 0UL;
+static unsigned long lastBuzzChange = 0UL;
+static unsigned long lastBTSend     = 0UL;
 
-// * Metodos | Methods
-//TODO Descomentar lineas cuando conectemos bascula
-// * Devuelve el peso medido en la bascula | Returns weight measured in the scale
+static bool nightMode      = false;
+static bool bottlePlaced   = false;
+static bool ledBlinkState  = false;
+static bool buzzerState    = false;
+
+// * Constantes
+const float DETECTION_THRESHOLD = 0.05;
+
+// * Libreria HX711 (bogde) compatible con AVR
+//TODO Descomentar cuando se conecte la bascula
+// HX711 scale;
+
+// * NeoPixel compatible con LilyPad AVR
+Adafruit_NeoPixel pixel(1, LED_PIN, NEO_GRB + NEO_KHZ800);
+
+
+// ---------------------------------------------------------------------------
+// * Peso: devuelve kg leidos por la bascula
+// ---------------------------------------------------------------------------
 float findWeight() {
-  // float weight = scale.get_units(1);
-  // Serial.print(weight);
-  // return weight;
-  return 0.0; // Updatear con las taras
+  // TODO Descomentar y calibrar con el factor correcto
+  // if (scale.is_ready()) return scale.get_units(3);
+  return 0.0;
 }
 
-// * Devuelve la diferencia de peso | Returns the weight difference
-float weightDifference(float prevWeight, float weight) {
-  float total = 0;
-  total = prevWeight - weight; // * El agua pesa 1g x cada ml (1Kg x cada litro) | Water weights 1g per ml (1kg per liter)
-  return total;
+// * Diferencia de peso (positivo = se ha bebido, negativo = se ha rellenado)
+float weightDifference(float prev, float curr) {
+  return prev - curr;
 }
 
-// * Controla cuando se bebe agua, devuelve cuando se ha bebido | Controls when water is consumed, returns the moment of consumption
+// * Detecta si se ha bebido o rellenado y actualiza estado
 unsigned long drinkControl() {
-  currentWeight = findWeight();
-  float drunk = weightDifference(prevWeight, currentWeight);
- 
-  if (drunk > DETECTION_THRESHOLD) {
-    // * Se ha bebido agua | Water consumed
-    currentCapacity -= drunk;
-    totalDrunk += drunk;
-    lastActivity = clock;
-  } else if (drunk < -DETECTION_THRESHOLD) {
-    // * Se ha rellenado la botella | Bottle refilled
-    currentCapacity += fabsf(drunk);
+  currentWeight    = findWeight();
+  float diff       = weightDifference(prevWeight, currentWeight);
+
+  if (diff > DETECTION_THRESHOLD) {
+    currentCapacity -= diff;
+    totalDrunk      += diff;
+    lastActivity     = clock_ms;
+  } else if (diff < -DETECTION_THRESHOLD) {
+    currentCapacity += fabsf(diff);
   }
-  
+
   prevWeight = currentWeight;
   return lastActivity;
 }
 
-// * Controla el led en funcion de la hora de la ultima actividad | Controls the led with the last activity time
-void ledControl(long lastDrink) {
-  long hours = lastDrink / 3600000L;
+// * Control del LED segun tiempo sin beber
+void ledControl(unsigned long timeSinceLastDrink) {
+  long hours = timeSinceLastDrink / 3600000L;
+
   if (hours <= 1) {
-    // * LED apagado | LED off
     pixel.setPixelColor(0, pixel.Color(0, 0, 0));
     pixel.show();
     ledBlinkState = false;
-  } else if ((hours > 1) && (hours < 4)) {
-    // * LED amarillo fijo | Fixed yellow LED
-    pixel.setPixelColor(0, pixel.Color(255, 255, 0));
+
+  } else if (hours < 4) {
+    pixel.setPixelColor(0, pixel.Color(255, 255, 0)); // amarillo
     pixel.show();
     ledBlinkState = false;
-  } else if ((hours >= 4) && (hours < 6)) {
-    // * LED rojo fijo | Fixed red LED
-    pixel.setPixelColor(0, pixel.Color(255, 0, 0));
+
+  } else if (hours < 6) {
+    pixel.setPixelColor(0, pixel.Color(255, 0, 0));   // rojo fijo
     pixel.show();
     ledBlinkState = false;
+
   } else {
-    // * LED rojo parpadeante (6+ horas) | Blinking red LED (6+ hours)
-    if (clock - lastLedBlink > 500) {
+    // rojo parpadeante cada 500 ms
+    if (clock_ms - lastLedBlink > 500UL) {
       ledBlinkState = !ledBlinkState;
-      if (ledBlinkState) {
-        pixel.setPixelColor(0, pixel.Color(255, 0, 0));
-      } else {
-        pixel.setPixelColor(0, pixel.Color(0, 0, 0));
-      }
+      pixel.setPixelColor(0, ledBlinkState
+        ? pixel.Color(255, 0, 0)
+        : pixel.Color(0, 0, 0));
       pixel.show();
-      lastLedBlink = clock;
+      lastLedBlink = clock_ms;
     }
   }
 }
 
-// * Deteccion de la botella por sensor infrarrojo | Bottle detection with infrared sensor
+// * Deteccion de botella por IR
 bool irDetection() {
-  bool bottleDetected = !digitalRead(infraRed);
-  if (bottleDetected) {
-    Serial.println("Botella presente");
-    return true;
-  } else {
-    Serial.println("Botella no colocada");
-    return false;
-  }
+  bool detected = !digitalRead(infraRed);
+  Serial.println(detected ? "Botella presente" : "Botella no colocada");
+  return detected;
 }
 
-// * Alterna el modo noche | Toggles night mode
+// * Modo noche (boton con INPUT_PULLUP: LOW = activo)
 void nightControl() {
-  nightMode = !digitalRead(nightButton);
+  nightMode = (digitalRead(nightButton) == LOW);
 }
 
-// * Controla el zumbador en base a la ultima actividad  | Controls the buzzer with the last activity time 
-void buzzControl(long lastDrink) {
-  long hours = lastDrink / 3600000L;
-  
+// * Control del zumbador segun tiempo sin beber
+void buzzControl(unsigned long timeSinceLastDrink) {
+  long hours = timeSinceLastDrink / 3600000L;
+
   if (hours <= 1) {
     noTone(buzzer);
     buzzerState = false;
-  } else if ((hours > 1) && (hours < 4)) {
+
+  } else if (hours < 4) {
     tone(buzzer, 800, 300);
-  } else if ((hours >= 4) && (hours < 6)) {
+
+  } else if (hours < 6) {
     tone(buzzer, 1500, 500);
+
   } else {
-    unsigned long timeSinceLastBuzz = clock - lastBuzzChange;
-    if (!buzzerState && timeSinceLastBuzz > 400) {
+    // pitido doble rapido
+    unsigned long elapsed = clock_ms - lastBuzzChange;
+    if (!buzzerState && elapsed > 400UL) {
       tone(buzzer, 2000, 300);
-      buzzerState = true;
-      lastBuzzChange = clock;
-    } else if (buzzerState && timeSinceLastBuzz > 300) {
-      buzzerState = false;
-      lastBuzzChange = clock;
+      buzzerState    = true;
+      lastBuzzChange = clock_ms;
+    } else if (buzzerState && elapsed > 300UL) {
+      buzzerState    = false;
+      lastBuzzChange = clock_ms;
     }
   }
 }
 
-// * Envia los datos como JSON | Sends the data as JSON
-void bluetoothSend(long lastDrinkTime) {
-  long hours = lastDrinkTime / 3600000L;
-  
-  // * Formato JSON estructurado | Structured JSON format
-  String message = "{\"capacity\":" + String(currentCapacity) + 
-                   ",\"hoursSinceDrink\":" + String(hours) + 
-                   ",\"totalDrunk\":" + String(totalDrunk) + 
-                   ",\"bottlePlaced\":" + String(bottlePlaced ? "true" : "false") + "}";
-  
-  SerialBT.writeSerial(message);
+// * Envia JSON por Bluetooth (Serial hardware = HC-05)
+// Formato: {"capacity":1.50,"hoursSinceDrink":0,"totalDrunk":0.00,"bottlePlaced":true}
+void bluetoothSend(unsigned long timeSinceLastDrink) {
+  long hours = timeSinceLastDrink / 3600000L;
+
+  String message = "{\"capacity\":"      + String(currentCapacity, 2) +
+                   ",\"hoursSinceDrink\":" + String(hours) +
+                   ",\"totalDrunk\":"     + String(totalDrunk, 2) +
+                   ",\"bottlePlaced\":"   + String(bottlePlaced ? "true" : "false") +
+                   "}";
+
   Serial.println(message);
 }
 
+
+
+// ---------------------------------------------------------------------------
 void setup() {
-  pinMode(buzzer, OUTPUT);
-  pinMode(infraRed, INPUT);
+  pinMode(buzzer,      OUTPUT);
+  pinMode(infraRed,    INPUT);
   pinMode(nightButton, INPUT_PULLUP);
-  
-  // * Inicializacion de componentes seriales | Serial components initialize
-  //TODO Descomentar linea siguiente cuando conectemos bascula | Delete following comment when the scale is connected
-  // scale.begin(weight, weightSCK);
-  Serial.begin(115200);
-  SerialBT.begin("OPI bag");
-  pixel.begin();
-  
-  // * Configuracion scale | Scale config
-  // scale.set_scale();
+
+  // Serial hardware = pin 0/1 = HC-05 Bluetooth
+  // 9600 baud es el default del HC-05; si lo cambiaste con AT usa ese valor
+  Serial.begin(9600);
+
+  // TODO Descomentar cuando se conecte la bascula
+  // scale.begin(WEIGHT_DT, WEIGHT_SCK);
+  // scale.set_scale(/* factor_calibracion */);
   // scale.tare();
-  
-  // * Inicializacion correcta del tiempo | Correct time initialization
+
+  pixel.begin();
+  pixel.setPixelColor(0, pixel.Color(0, 0, 0));
+  pixel.show();
+
   lastActivity = millis();
-  
-  Serial.println("Sistema de hidratacion iniciado");
+  Serial.println(F("Sistema de hidratacion iniciado"));
 }
 
+
 void loop() {
-  clock = millis();
-  
-  Serial.print("Tiempo del programa: ");
-  Serial.println(clock);
-  
+  clock_ms = millis();
+
   nightControl();
-  
-  //TODO Borrar esto cuando consigamos tarar bien la bascula | Delete this when we tare the scale
-  // if (scale.is_ready()) {
-  //   float reading = scale.get_units(10);
-  //   Serial.print("Lectura raw: ");
-  //   Serial.println(reading);
-  // }
-  
-  // * Control de los led y vibracion por tiempo sin beber (cada 10 segundos) | Led and buzzer control with time of last drink (every 10 seconds)
-  if (clock - lastLED > 10000UL) {
+  bottlePlaced = irDetection();
+
+  if (bottlePlaced) {
+    lastActivity = drinkControl();
+  }
+
+  lastDrink = clock_ms - lastActivity;
+
+  // LED y buzzer cada 10 segundos
+  if (clock_ms - lastLED > 10000UL) {
     ledControl(lastDrink);
-    lastLED = clock;
-    
-    // * Control del zumbador | Buzzer control
+    lastLED = clock_ms;
+
     if (!nightMode) {
       buzzControl(lastDrink);
     } else {
       noTone(buzzer);
     }
   }
-  
-  bottlePlaced = irDetection();
-  
-  if (bottlePlaced) {
-    lastActivity = drinkControl();
-  }
-  
-  lastDrink = (clock - lastActivity);
-  
-  // * Envio Bluetooth  (cada 2 segundos) | Bluetooth send (every 2 seconds)
-  if (clock - lastBluetoothSend > 2000UL) {
+
+  // Envio Bluetooth cada 2 segundos
+  if (clock_ms - lastBTSend > 2000UL) {
     bluetoothSend(lastDrink);
-    lastBluetoothSend = clock;
+    lastBTSend = clock_ms;
   }
-  
 }

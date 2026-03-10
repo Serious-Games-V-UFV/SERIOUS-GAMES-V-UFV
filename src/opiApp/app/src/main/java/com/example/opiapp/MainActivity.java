@@ -16,28 +16,14 @@ public class MainActivity extends BaseActivity {
     private TextView tvProgressValue;
     private Button btnAdd;
 
-    Bluetooth btcon = new Bluetooth();
-
-
-
-
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
         setupBottomNavigation();
-        // TODO: Integrate it with Service (developer.android.com/develop/background-work/services)
-        //  or ForegroundServices (https://developer.android.com/develop/background-work/services/fgs)
-            WaterData receivedData = btcon.readData();
-            processWaterData(receivedData);
-
-        super.createNotificationChannel("Hydration Goal","Notifications for reaching hydration goal");
-        super.requestNotificationPermission();
 
 
         View mainView = findViewById(R.id.main);
@@ -70,11 +56,14 @@ public class MainActivity extends BaseActivity {
         try{
             totalDrank += 0.25;
             
-            // FIXME Avoid notification to be prompted everytime new water is added
+// TEMPORAL FIX Avoid notification to be prompted everytime new water is added and goal is reached
             if (totalDrank >= targetHydration) {
                 totalDrank = targetHydration;
                 Toast.makeText(this, "Target reached!", Toast.LENGTH_SHORT).show();
-                sendNotification(1);
+                if(!reached){
+                    sendNotification(1);
+                }
+                reached = true;
             }
 
             // Update the UI

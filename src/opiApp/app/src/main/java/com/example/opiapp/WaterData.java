@@ -6,6 +6,6 @@ public class WaterData extends BaseActivity {
         this.capacity = capacity;
         this.hoursSinceDrink = hoursSinceDrink;
         this.totalDrank = totalDrunk;
-        this.bottlePlaced = bottlePlaced;
+        this.isBottlePlaced = bottlePlaced;
     }
 }

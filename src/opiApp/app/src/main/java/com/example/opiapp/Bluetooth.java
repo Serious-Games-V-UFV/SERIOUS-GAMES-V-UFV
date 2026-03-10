@@ -68,7 +68,8 @@ public class Bluetooth{ // extends Service {
             double totalDrunk = json.getDouble("totalDrunk");
             boolean bottlePlaced = json.getBoolean("bottlePlaced");
 
-            return new WaterData(capacity, hours, totalDrunk, bottlePlaced);
+           return new WaterData(capacity, hours, totalDrunk, bottlePlaced);
+
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -76,14 +77,15 @@ public class Bluetooth{ // extends Service {
 
         return null;
     }
-//    public WaterData readData(boolean develop){
+ public WaterData readData(boolean develop){
     //TODO: BORRAR AL TERMINAR EL DESARROLLO
 //        double capacity = 740;
 //        int hoursSinceDrink = 3;
 //        double totalDrunk = 0;
 //        boolean bottlePlaced = false;
 //        return new WaterData(capacity, hoursSinceDrink, totalDrunk, bottlePlaced);
-    //}
+     return null;
+    }
 
     public void disconnect() {
         try {

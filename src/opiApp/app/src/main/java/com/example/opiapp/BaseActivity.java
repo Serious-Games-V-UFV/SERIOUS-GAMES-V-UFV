@@ -6,11 +6,13 @@ import android.app.NotificationManager;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
+import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
@@ -21,6 +23,7 @@ import androidx.core.content.ContextCompat;
  * the notification send
  */
 public class BaseActivity extends AppCompatActivity {
+    
     /**
      * Allows the notification to be on top of the screen
      */
@@ -29,9 +32,19 @@ public class BaseActivity extends AppCompatActivity {
     protected static final int NOTIFICATION_ID = 1;
     protected double totalDrank = 0.0;
     protected final double targetHydration = 5;
-    protected boolean bottlePlaced = false;
+    protected boolean isBottlePlaced = false;
     protected int hoursSinceDrink = 0;
     protected double capacity = 750;
+    protected boolean reached = false;
+    Bluetooth btcon = new Bluetooth();
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        requestNotificationPermission();
+        createNotificationChannel("Hydration Goal","Notifications for reaching hydration goal");
+        processWaterData(btcon.readData(true));
+    }
 
     /**
      * Initializes and configures the click listeners for the bottom navigation bar.
@@ -120,14 +133,16 @@ public class BaseActivity extends AppCompatActivity {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setSmallIcon(R.drawable.ic_notification)
                 .setColor(ContextCompat.getColor(this, R.color.white))
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                .setPriority(NotificationCompat.PRIORITY_HIGH)
-                .setAutoCancel(true);
+                .setPriority(NotificationCompat.PRIORITY_HIGH);
+
 
                 if(code == 1){
+                    builder.setAutoCancel(true);
                     builder.setContentTitle("Meta conseguida");
                     builder.setContentText("¡Felicidades! Has llegado a tu meta de hidratación.");
                 }if(code == 2){
+                    builder.setSilent(true);
+                    builder.setOngoing(true);
                     builder.setContentTitle("Mochila no conectada");
                     builder.setContentText("No se ha encontrado una conexion con la mochila, conectala");
                 }
@@ -153,7 +168,7 @@ public class BaseActivity extends AppCompatActivity {
             if(dataStream.totalDrank > totalDrank){
                 totalDrank = dataStream.totalDrank;
             }
-            bottlePlaced = dataStream.bottlePlaced;
+            isBottlePlaced = dataStream.isBottlePlaced;
             hoursSinceDrink = dataStream.hoursSinceDrink;
         }else{
             sendNotification(2);

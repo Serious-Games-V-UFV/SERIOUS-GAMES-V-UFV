@@ -4,13 +4,16 @@ import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * Class for database handling operations
+ */
 public class Database {
 
-    // Attributes
+//===========================ATTRIBUTES===========================//
     Connection con = null;
 
 
-    // Constructor
+//===========================CONSTRUCTOR===========================//
     public Database() {
 
         String url = "jdbc:mysql://smiguels.net:3306/opi_backend";
@@ -30,63 +33,46 @@ public class Database {
 
     }
 
-    // Methods
+//===========================METHODS===========================//
 
     /**
      * This method return a specific piece of data
      * from a specific table and column.
-     *
-     * @param table       Tells the table name
+     * @param table Tells the table name
      * @param column_name Tells the column name
-     * @param id          Tells the user whose datum will be returned
+     * @param id Tells the user whose datum will be returned
      * @return Will return a String with the datum or "" if the
      */
     public String getDatum(String table, String column_name, int id) {
-        Statement sta;
         String datum = "";
-        String query = null;
-        try {
-            sta = con.createStatement();
-            ResultSet rs = sta.executeQuery("SELECT " + column_name + " FROM " + table + " WHERE id = " + id + ";");
-            query = "SELECT " + column_name + " FROM " + table + " WHERE id = " + id + ";";
+        String query = "SELECT " + column_name + " FROM " + table + " WHERE id = ?;";
+        try (PreparedStatement ps = con.prepareStatement(query)) {
+            ps.setInt(1, id);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    datum = rs.getString(1);
+                }
+            }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
-        }
-        try {
-            sta = con.prepareStatement(query);
-            System.out.println(query);
-            ResultSet rs = sta.executeQuery(query);
-
-            if (rs.next()) {
-                datum = rs.getString(1);
-            }
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-
         }
         return datum;
     }
 
     /**
      * Very general query requester in case of very specific queries
-     *
      * @param query is the entire query
      * @return query result
      */
     public String generalQuery(String query) {
-        Statement sta;
         String datum = "";
-        try {
-            sta = con.prepareStatement(query);
-            ResultSet rs = sta.executeQuery(query);
-
+        try (PreparedStatement ps = con.prepareStatement(query);
+             ResultSet rs = ps.executeQuery()) {
             if (rs.next()) {
                 datum = rs.getString(1);
             }
-
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
-
         }
         return datum;
     }
@@ -94,18 +80,16 @@ public class Database {
     /**
      * inserts a specific datum into a selected table and column
      *
-     * @param table       the table in which the specific piece of datum is inserted
+     * @param table the table in which the specific piece of datum is inserted
      * @param column_name the column in which the specific piece of datum is inserted
-     * @param value       datum inserted
-     * @return sta.executeUpdate() regarding database | -1 states an error
+     * @param value datum inserted
+     * @return ps.executeUpdate() regarding database | -1 states an error
      */
     public int insertDatum(String table, String column_name, String value) {
-        Statement sta;
-        String query = "INSERT INTO " + table + " (" + column_name + ") VALUES ('" + value + "');";
-        try {
-            sta = con.prepareStatement(query);
-            System.out.println(query);
-            return sta.executeUpdate(query);
+        String query = "INSERT INTO " + table + " (" + column_name + ") VALUES (?);";
+        try (PreparedStatement ps = con.prepareStatement(query)) {
+            ps.setString(1, value);
+            return ps.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -115,20 +99,18 @@ public class Database {
 
     /**
      * Updates a datum in an specified table and column
-     *
-     * @param table       table in which the datum is updated
+     * @param table table in which the datum is updated
      * @param column_name column in which the datum is updated
-     * @param value       new value assigned to the datum
-     * @param id          for sql syntax and conditional
-     * @return sta.executeUpdate() regarding database | -1 states an error
+     * @param value new value assigned to the datum
+     * @param id for sql syntax and conditional
+     * @return ps.executeUpdate() regarding database output | -1 states an error
      */
-    public int updateDatum(String table, String column_name, String value, String id) {
-        Statement sta;
-        String primary = null;
-        String query = "UPDATE" + table + " " + column_name + value + " WHERE " + id + "= id;";
-        try {
-            sta = con.prepareStatement(query);
-            return sta.executeUpdate(query);
+    public int updateDatum(String table, String column_name, String value, int id) {
+        String query = "UPDATE " + table + " SET " + column_name + " = ? WHERE id = ?;";
+        try (PreparedStatement ps = con.prepareStatement(query)) {
+            ps.setString(1, value);
+            ps.setInt(2, id);
+            return ps.executeUpdate();
         } catch (SQLException e) {
             return -1;
         }
@@ -137,7 +119,6 @@ public class Database {
     /**
      * Gets a tuple of data from the database, using try-with resources you ensure all resources
      * are closed if an exception is thrown.
-     *
      * @param table the table from which the data is selected
      * @param id    filtering for the correct data
      * @return result.toString() | String containing all the values of the query
@@ -167,4 +148,3 @@ public class Database {
         }
     }
 }
-

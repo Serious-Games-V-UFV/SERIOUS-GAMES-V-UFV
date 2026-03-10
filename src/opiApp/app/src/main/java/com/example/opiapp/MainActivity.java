@@ -11,6 +11,9 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+/**
+ * CLass for displaying the main screen of the app
+ */
 public class MainActivity extends BaseActivity {
 
     private TextView tvProgressValue;

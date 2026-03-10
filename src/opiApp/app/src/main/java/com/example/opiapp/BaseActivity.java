@@ -48,7 +48,8 @@ public class BaseActivity extends AppCompatActivity {
         // processWaterData(btcon.readData(true));
         processWaterData(btcon.readData(true),true);
     }
-
+    
+//===========================NAVIGATION===========================//
     /**
      * Initializes and configures the click listeners for the bottom navigation bar.
      * It maps each TextView to its corresponding Activity, handling transitions
@@ -90,6 +91,9 @@ public class BaseActivity extends AppCompatActivity {
             });
         }
     }
+
+//===========================NOTIFICATIONS===========================//
+
     /**
      * Launcher for requesting runtime permissions from the user.
      * This specific instance handles the request for notification permissions,
@@ -157,6 +161,9 @@ public class BaseActivity extends AppCompatActivity {
             notificationManager.notify(NOTIFICATION_ID, builder.build());
         }
     }
+
+//===========================DataProcessing===========================//
+
     /**
      * Process the data received by the bluetooth connection (if not null)
      * If capacity received differs from stored value, updates stored
@@ -177,6 +184,14 @@ public class BaseActivity extends AppCompatActivity {
             sendNotification(2);
         }
     }
+
+    /**
+     * Process the data received by the bluetooth connection (if not null)
+     * If bottle is not placed generates a random number between 0,1 and 0,5
+     * adds number to totalDrank, substracts from capacity
+     * @param dataStream data received
+     * @param isFaking // FIXME for development and presentation 2026/03/16 (Fake data)
+     */
     protected void processWaterData(WaterData dataStream,boolean isFaking){
          double alterValue = 0.1 + (Math.random() * (0.5 - 0.1));
         if(dataStream != null){

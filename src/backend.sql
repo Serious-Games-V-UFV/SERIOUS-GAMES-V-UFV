@@ -55,3 +55,11 @@ CREATE TABLE sensor_measurements(
     FOREIGN KEY (measurement) REFERENCES measurements(id) ON UPDATE CASCADE ON DELETE RESTRICT,
     PRIMARY KEY (sensor, measurement, measurement_date)
 );
+
+CREATE TABLE daily_hydration (
+    account BIGINT UNSIGNED NOT NULL,
+    date DATE NOT NULL,
+    total_drank DECIMAL(10,2) NOT NULL DEFAULT 0,
+    PRIMARY KEY (account, date),
+    FOREIGN KEY (account) REFERENCES account(id) ON UPDATE CASCADE ON DELETE RESTRICT
+);

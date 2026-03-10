@@ -18,6 +18,8 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.core.content.ContextCompat;
 
+import java.time.LocalDate;
+
 /**
  * Base class for activities that share common functionality like the bottom navigation bar.
  * the notification send
@@ -37,7 +39,8 @@ public class BaseActivity extends AppCompatActivity {
     protected double capacity = 750;
     protected boolean reached = false;
     Bluetooth btcon = new Bluetooth();
-
+    protected Database db = new Database();
+    protected String today = LocalDate.now().toString();
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,8 +50,12 @@ public class BaseActivity extends AppCompatActivity {
         // FIXME FOLLOWING METHODS CANT BE CALLED AT THE SAME EXEC (ONE IS FAKING WEIGHT REDUCTION)
         // processWaterData(btcon.readData(true));
         processWaterData(btcon.readData(true),true);
+        String total = db.generalQuery(
+                "SELECT total_drank FROM daily_hydration WHERE account = " + /*userID + */ " AND date = '" + today + "';"
+        );
+        totalDrank = total.isEmpty() ? 0 : Double.parseDouble(total);
     }
-    
+
 //===========================NAVIGATION===========================//
     /**
      * Initializes and configures the click listeners for the bottom navigation bar.

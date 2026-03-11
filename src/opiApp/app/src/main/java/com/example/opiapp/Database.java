@@ -147,4 +147,26 @@ public class Database {
             return null;
         }
     }
+
+    /**
+     * Returns id from the user currently logged in
+     * @param email email from the user (unique key in db)
+     * @return id from the user
+     */
+    public int getuserID(String email){
+        String query = "SELECT id FROM account"  + " WHERE email = ?;";
+        int queryResult = 0;
+        try (PreparedStatement ps = con.prepareStatement(query)) {
+            ps.setString(1, email);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    queryResult = rs.getInt(1);
+                }
+                return queryResult;
+            }
+        } catch (SQLException e) {
+            System.err.println("Error al obtener email: " + e.getMessage());
+            return -1;
+        }
+    }
 }

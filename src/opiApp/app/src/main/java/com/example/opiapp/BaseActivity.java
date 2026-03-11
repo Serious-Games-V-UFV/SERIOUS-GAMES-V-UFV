@@ -52,8 +52,7 @@ public class BaseActivity extends AppCompatActivity {
         processWaterData(btcon.readData(true),true);
         String total = db.generalQuery(
                 "SELECT total_drank FROM daily_hydration WHERE account = " + /*userID + */ " AND date = '" + today + "';"
-        );
-        totalDrank = total.isEmpty() ? 0 : Double.parseDouble(total);
+        );         totalDrank = total.isEmpty() ? 0 : Double.parseDouble(total);
     }
 
 //===========================NAVIGATION===========================//

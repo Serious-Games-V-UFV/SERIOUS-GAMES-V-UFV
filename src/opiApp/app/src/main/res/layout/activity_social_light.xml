@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_dark">
+    android:background="@color/bg_light">
 
     <!-- 1. TOOLBAR SUPERIOR -->
     <LinearLayout
@@ -82,13 +82,13 @@
                 android:layout_width="280dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:background="@drawable/bg_card"
+                android:background="@drawable/bg_card_light"
                 android:orientation="vertical"
                 android:padding="16dp">
 
                 <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center" android:orientation="horizontal">
                     <View android:layout_width="50dp" android:layout_height="50dp" android:background="@drawable/bg_circle_placeholder" />
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginHorizontal="10dp" android:text="VS" android:textColor="@color/accent_blue" android:textStyle="italic" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginHorizontal="10dp" android:text="VS" android:textColor="@color/text_secondary" android:textStyle="italic" />
                     <View android:layout_width="50dp" android:layout_height="50dp" android:background="@drawable/bg_circle_placeholder" android:backgroundTint="#FF9800" />
                 </LinearLayout>
 
@@ -112,7 +112,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="228dp"
                 android:layout_marginTop="12dp"
-                android:background="@drawable/bg_card"
+                android:background="@drawable/bg_card_light"
                 android:orientation="vertical"
                 android:padding="16dp">
 
@@ -143,7 +143,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="TIPS &amp; TRICKS"
-                            android:textColor="@color/accent_blue"
+                            android:textColor="@color/text_secondary"
                             android:textSize="10sp" />
                     </LinearLayout>
                 </LinearLayout>
@@ -170,10 +170,10 @@
                 android:layout_width="315dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:backgroundTint="@color/bg_dark"
+                android:backgroundTint="@color/accent_orange"
                 android:text="Load more topics..."
                 android:textAllCaps="false"
-                android:textColor="@color/text_secondary" />
+                android:textColor="@color/text_primary" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
@@ -195,7 +195,7 @@
         android:id="@+id/bottom_nav"
         android:layout_width="0dp"
         android:layout_height="70dp"
-        android:background="@drawable/bg_card"
+        android:background="@drawable/bg_card_light"
         android:orientation="horizontal"
         android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -209,7 +209,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="HOME"
-            android:textColor="@color/text_secondary"
+            android:textColor="@color/text_primary"
             android:textSize="10sp"
             android:textStyle="bold" />
 
@@ -220,7 +220,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="STATS"
-            android:textColor="@color/text_secondary"
+            android:textColor="@color/text_primary"
             android:textSize="10sp" />
 
         <TextView
@@ -230,9 +230,9 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="SOCIAL"
-            android:textColor="@color/accent_blue"
+            android:textColor="@color/text_primary"
             android:textSize="10sp" />
-        <TextView android:id="@+id/navTools" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="TOOLS" android:textColor="@color/text_secondary" android:gravity="center" android:textSize="10sp"/>
+        <TextView android:id="@+id/navTools" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="PROFILE" android:textColor="@color/text_primary" android:gravity="center" android:textSize="10sp"/>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

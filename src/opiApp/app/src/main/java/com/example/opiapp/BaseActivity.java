@@ -63,10 +63,10 @@ public class BaseActivity extends AppCompatActivity {
      * if the user is already on the selected screen.
      */
     protected void setupBottomNavigation() {
-        TextView navHome = findViewById(R.id.navHome);
-        TextView navStats = findViewById(R.id.navStats);
-        TextView navSocial = findViewById(R.id.navSocial);
-        TextView navTools = findViewById(R.id.navTools);
+        TextView navHome = findViewById(R.id.btn_nav_home);
+        TextView navStats = findViewById(R.id.btn_nav_stats);
+        TextView navSocial = findViewById(R.id.btn_nav_social);
+        TextView navTools = findViewById(R.id.btn_nav_profile);
 
         if (navHome != null) {
             navHome.setOnClickListener(v -> {

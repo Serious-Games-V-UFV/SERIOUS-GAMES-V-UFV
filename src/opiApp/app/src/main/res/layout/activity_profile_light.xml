@@ -68,6 +68,7 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/label_name_profile"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Alex Johnson"
@@ -76,6 +77,7 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/label_email_profile"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="alex.j@example.com"
@@ -158,43 +160,6 @@
                     android:text="Connected"
                     android:textColor="@color/success_green"
                     android:textSize="10sp" />
-            </LinearLayout>
-
-            <!-- Auto-sync Data -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:background="@drawable/bg_card_light"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:padding="16dp">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Auto-sync Data"
-                        android:textColor="@color/white"
-                        android:textStyle="bold" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Sync bottle data in the background"
-                        android:textColor="@color/text_secondary"
-                        android:textSize="11sp" />
-                </LinearLayout>
-
-                <com.google.android.material.switchmaterial.SwitchMaterial
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:checked="true"
-                    app:thumbTint="@color/white"
-                    app:trackTint="@color/accent_blue" />
             </LinearLayout>
 
             <!-- SECCIÓN: HYDRATION GOALS -->

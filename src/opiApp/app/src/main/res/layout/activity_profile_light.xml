@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_dark">
+    android:background="@color/bg_light">
 
 
     <!-- 1. TOOLBAR FIJA -->
@@ -51,14 +51,14 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/bg_card"
+                android:background="@drawable/bg_card_light"
                 android:gravity="center_vertical"
                 android:padding="16dp">
 
                 <View
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:background="@drawable/bg_circle_placeholder" />
+                    android:background="@drawable/bg_circle_placeholder_light" />
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -79,7 +79,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="alex.j@example.com"
-                        android:textColor="@color/text_secondary"
+                        android:textColor="@color/text_primary"
                         android:textSize="12sp" />
                 </LinearLayout>
 
@@ -87,7 +87,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Edit"
-                    android:textColor="@color/accent_blue"
+                    android:textColor="@color/text_primary"
                     android:textStyle="bold" />
             </LinearLayout>
 
@@ -100,7 +100,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="CONNECTED DEVICES"
-                    android:textColor="@color/text_secondary"
+                    android:textColor="@color/text_primary"
                     android:textSize="12sp"
                     android:textStyle="bold" />
                 <TextView
@@ -116,14 +116,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:background="@drawable/bg_card"
+                android:background="@drawable/bg_card_light"
                 android:gravity="center_vertical"
                 android:padding="16dp">
 
                 <View
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:background="@drawable/bg_card"
+                    android:background="@drawable/bg_card_light"
                     android:backgroundTint="@color/accent_blue" />
 
                 <LinearLayout
@@ -151,7 +151,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/bg_card"
+                    android:background="@drawable/bg_card_light"
                     android:backgroundTint="#1A00C853"
                     android:paddingHorizontal="8dp"
                     android:paddingVertical="4dp"
@@ -165,7 +165,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:background="@drawable/bg_card"
+                android:background="@drawable/bg_card_light"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
                 android:padding="16dp">
@@ -212,7 +212,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:background="@drawable/bg_card"
+                android:background="@drawable/bg_card_light"
                 android:orientation="vertical"
                 android:padding="16dp">
 
@@ -232,7 +232,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
                         android:text="2,500 ml >"
-                        android:textColor="@color/accent_blue" />
+                        android:textColor="@color/text_secondary" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -252,7 +252,7 @@
                         android:layout_alignParentEnd="true"
                         android:checked="true"
                         app:thumbTint="@color/white"
-                        app:trackTint="@color/accent_blue" />
+                        app:trackTint="@color/text_primary" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -271,7 +271,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:text="Every 1.5 hrs"
-                    android:textColor="@color/accent_blue"
+                    android:textColor="@color/text_secondary"
                     android:textSize="12sp" />
 
             </LinearLayout>
@@ -289,7 +289,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:background="@drawable/bg_card"
+                android:background="@drawable/bg_card_light"
                 android:orientation="vertical"
                 android:padding="8dp">
                 <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#1AFFFFFF" android:layout_marginHorizontal="12dp"/>
@@ -313,7 +313,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
-                android:background="@drawable/bg_card"
+                android:background="@drawable/bg_card_light"
                 android:backgroundTint="#26FF5252"
                 android:text="Log Out"
                 android:textAllCaps="false"

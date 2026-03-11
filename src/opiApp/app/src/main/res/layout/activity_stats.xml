@@ -9,7 +9,6 @@
     tools:context=".MainActivity">
 
     <!-- Header Section -->
-    <!-- 1. TOOLBAR PERSONALIZADA -->
     <LinearLayout
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -42,7 +41,7 @@
             app:tint="@color/white" />
     </LinearLayout>
 
-    <!-- ScrollView para que quepa todo el contenido -->
+    <!-- ScrollView -->
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -55,7 +54,7 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-            <!-- 2. RESUMEN SUPERIOR (DOS TARJETAS) -->
+            <!-- 2. RESUMEN SUPERIOR -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -88,27 +87,22 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <!-- 3. SECCIÓN CALENDARIO (Placeholder de diseño) -->
+            <!-- 3. SECCIÓN CALENDARIO REAL -->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="297dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/bg_card"
                 android:orientation="vertical"
-                android:padding="16dp">
+                android:padding="8dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="October 2023"
-                    android:textColor="@color/text_primary"
-                    android:textStyle="bold" />
-                <!-- Aquí iría un GridView para los días, ponemos una imagen o texto de ejemplo -->
-                <View
+                <CalendarView
+                    android:id="@+id/calendarView"
                     android:layout_width="match_parent"
-                    android:layout_height="232dp"
-                    android:layout_marginTop="8dp"
-                    android:background="#1AFFFFFF" />
+                    android:layout_height="wrap_content"
+                    android:theme="@style/Theme.OpiApp"
+                    android:dateTextAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:weekDayTextAppearance="@style/TextAppearance.AppCompat.Small" />
             </LinearLayout>
 
             <!-- 5. ACHIEVEMENTS -->
@@ -125,13 +119,11 @@
                 android:gravity="center"
                 android:orientation="horizontal">
 
-                <!-- Logro 1 -->
                 <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:gravity="center" android:orientation="vertical" android:layout_marginHorizontal="12dp">
                     <View android:layout_width="60dp" android:layout_height="60dp" android:background="@drawable/bg_circle_placeholder"/>
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="7 Day Streak" android:textColor="@color/text_secondary" android:textSize="10sp"/>
                 </LinearLayout>
 
-                <!-- Logro 2 -->
                 <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:gravity="center" android:orientation="vertical" android:layout_marginHorizontal="12dp">
                     <View android:layout_width="60dp" android:layout_height="60dp" android:background="@drawable/bg_circle_placeholder" android:backgroundTint="#FF5722"/>
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="Hydration Hero" android:textColor="@color/text_secondary" android:textSize="10sp"/>

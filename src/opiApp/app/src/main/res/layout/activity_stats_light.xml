@@ -96,19 +96,13 @@
                 android:background="@drawable/bg_card_light"
                 android:orientation="vertical"
                 android:padding="16dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="October 2023"
-                    android:textColor="@color/text_primary"
-                    android:textStyle="bold" />
-                <!-- Aquí iría un GridView para los días, ponemos una imagen o texto de ejemplo -->
-                <View
+                <CalendarView
+                    android:id="@+id/calendarView"
                     android:layout_width="match_parent"
-                    android:layout_height="232dp"
-                    android:layout_marginTop="8dp"
-                    android:background="#1AFFFFFF" />
+                    android:layout_height="wrap_content"
+                    android:theme="@style/Theme.OpiApp"
+                    android:dateTextAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:weekDayTextAppearance="@style/TextAppearance.AppCompat.Small" />
             </LinearLayout>
 
             <!-- 5. ACHIEVEMENTS -->

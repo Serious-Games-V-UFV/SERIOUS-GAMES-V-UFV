@@ -232,7 +232,7 @@
             android:text="SOCIAL"
             android:textColor="@color/accent_blue"
             android:textSize="10sp" />
-        <TextView android:id="@+id/navTools" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="TOOLS" android:textColor="@color/text_secondary" android:gravity="center" android:textSize="10sp"/>
+        <TextView android:id="@+id/navProfile" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="PROFILE" android:textColor="@color/text_secondary" android:gravity="center" android:textSize="10sp"/>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

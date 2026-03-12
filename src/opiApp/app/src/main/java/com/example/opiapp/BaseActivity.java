@@ -39,20 +39,23 @@ public class BaseActivity extends AppCompatActivity {
     protected double capacity = 750;
     protected boolean reached = false;
     Bluetooth btcon = new Bluetooth();
-    protected Database db = new Database();
+    protected Database db;
     protected String today = LocalDate.now().toString();
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        db = new Database();
+        setContentView(R.layout.activity_login);
         requestNotificationPermission();
         createNotificationChannel("Hydration Goal","Notifications for reaching hydration goal");
 
+        // Load today's hydration from DB FIRST, then process BT data on top
+        String total = db.getTodayHydration(today);
+        totalDrank = (total == null || total.isEmpty()) ? 0 : Double.parseDouble(total);
+
         // FIXME FOLLOWING METHODS CANT BE CALLED AT THE SAME EXEC (ONE IS FAKING WEIGHT REDUCTION)
         // processWaterData(btcon.readData(true));
-        processWaterData(btcon.readData(true),true);
-        String total = db.generalQuery(
-                "SELECT total_drank FROM daily_hydration WHERE account = " + /*userID + */ " AND date = '" + today + "';"
-        );         totalDrank = total.isEmpty() ? 0 : Double.parseDouble(total);
+        processWaterData(btcon.readData(true), true);
     }
 
 //===========================NAVIGATION===========================//

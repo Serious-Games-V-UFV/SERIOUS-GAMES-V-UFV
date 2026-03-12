@@ -72,10 +72,8 @@ public class MainActivity extends BaseActivity {
             // Update the UI
             String progressText = String.format("%.2fL / %.1fL", totalDrank, targetHydration);
             tvProgressValue.setText(progressText);
-
-            db.generalQuery("INSERT INTO daily_hydration (account, date, total_drank) VALUES" +
-                    " (" + userId + ", '" + today + "', " + totalDrank + ") " +
-                            "ON DUPLICATE KEY UPDATE total_drank = " + totalDrank + ";");
+            int userId = db.getuserID("a");
+            db.upsertDailyHydration(userId, today, totalDrank);
             return 0;
         } catch (Exception e) {
             return 1;

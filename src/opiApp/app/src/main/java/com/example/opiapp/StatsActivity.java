@@ -17,8 +17,8 @@ public class StatsActivity extends BaseActivity {
         calendarView = findViewById(R.id.calendarView);
 
         // Establecer la fecha de hoy como seleccionada por defecto
-        long today = Calendar.getInstance().getTimeInMillis();
-        calendarView.setDate(today, false, true);
+        long todayMillis = Calendar.getInstance().getTimeInMillis();
+        calendarView.setDate(todayMillis, false, true);
 
         // Ejemplo: Escuchar cuando el usuario cambia de fecha
         calendarView.setOnDateChangeListener((view, year, month, dayOfMonth) -> {

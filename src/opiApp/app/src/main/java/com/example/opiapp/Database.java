@@ -29,8 +29,15 @@ public class Database {
             System.out.println("Cannot connect to opi_backend at smiguels.net");
             Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
 
-
+    /** Check if connection is available before running queries */
+    private boolean isConnected() {
+        try {
+            return con != null && !con.isClosed();
+        } catch (SQLException e) {
+            return false;
+        }
     }
 
 //===========================METHODS===========================//
@@ -44,6 +51,7 @@ public class Database {
      * @return Will return a String with the datum or "" if the
      */
     public String getDatum(String table, String column_name, int id) {
+        if (!isConnected()) return "";
         String datum = "";
         String query = "SELECT " + column_name + " FROM " + table + " WHERE id = ?;";
         try (PreparedStatement ps = con.prepareStatement(query)) {
@@ -65,6 +73,7 @@ public class Database {
      * @return query result
      */
     public String generalQuery(String query) {
+        if (!isConnected()) return "";
         String datum = "";
         try (PreparedStatement ps = con.prepareStatement(query);
              ResultSet rs = ps.executeQuery()) {
@@ -86,6 +95,7 @@ public class Database {
      * @return ps.executeUpdate() regarding database | -1 states an error
      */
     public int insertDatum(String table, String column_name, String value) {
+        if (!isConnected()) return -1;
         String query = "INSERT INTO " + table + " (" + column_name + ") VALUES (?);";
         try (PreparedStatement ps = con.prepareStatement(query)) {
             ps.setString(1, value);
@@ -106,6 +116,7 @@ public class Database {
      * @return ps.executeUpdate() regarding database output | -1 states an error
      */
     public int updateDatum(String table, String column_name, String value, int id) {
+        if (!isConnected()) return -1;
         String query = "UPDATE " + table + " SET " + column_name + " = ? WHERE id = ?;";
         try (PreparedStatement ps = con.prepareStatement(query)) {
             ps.setString(1, value);
@@ -124,6 +135,7 @@ public class Database {
      * @return result.toString() | String containing all the values of the query
      */
     public String getTuple(String table, int id) {
+        if (!isConnected()) return null;
         StringBuilder result = new StringBuilder();
         String query = "SELECT * FROM " + table + " WHERE id = ?;";
 
@@ -153,8 +165,9 @@ public class Database {
      * @param email email from the user (unique key in db)
      * @return id from the user
      */
-    public int getuserID(String email){
-        String query = "SELECT id FROM account"  + " WHERE email = ?;";
+    public int getuserID(String email) {
+        if (!isConnected()) return -1;
+        String query = "SELECT id FROM account" + " WHERE email = ?;";
         int queryResult = 0;
         try (PreparedStatement ps = con.prepareStatement(query)) {
             ps.setString(1, email);
@@ -166,6 +179,52 @@ public class Database {
             }
         } catch (SQLException e) {
             System.err.println("Error al obtener email: " + e.getMessage());
+            return -1;
+        }
+    }
+
+    /**
+     * Returns today's total_drank for the given date (used in BaseActivity to load state).
+     * Uses PreparedStatement to avoid SQL injection.
+     * @param date today's date as String (LocalDate.now().toString())
+     * @return total_drank as String, or "" if not found
+     */
+    public String getTodayHydration(String date) {
+        if (!isConnected()) return "";
+        // NOTE: account filter pending until login/session is implemented
+        String query = "SELECT total_drank FROM daily_hydration WHERE date = ? LIMIT 1;";
+        try (PreparedStatement ps = con.prepareStatement(query)) {
+            ps.setString(1, date);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) return rs.getString(1);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return "";
+    }
+
+    /**
+     * Inserts or updates the daily hydration record for a given user and date.
+     * Replaces the generalQuery(INSERT...) call in MainActivity to avoid crashes
+     * (generalQuery uses executeQuery which fails on INSERT statements).
+     * @param userId account id
+     * @param date   date string
+     * @param totalDrank total water drank today in litres
+     * @return rows affected, or -1 on error
+     */
+    public int upsertDailyHydration(int userId, String date, double totalDrank) {
+        if (!isConnected()) return -1;
+        String query = "INSERT INTO daily_hydration (account, date, total_drank) VALUES (?, ?, ?) " +
+                "ON DUPLICATE KEY UPDATE total_drank = ?;";
+        try (PreparedStatement ps = con.prepareStatement(query)) {
+            ps.setInt(1, userId);
+            ps.setString(2, date);
+            ps.setDouble(3, totalDrank);
+            ps.setDouble(4, totalDrank);
+            return ps.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
             return -1;
         }
     }

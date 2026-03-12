@@ -1,7 +1,6 @@
 package com.example.opiapp;
 
 import android.Manifest;
-import android.app.Service;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;

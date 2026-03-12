@@ -13,10 +13,10 @@ const int WEIGHT_SCK  = A3;
 
 
 // * Variables globales
-static float bottleCapacity  = 1.5;
-static float currentCapacity = 1.5;
+static float bottleCapacity  = 750; //g
+static float currentCapacity = 750; //g
 static float currentWeight   = 0;
-static float prevWeight      = 1.5;
+static float prevWeight      = 750; //g
 static float totalDrunk      = 0;
 
 
@@ -176,7 +176,8 @@ void initScale() {
   Serial.println(digitalRead(WEIGHT_DT) == LOW ? "LOW (lista)" : "HIGH (no responde)");
 
   scale.begin(WEIGHT_DT, WEIGHT_SCK);
-  scale.set_scale(-31.6);
+  scale.set_scale(-7050);
+  scale.tare(-432200.0);
 
   unsigned long t0 = millis();
   while (millis() - t0 < 5000UL) {

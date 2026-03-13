@@ -106,7 +106,6 @@ void stateMachine() {
         /* Esperar que el filtro se estabilice */
         if (settleCount < SETTLE_READINGS) {
           settleCount++;
-          break;
         }
 
         float diff = liftedWeight - currentWeight;
@@ -138,27 +137,22 @@ void stateMachine() {
 
 /*========== BLUETOOTH ==========*/
 void sendBluetooth(unsigned long timeSinceDrink) {
+    unsigned long minutes = timeSinceDrink / 3600000UL;
 
-  unsigned long minutes = timeSinceDrink / 60000UL;
+    char capStr[9];
+    char drunkStr[9];
+    dtostrf(capacity,   6, 2, capStr);
+    dtostrf(totalDrunk, 6, 2, drunkStr);
 
-  char capStr[8];
-  char drunkStr[8];
+    char msg[100];
+    snprintf(msg, sizeof(msg),
+        "{\"capacity\":%s,\"minutesSinceDrink\":%lu,\"totalDrunk\":%s,\"bottlePlaced\":%s}",
+        capStr,
+        minutes,
+        drunkStr,
+        bottlePlaced ? "true" : "false");
 
-  dtostrf(capacity,  5, 1, capStr);
-  dtostrf(totalDrunk, 5, 1, drunkStr);
-
-  char msg[60];
-
-  snprintf(msg, sizeof(msg),
-    "{%s,%lu,%s,%d,%d}",
-    capStr,
-    minutes,
-    drunkStr,
-    (int)bottlePlaced,
-    (int)scaleReady);
-
-  Serial.println(msg);
-
+    Serial.println(msg);
 }
 
 /*========== HX711 ==========*/

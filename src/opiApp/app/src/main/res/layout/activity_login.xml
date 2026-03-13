@@ -16,7 +16,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <!-- Logo Placeholder o Título -->
         <TextView
             android:id="@+id/tv_title"
             android:layout_width="wrap_content"
@@ -47,6 +46,7 @@
             app:hintTextColor="@color/accent_blue">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
@@ -67,6 +67,7 @@
             app:passwordToggleTint="@color/text_secondary">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
@@ -84,8 +85,6 @@
             android:textSize="16sp"
             android:textStyle="bold"
             app:cornerRadius="8dp" />
-
-        <!-- Olvidé mi contraseña / Registro -->
 
     </LinearLayout>
 

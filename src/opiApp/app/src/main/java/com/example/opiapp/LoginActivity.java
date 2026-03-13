@@ -51,6 +51,10 @@ public class LoginActivity extends AppCompatActivity {
 
             login(email, password);
         });
+        Button btnRegister = findViewById(R.id.btn_register);
+        btnRegister.setOnClickListener(v -> {
+            startActivity(new Intent(this, RegisterActivity.class));
+        });
     }
 
     private void login(String email, String password) {

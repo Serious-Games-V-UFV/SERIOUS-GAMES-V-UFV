@@ -1,6 +1,7 @@
 package com.opi.backend.controller;
 
 import com.opi.backend.model.Account;
+import com.opi.backend.model.RegisterRequest;
 import com.opi.backend.repository.AccountRepository;
 import com.opi.backend.security.JwtUtil;
 import org.springframework.http.ResponseEntity;
@@ -27,11 +28,18 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<?> register(@RequestBody Account account) {
-        if (accountRepository.findByEmail(account.getEmail()).isPresent()) {
+    public ResponseEntity<?> register(@RequestBody RegisterRequest body) {
+        if (accountRepository.findByEmail(body.getEmail()).isPresent()) {
             return ResponseEntity.badRequest().body("Email already in use");
         }
-        account.setPassword(passwordEncoder.encode(account.getPassword()));
+        Account account = new Account();
+        account.setFirstName(body.getFirstName());
+        account.setLastName1(body.getLastName1());
+        account.setEmail(body.getEmail());
+        account.setPassword(passwordEncoder.encode(body.getPassword()));
+        account.setHeight(body.getHeight());
+        account.setWeight(body.getWeight());
+        account.setDesiredWater(body.getDesiredWater());
         return ResponseEntity.ok(accountRepository.save(account));
     }
 

@@ -39,7 +39,7 @@ public class Account {
     private Integer desiredWater;
 
     private LocalDate lastLogin;
-    
+
     @JsonIgnore
     @Column(nullable = false)
     private String password;

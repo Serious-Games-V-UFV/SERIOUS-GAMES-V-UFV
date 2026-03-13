@@ -85,6 +85,16 @@
             android:textSize="16sp"
             android:textStyle="bold"
             app:cornerRadius="8dp" />
+        <!-- Botón de Registro -->
+        <Button
+            android:id="@+id/btn_register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="@android:color/transparent"
+            android:text="¿No tienes cuenta? Regístrate"
+            android:textColor="@color/accent_blue"
+            android:textSize="14sp" />
 
     </LinearLayout>
 

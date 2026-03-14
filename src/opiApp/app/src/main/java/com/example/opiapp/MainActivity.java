@@ -30,7 +30,8 @@ public class MainActivity extends BaseActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
         setupBottomNavigation();
-        updatePersonalValues();
+        setPersonalValues();
+
 
         View mainView = findViewById(R.id.main);
         if (mainView != null) {
@@ -64,7 +65,7 @@ public class MainActivity extends BaseActivity {
             totalDrank += 0.25;
 
             if (totalDrank >= targetHydration) {
-                totalDrank = targetHydration;
+
                 Toast.makeText(this, "Target reached!", Toast.LENGTH_SHORT).show();
                 if (!reached) {
                     sendNotification(1);
@@ -84,12 +85,24 @@ public class MainActivity extends BaseActivity {
         }
     }
 
-
-    public void updatePersonalValues() {
+    public void setPersonalValues() {
         //System.out.println(db.getDatum("account", "desired_water", currentUser));
 
         executor.execute(() -> {
-            System.out.println(db.getDatum("account", "desired_water", currentUser));
+            targetHydration = Double.parseDouble(db.getDatum("account", "desired_water", currentUser));
+            String progressText = String.format("%.2fL / %.1fL", totalDrank, targetHydration/1000);
+            tvProgressValue.setText(progressText);
+
+            String user_name = db.getDatum("account", "first_name", currentUser);
+            user_name = user_name.substring(0,1).toUpperCase() + user_name.substring(1);
+            userFullname.setText(user_name);
         });
+
+    }
+    public void updatePersonalValues() {
+
+        String progressText = String.format("%.2fL / %.1fL", totalDrank, targetHydration/1000);
+        tvProgressValue.setText(progressText);
+
     }
 }

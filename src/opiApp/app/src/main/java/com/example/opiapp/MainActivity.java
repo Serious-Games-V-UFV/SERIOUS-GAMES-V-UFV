@@ -60,23 +60,24 @@ public class MainActivity extends BaseActivity {
 
 
     private int addWaterGlass() {
-        try{
+        try {
             totalDrank += 0.25;
-            
-// TEMPORAL FIX Avoid notification to be prompted everytime new water is added and goal is reached
+
             if (totalDrank >= targetHydration) {
                 totalDrank = targetHydration;
                 Toast.makeText(this, "Target reached!", Toast.LENGTH_SHORT).show();
-                if(!reached){
+                if (!reached) {
                     sendNotification(1);
                 }
                 reached = true;
             }
 
-            // Update the UI
             String progressText = String.format("%.2fL / %.1fL", totalDrank, targetHydration);
             tvProgressValue.setText(progressText);
-            db.updateDailyReminder(currentUser, today, totalDrank);
+
+            double snapshot = totalDrank;
+            executor.execute(() -> db.updateDailyReminder(currentUser, today, snapshot));
+
             return 0;
         } catch (Exception e) {
             return 1;

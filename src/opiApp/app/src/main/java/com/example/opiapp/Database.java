@@ -37,12 +37,13 @@ public class Database {
         }
     }
 
-    private void ensureConnection() {
+    private synchronized void ensureConnection() {
         if (!isConnected()) {
             Log.d(TAG, "Connection lost, attempting to reconnect...");
             try {
                 Class.forName("com.mysql.jdbc.Driver");
                 con = DriverManager.getConnection(url, user, pass);
+                Log.d(TAG, "Database connected successfully.");
             } catch (Exception e) {
                 Log.e(TAG, "Reconnection failed: " + e.getMessage());
             }
@@ -91,7 +92,7 @@ public class Database {
         ensureConnection();
         if (!isConnected()) return "0";
         
-        String query = "SELECT total_drank FROM daily_hydration WHERE account = ? AND date = ?;";
+        String query = "SELECT amount_drunk FROM daily_reminder WHERE account_id = ? AND date = ?;";
         try (PreparedStatement ps = con.prepareStatement(query)) {
             ps.setInt(1, BaseActivity.currentUser);
             ps.setString(2, date);
@@ -110,8 +111,8 @@ public class Database {
         ensureConnection();
         if (!isConnected()) return;
 
-        String query = "INSERT INTO daily_hydration (account, date, total_drank) VALUES (?, ?, ?) " +
-                       "ON DUPLICATE KEY UPDATE total_drank = ?;";
+        String query = "INSERT INTO daily_reminder (account_id, date, amount_drunk) VALUES (?, ?, ?) " +
+                       "ON DUPLICATE KEY UPDATE amount_drunk = ?;";
         try (PreparedStatement ps = con.prepareStatement(query)) {
             ps.setInt(1, userId);
             ps.setString(2, date);

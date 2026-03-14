@@ -55,16 +55,13 @@ public class BaseActivity extends AppCompatActivity {
         requestNotificationPermission();
         createNotificationChannel("Hydration Goal","Notifications for reaching hydration goal");
 
-        // Initialize Database and Load data in background thread
         executor.execute(() -> {
             db = new Database();
             String total = db.getTodayHydration(today);
-            
-            // Update UI/State on main thread
+
             runOnUiThread(() -> {
                 totalDrank = (total == null || total.isEmpty()) ? 0 : Double.parseDouble(total);
-                // processWaterData(btcon.readData(true));
-                processWaterData(btcon.readData(true), true);
+
             });
         });
     }

@@ -1,5 +1,6 @@
 package com.example.opiapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,6 +12,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.Objects;
+
 /**
  * CLass for displaying the main screen of the app
  */
@@ -18,7 +21,7 @@ public class MainActivity extends BaseActivity {
 
     private TextView tvProgressValue;
     private Button btnAdd;
-
+    private TextView userFullname;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +30,7 @@ public class MainActivity extends BaseActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
         setupBottomNavigation();
-
+        updatePersonalValues();
 
         View mainView = findViewById(R.id.main);
         if (mainView != null) {
@@ -41,6 +44,7 @@ public class MainActivity extends BaseActivity {
 
         tvProgressValue = findViewById(R.id.tv_progress_value);
         btnAdd = findViewById(R.id.btn_add);
+        userFullname = findViewById(R.id.userFullName);
 
 
         if (btnAdd != null) {
@@ -80,4 +84,11 @@ public class MainActivity extends BaseActivity {
     }
 
 
+    public void updatePersonalValues() {
+        //System.out.println(db.getDatum("account", "desired_water", currentUser));
+
+        executor.execute(() -> {
+            System.out.println(db.getDatum("account", "desired_water", currentUser));
+        });
+    }
 }

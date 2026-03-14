@@ -40,9 +40,10 @@
                 android:textSize="12sp" />
 
             <TextView
+                android:id="@+id/userFullName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Alex Rivers"
+                android:text="John Doe"
                 android:textColor="@color/text_primary"
                 android:textSize="18sp"
                 android:textStyle="bold" />

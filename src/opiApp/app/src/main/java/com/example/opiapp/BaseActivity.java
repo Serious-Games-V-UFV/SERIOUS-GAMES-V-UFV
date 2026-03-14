@@ -35,13 +35,13 @@ public class BaseActivity extends AppCompatActivity {
     protected static final String CHANNEL_ID = "hydration_notifications";
     protected static final int NOTIFICATION_ID = 1;
     protected double totalDrank = 0.0;
-    protected final double targetHydration = 5;
+    protected double targetHydration = 5;
     protected boolean isBottlePlaced = false;
     protected int hoursSinceDrink = 0;
     protected double capacity = 750;
     protected boolean reached = false;
     Bluetooth btcon = new Bluetooth();
-    protected Database db;
+    protected static Database db;
     protected String today = LocalDate.now().toString();
 
     // Executor for background tasks

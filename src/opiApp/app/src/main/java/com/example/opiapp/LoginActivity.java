@@ -36,10 +36,10 @@ public class LoginActivity extends BaseActivity {
                 int id = db.getuserID(email);
                 if (id != -1) {
                     String passwordDB = db.getDatum("account", "password", id);
-                    
                     runOnUiThread(() -> {
                         if (Objects.equals(passwordDB, password)) {
                             currentUser = id;
+
                             Intent intent = new Intent(this, MainActivity.class);
                             startActivity(intent);
                             finish(); // Cerramos el login para que no se pueda volver atrás

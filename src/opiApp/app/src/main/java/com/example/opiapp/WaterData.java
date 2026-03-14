@@ -11,4 +11,6 @@ boolean isBottlePlaced;
         this.totalDrank = totalDrunk;
         this.isBottlePlaced = isBottlePlaced;
     }
+
+
 }

@@ -19,6 +19,8 @@ import androidx.core.app.NotificationManagerCompat;
 import androidx.core.content.ContextCompat;
 
 import java.time.LocalDate;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * Base class for activities that share common functionality like the bottom navigation bar.
@@ -41,21 +43,30 @@ public class BaseActivity extends AppCompatActivity {
     Bluetooth btcon = new Bluetooth();
     protected Database db;
     protected String today = LocalDate.now().toString();
+
+    // Executor for background tasks
+    protected final ExecutorService executor = Executors.newSingleThreadExecutor();
+
+    protected static int currentUser = -1;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        db = new Database();
         setContentView(R.layout.activity_login);
         requestNotificationPermission();
         createNotificationChannel("Hydration Goal","Notifications for reaching hydration goal");
 
-        // Load today's hydration from DB FIRST, then process BT data on top
-        String total = db.getTodayHydration(today);
-        totalDrank = (total == null || total.isEmpty()) ? 0 : Double.parseDouble(total);
-
-        // FIXME FOLLOWING METHODS CANT BE CALLED AT THE SAME EXEC (ONE IS FAKING WEIGHT REDUCTION)
-        // processWaterData(btcon.readData(true));
-        processWaterData(btcon.readData(true), true);
+        // Initialize Database and Load data in background thread
+        executor.execute(() -> {
+            db = new Database();
+            String total = db.getTodayHydration(today);
+            
+            // Update UI/State on main thread
+            runOnUiThread(() -> {
+                totalDrank = (total == null || total.isEmpty()) ? 0 : Double.parseDouble(total);
+                // processWaterData(btcon.readData(true));
+                processWaterData(btcon.readData(true), true);
+            });
+        });
     }
 
 //===========================NAVIGATION===========================//

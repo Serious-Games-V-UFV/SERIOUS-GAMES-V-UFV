@@ -72,8 +72,7 @@ public class MainActivity extends BaseActivity {
             // Update the UI
             String progressText = String.format("%.2fL / %.1fL", totalDrank, targetHydration);
             tvProgressValue.setText(progressText);
-            int userId = db.getuserID("a");
-            db.upsertDailyHydration(userId, today, totalDrank);
+            db.updateDailyReminder(currentUser, today, totalDrank);
             return 0;
         } catch (Exception e) {
             return 1;

@@ -16,17 +16,22 @@ public class Database {
 //===========================CONSTRUCTOR===========================//
     public Database() {
 
-        String url = "jdbc:mysql://smiguels.net:3306/opi_backend";
-        String user = "opi_code";
-        String pass = "admin";
+        String url = "jdbc:mysql://smiguels.net:3306/opi_backend?useSSL=false&allowPublicKeyRetrieval=true";
+        String user = "serious";
+        String pass = "game";
 
         try {
+
+            Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection(url, user, pass);
             if (con != null) {
                 System.out.println("Connected to opi_backend at smiguels.net");
             }
+        } catch (ClassNotFoundException e) {
+            System.out.println("MySQL Driver not found");
+            e.printStackTrace();
         } catch (SQLException ex) {
-            System.out.println("Cannot connect to opi_backend at smiguels.net");
+            System.out.println("Cannot connect to opi_backend at smiguels.net: " + ex.getMessage());
             Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
@@ -192,7 +197,7 @@ public class Database {
     public String getTodayHydration(String date) {
         if (!isConnected()) return "";
         // NOTE: account filter pending until login/session is implemented
-        String query = "SELECT total_drank FROM daily_hydration WHERE date = ? LIMIT 1;";
+        String query = "SELECT amount_drunk FROM daily_reminder WHERE date = ? LIMIT 1;";
         try (PreparedStatement ps = con.prepareStatement(query)) {
             ps.setString(1, date);
             try (ResultSet rs = ps.executeQuery()) {
@@ -205,7 +210,7 @@ public class Database {
     }
 
     /**
-     * Inserts or updates the daily hydration record for a given user and date.
+     * Inserts or updates the daily reminder record for a given user and date.
      * Replaces the generalQuery(INSERT...) call in MainActivity to avoid crashes
      * (generalQuery uses executeQuery which fails on INSERT statements).
      * @param userId account id
@@ -213,10 +218,10 @@ public class Database {
      * @param totalDrank total water drank today in litres
      * @return rows affected, or -1 on error
      */
-    public int upsertDailyHydration(int userId, String date, double totalDrank) {
+    public int updateDailyReminder(int userId, String date, double totalDrank) {
         if (!isConnected()) return -1;
-        String query = "INSERT INTO daily_hydration (account, date, total_drank) VALUES (?, ?, ?) " +
-                "ON DUPLICATE KEY UPDATE total_drank = ?;";
+        String query = "INSERT INTO daily_reminder (account, date, amount_drunk) VALUES (?, ?, ?) " +
+                "ON DUPLICATE KEY UPDATE amount_drunk = ?;";
         try (PreparedStatement ps = con.prepareStatement(query)) {
             ps.setInt(1, userId);
             ps.setString(2, date);

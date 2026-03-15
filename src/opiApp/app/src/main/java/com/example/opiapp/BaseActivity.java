@@ -143,15 +143,21 @@ public class BaseActivity extends AppCompatActivity {
         }
 
         if (navSocial != null) {
-            navSocial.setOnClickListener(v -> {
-                startActivity(new Intent(this, SocialActivity.class));
-            });
+            if(!(this instanceof SocialActivity)){
+                navSocial.setOnClickListener(v -> {
+                    startActivity(new Intent(this, SocialActivity.class));
+                });
+            }
+
         }
 
         if (navTools != null) {
-            navTools.setOnClickListener(v -> {
-                startActivity(new Intent(this, ProfileActivity.class));
-            });
+            if(!(this instanceof ProfileActivity)){
+                navTools.setOnClickListener(v -> {
+                    startActivity(new Intent(this, ProfileActivity.class));
+                });
+            }
+
         }
     }
 

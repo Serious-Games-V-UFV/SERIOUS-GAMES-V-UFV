@@ -22,7 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="40dp"
-            android:text="OPI - LOGIN"
+            android:text="OPI - INICIAR SESIÓN"
             android:textColor="@color/accent_blue"
             android:textSize="32sp"
             android:textStyle="bold" />

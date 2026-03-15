@@ -35,7 +35,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Good Morning,"
+                android:text="Buenos días,"
                 android:textColor="@color/text_secondary"
                 android:textSize="12sp" />
 
@@ -55,7 +55,7 @@
             android:background="@drawable/bg_card"
             android:paddingHorizontal="12dp"
             android:paddingVertical="4dp"
-            android:text="● DEVICE CONNECTED"
+            android:text="● DISPOSITIVO CONECTADO"
             android:textColor="@color/success_green"
             android:textSize="10sp" />
     </LinearLayout>
@@ -100,7 +100,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="HYDRATED"
+                android:text="HIDRATADO"
                 android:textColor="@color/text_secondary"
                 android:textSize="14sp" />
         </LinearLayout>
@@ -114,7 +114,7 @@
         android:layout_marginTop="32dp"
         android:background="@drawable/bg_button_orange"
         android:paddingHorizontal="32dp"
-        android:text="+ Add a glass of water"
+        android:text="+ Añadir un vaso de agua"
         android:textAllCaps="false"
         android:textColor="@color/white"
         app:layout_constraintTop_toBottomOf="@id/progress_container"
@@ -146,14 +146,14 @@
                 android:id="@+id/currentStreak"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="14 Days"
+                android:text="14 Días"
                 android:textColor="@color/text_primary"
                 android:textSize="18sp"
                 android:textStyle="bold" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Drinking Streak"
+                android:text="Racha de hidratación"
                 android:textColor="@color/text_secondary"
                 android:textSize="12sp" />
         </LinearLayout>
@@ -177,7 +177,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Weekly Intake"
+                android:text="Consumo semanal"
                 android:textColor="@color/text_secondary"
                 android:textSize="12sp" />
         </LinearLayout>
@@ -195,10 +195,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <TextView android:id="@+id/btn_nav_home" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="HOME" android:textColor="@color/accent_blue" android:gravity="center" android:textSize="10sp" android:textStyle="bold"/>
-        <TextView android:id="@+id/btn_nav_stats" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="STATS" android:textColor="@color/text_secondary" android:gravity="center" android:textSize="10sp"/>
+        <TextView android:id="@+id/btn_nav_home" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="INICIO" android:textColor="@color/accent_blue" android:gravity="center" android:textSize="10sp" android:textStyle="bold"/>
+        <TextView android:id="@+id/btn_nav_stats" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="ESTADÍSTICAS" android:textColor="@color/text_secondary" android:gravity="center" android:textSize="10sp"/>
         <TextView android:id="@+id/btn_nav_social" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="SOCIAL" android:textColor="@color/text_secondary" android:gravity="center" android:textSize="10sp"/>
-        <TextView android:id="@+id/btn_nav_profile" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="PROFILE" android:textColor="@color/text_secondary" android:gravity="center" android:textSize="10sp"/>
+        <TextView android:id="@+id/btn_nav_profile" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="PERFIL" android:textColor="@color/text_secondary" android:gravity="center" android:textSize="10sp"/>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

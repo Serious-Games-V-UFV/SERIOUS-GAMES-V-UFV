@@ -58,12 +58,14 @@ public class BaseActivity extends AppCompatActivity {
         executor.execute(() -> {
             db = new Database();
             String total = db.getTodayHydration(today);
-
             runOnUiThread(() -> {
                 totalDrank = (total == null || total.isEmpty()) ? 0 : Double.parseDouble(total);
-
+                if(totalDrank>=targetHydration){
+                    reached = true;
+                }
             });
-        });
+            });
+
     }
 
 //===========================NAVIGATION===========================//

@@ -284,16 +284,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-<<<<<<< HEAD
         <TextView android:id="@+id/btn_nav_home" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="INICIO" android:textColor="@color/accent_blue" android:gravity="center" android:textSize="10sp" android:textStyle="bold"/>
         <TextView android:id="@+id/btn_nav_stats" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="ESTADÍSTICAS" android:textColor="@color/text_secondary" android:gravity="center" android:textSize="10sp"/>
         <TextView android:id="@+id/btn_nav_social" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="SOCIAL" android:textColor="@color/text_secondary" android:gravity="center" android:textSize="10sp"/>
         <TextView android:id="@+id/btn_nav_profile" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="PERFIL" android:textColor="@color/text_secondary" android:gravity="center" android:textSize="10sp"/>
-=======
-        <TextView android:id="@+id/btn_nav_home" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="HOME" android:textColor="@color/text_secondary" android:gravity="center" android:textSize="10sp" />
-        <TextView android:id="@+id/btn_nav_stats" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="STATS" android:textColor="@color/text_secondary" android:gravity="center" android:textSize="10sp"/>
-        <TextView android:id="@+id/btn_nav_social" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="SOCIAL" android:textColor="@color/text_secondary" android:gravity="center" android:textSize="10sp"/>
-        <TextView android:id="@+id/btn_nav_profile" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="PROFILE" android:textColor="@color/accent_blue" android:gravity="center" android:textSize="10sp" android:textStyle="bold"/>
->>>>>>> 3a1e60424091fb637319b1ac29a2279a21f125b3
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

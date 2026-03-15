@@ -41,7 +41,7 @@ public class LoginActivity extends BaseActivity {
                 if (id != -1) {
                     if (db.validateUser(email, password)) {
                         runOnUiThread(() -> {
-                            saveUserSession(id); // Guardar sesión persistente
+                            saveUserSession(id);
                             Intent intent = new Intent(this, MainActivity.class);
                             startActivity(intent);
                             finish();

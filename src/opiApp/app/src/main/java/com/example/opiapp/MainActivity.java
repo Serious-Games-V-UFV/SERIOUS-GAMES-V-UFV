@@ -69,6 +69,7 @@ public class MainActivity extends BaseActivity {
                 Toast.makeText(this, "Target reached!", Toast.LENGTH_SHORT).show();
                 sendNotification(1);
                 reached = true;
+                saveReachedStatus();
             }
         }
 

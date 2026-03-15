@@ -54,6 +54,7 @@ public class BaseActivity extends AppCompatActivity {
 
     protected static final String PREFS_NAME = "OpiAppPrefs";
     protected static final String KEY_USER_ID = "userId";
+    protected static final String KEY_REACHED_PREFIX = "reached_";
     protected SharedPreferences prefs;
 
     @Override
@@ -63,10 +64,16 @@ public class BaseActivity extends AppCompatActivity {
         requestNotificationPermission();
         createNotificationChannel("Hydration Goal", "Notifications for reaching hydration goal");
 
+        prefs = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+        
         // Restore currentUser from SharedPreferences if not set
         if (currentUser == -1) {
-            prefs= getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
             currentUser = prefs.getInt(KEY_USER_ID, -1);
+        }
+
+        // Carga si ya se alcanzó la meta hoy
+        if (currentUser != -1) {
+            reached = prefs.getBoolean(KEY_REACHED_PREFIX + today + "_" + currentUser, false);
         }
 
         executor.execute(() -> {
@@ -76,19 +83,27 @@ public class BaseActivity extends AppCompatActivity {
             String total = db.getTodayHydration(today);
             runOnUiThread(() -> {
                 totalDrunk = (total == null || total.isEmpty()) ? 0 : Double.parseDouble(total);
-                // reached is evaluated in MainActivity once targetHydration is loaded from DB
             });
         });
     }
 
     protected void saveUserSession(int userId) {
         currentUser = userId;
-        SharedPreferences prefs = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+        if (prefs == null) prefs = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
         prefs.edit().putInt(KEY_USER_ID, userId).apply();
     }
+
+    protected void saveReachedStatus() {
+        if (currentUser != -1) {
+            if (prefs == null) prefs = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+            prefs.edit().putBoolean(KEY_REACHED_PREFIX + today + "_" + currentUser, true).apply();
+            reached = true;
+        }
+    }
+
     protected void logout() {
         currentUser = -1;
-        SharedPreferences prefs = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+        if (prefs == null) prefs = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
         prefs.edit().remove(KEY_USER_ID).apply();
         Intent intent = new Intent(this, LoginActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);

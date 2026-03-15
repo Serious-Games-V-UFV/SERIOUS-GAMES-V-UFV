@@ -261,4 +261,22 @@ public class Database {
         }
         return false;
     }
+
+    public int getUserStreak(String user) {
+        ensureConnection();
+        if (!isConnected()) return -1;
+
+        String query = "WITH days AS (SELECT date FROM daily_reminder WHERE account_id = ? AND amount_drunk > 0), ranked AS (SELECT date, ROW_NUMBER() OVER (ORDER BY date DESC) AS rn FROM days), grouped AS (SELECT date, DATE_ADD(date, INTERVAL rn DAY) AS grp FROM ranked) SELECT COUNT(*) AS streak FROM grouped WHERE grp = (SELECT grp FROM grouped ORDER BY date DESC LIMIT 1);";
+        try (PreparedStatement ps = con.prepareStatement(query)) {
+            ps.setString(1, user);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getInt(1);
+                }
+            }
+        } catch (SQLException e) {
+            Log.e(TAG, "Error in getuserID: " + e.getMessage());
+        }
+        return -1;
+    }
 }

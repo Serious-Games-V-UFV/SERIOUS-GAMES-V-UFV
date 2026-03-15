@@ -19,6 +19,8 @@ public class MainActivity extends BaseActivity {
     private Button btnAdd;
     private TextView userFullname;
 
+    private TextView currentStreakText;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +40,8 @@ public class MainActivity extends BaseActivity {
         tvProgressValue = findViewById(R.id.tv_progress_value);
         btnAdd = findViewById(R.id.btn_add);
         userFullname = findViewById(R.id.userFullName);
+        currentStreakText = findViewById(R.id.currentStreak);
+
 
         // Carga datos de DB y luego actualiza UI
         executor.execute(() -> {
@@ -77,5 +81,20 @@ public class MainActivity extends BaseActivity {
     private void updateProgressUI() {
         String progressText = String.format("%.2fL / %.1fL", totalDrunk, targetHydration / 1000.0);
         tvProgressValue.setText(progressText);
+
+        executor.execute(() -> {
+            int streak = db.getUserStreak(String.valueOf(currentUser));
+            System.out.println("Current streak: " + streak);
+            runOnUiThread(() -> {
+                if (currentStreakText != null) {
+                    if (streak == 1) {
+                        currentStreakText.setText(String.valueOf(streak + " Day"));
+                    } else if (streak > 1 || streak == 0) {
+                        currentStreakText.setText(String.valueOf(streak + " Days"));
+                    }
+                }
+            });
+        });
+
     }
 }

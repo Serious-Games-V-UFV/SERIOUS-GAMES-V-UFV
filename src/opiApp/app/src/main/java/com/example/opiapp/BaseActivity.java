@@ -34,7 +34,7 @@ public class BaseActivity extends AppCompatActivity {
     final static int NOTIFICATION_PRIORITY = NotificationManager.IMPORTANCE_HIGH;
     protected static final String CHANNEL_ID = "hydration_notifications";
     protected static final int NOTIFICATION_ID = 1;
-    protected double totalDrank = 0.0;
+    protected double totalDrunk = 0.0;
     protected double targetHydration = 5;
     protected boolean isBottlePlaced = false;
     protected int hoursSinceDrink = 0;
@@ -59,8 +59,8 @@ public class BaseActivity extends AppCompatActivity {
             db = new Database();
             String total = db.getTodayHydration(today);
             runOnUiThread(() -> {
-                totalDrank = (total == null || total.isEmpty()) ? 0 : Double.parseDouble(total);
-                if(totalDrank>=targetHydration){
+                totalDrunk = (total == null || total.isEmpty()) ? 0 : Double.parseDouble(total);
+                if(totalDrunk >=targetHydration){
                     reached = true;
                 }
             });
@@ -191,14 +191,14 @@ public class BaseActivity extends AppCompatActivity {
      */
     protected void processWaterData(WaterData dataStream){
         if(dataStream != null){
-            if(dataStream.capacity != capacity){
-                capacity = dataStream.capacity;
+            if(dataStream.getCapacity() != capacity){
+                capacity = dataStream.getCapacity();
             }
-            if(dataStream.totalDrank > totalDrank){
-                totalDrank = dataStream.totalDrank;
+            if(dataStream.getTotalDrunk() > totalDrunk){
+                totalDrunk = dataStream.getTotalDrunk();
             }
-            isBottlePlaced = dataStream.isBottlePlaced;
-            hoursSinceDrink = dataStream.hoursSinceDrink;
+            isBottlePlaced = dataStream.isBottlePlaced();
+            hoursSinceDrink = dataStream.getHoursSinceDrink();
         }else{
             sendNotification(2);
         }
@@ -214,12 +214,12 @@ public class BaseActivity extends AppCompatActivity {
     protected void processWaterData(WaterData dataStream,boolean isFaking){
          double alterValue = 0.1 + (Math.random() * (0.5 - 0.1));
         if(dataStream != null){
-            isBottlePlaced = dataStream.isBottlePlaced;
+            isBottlePlaced = dataStream.isBottlePlaced();
             if(!isBottlePlaced){
                 capacity -= alterValue;
-                totalDrank += alterValue;
+                totalDrunk += alterValue;
             }
-            hoursSinceDrink = dataStream.hoursSinceDrink;
+            hoursSinceDrink = dataStream.getHoursSinceDrink();
         }else{
             sendNotification(2);
         }

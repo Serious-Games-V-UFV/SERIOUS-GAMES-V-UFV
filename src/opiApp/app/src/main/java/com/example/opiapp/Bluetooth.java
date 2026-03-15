@@ -4,6 +4,8 @@ import android.Manifest;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
+import android.util.Log;
+
 import androidx.annotation.RequiresPermission;
 import org.json.JSONObject;
 import java.io.InputStream;
@@ -11,10 +13,11 @@ import java.util.UUID;
 
 public class Bluetooth{ // extends Service {
 
-    private BluetoothAdapter blueadapter;
+    final private BluetoothAdapter blueadapter;
     private BluetoothSocket socket;
     private InputStream inputStream;
 
+    private static final String TAG = "Bluetooth";
     private static final UUID UUID_BT =
             UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
 
@@ -47,9 +50,9 @@ public class Bluetooth{ // extends Service {
             return true;
 
         } catch (Exception e) {
-            System.err.println(e.toString());
-            return false;
+            Log.d(TAG, "readData: Error while connecting bluetooth");
         }
+        return false;
     }
 
     public WaterData readData() {
@@ -71,7 +74,7 @@ public class Bluetooth{ // extends Service {
 
 
         } catch (Exception e) {
-            e.printStackTrace();
+            Log.d(TAG, "readData: Error while reading data from the board");
         }
 
         return null;

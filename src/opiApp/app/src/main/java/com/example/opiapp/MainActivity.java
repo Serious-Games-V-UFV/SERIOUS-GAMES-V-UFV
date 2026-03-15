@@ -57,10 +57,10 @@ public class MainActivity extends BaseActivity {
     }
 
     private void addWaterGlass() {
-        totalDrank += 0.25;
+        totalDrunk += 0.25;
 
         double targetInLiters = targetHydration / 1000.0;
-        if (totalDrank >= targetInLiters) {
+        if (totalDrunk >= targetInLiters) {
             if (!reached) {
                 Toast.makeText(this, "Target reached!", Toast.LENGTH_SHORT).show();
                 sendNotification(1);
@@ -70,12 +70,12 @@ public class MainActivity extends BaseActivity {
 
         updateProgressUI();
 
-        double snapshot = totalDrank;
+        double snapshot = totalDrunk;
         executor.execute(() -> db.updateDailyReminder(currentUser, today, snapshot));
     }
 
     private void updateProgressUI() {
-        String progressText = String.format("%.2fL / %.1fL", totalDrank, targetHydration / 1000.0);
+        String progressText = String.format("%.2fL / %.1fL", totalDrunk, targetHydration / 1000.0);
         tvProgressValue.setText(progressText);
     }
 }

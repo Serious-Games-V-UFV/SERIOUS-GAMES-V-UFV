@@ -1,11 +1,7 @@
 package com.example.opiapp;
 
-
 import android.os.Bundle;
-
-import androidx.activity.EdgeToEdge;
-
-
+import android.widget.Button;
 
 public class ProfileActivity extends BaseActivity {
     @Override
@@ -13,5 +9,14 @@ public class ProfileActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         setupBottomNavigation();
+
+        Button logoutBtn = findViewById(R.id.btn_logout_dark);
+        if (logoutBtn == null) {
+            logoutBtn = findViewById(R.id.btn_logout_light);
+        }
+
+        if (logoutBtn != null) {
+            logoutBtn.setOnClickListener(v -> logout());
+        }
     }
 }

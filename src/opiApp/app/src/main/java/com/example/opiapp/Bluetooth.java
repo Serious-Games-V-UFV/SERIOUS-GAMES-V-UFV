@@ -7,7 +7,11 @@ import android.bluetooth.BluetoothSocket;
 import android.util.Log;
 
 import androidx.annotation.RequiresPermission;
+
+import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.UUID;
 
@@ -49,7 +53,7 @@ public class Bluetooth{ // extends Service {
 
             return true;
 
-        } catch (Exception e) {
+        } catch (IOException e) {
             Log.d(TAG, "readData: Error while connecting bluetooth");
         }
         return false;
@@ -73,24 +77,26 @@ public class Bluetooth{ // extends Service {
            return new WaterData(capacity, minutesSinceDrink, totalDrunk, bottlePlaced);
 
 
-        } catch (Exception e) {
+        } catch (IOException | JSONException e) {
             Log.d(TAG, "readData: Error while reading data from the board");
         }
 
         return null;
     }
- public WaterData readData(boolean develop){
-    //TODO: BORRAR AL TERMINAR EL DESARROLLO
-        double capacity = 740;
-        int minutesSinceDrink = 3;
-        double totalDrunk = 0;
-        boolean isBottlePlaced = false;
-        return new WaterData(capacity, minutesSinceDrink, totalDrunk, isBottlePlaced);
-    }
+     public WaterData readData(boolean develop){
+        //TODO: BORRAR AL TERMINAR EL DESARROLLO
+            double capacity = 740;
+            int minutesSinceDrink = 3;
+            double totalDrunk = 0;
+            boolean isBottlePlaced = false;
+            return new WaterData(capacity, minutesSinceDrink, totalDrunk, isBottlePlaced);
+     }
 
     public void disconnect() {
         try {
             socket.close();
-        } catch (Exception ignored) {}
+        } catch (IOException e) {
+            Log.d(TAG, "disconnect: Error while disconnecting bluetooth");
+        }
     }
 }

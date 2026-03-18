@@ -89,9 +89,9 @@ public class MainActivity extends BaseActivity {
             runOnUiThread(() -> {
                 if (currentStreakText != null) {
                     if (streak == 1) {
-                        currentStreakText.setText(String.valueOf(streak + " Day"));
+                        currentStreakText.setText(String.valueOf(streak + " día"));
                     } else if (streak > 1 || streak == 0) {
-                        currentStreakText.setText(String.valueOf(streak + " Days"));
+                        currentStreakText.setText(String.valueOf(streak + " días"));
                     }
                 }
             });

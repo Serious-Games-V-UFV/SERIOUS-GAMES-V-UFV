@@ -38,7 +38,7 @@ float getWeight() {
   return sum / FILTER_SAMPLES;
 }
 
-/*** LOGICA SIMPLE (SIN ESTADOS) ***/
+/*** LOGICA SIMPLE DE LA BOTELLA ***/
 void updateDrink() {
   bottlePlaced = digitalRead(IR_PIN) == LOW;
   float currWeight = getWeight();
@@ -46,12 +46,12 @@ void updateDrink() {
 
   // Solo actúa si botella detectada (estable)
   if (bottlePlaced && abs(diff) > DRINK_THRESHOLD) {
-    if (diff > 0) {  // Bebida
+    if (diff > 0) {  
       totalDrunk += diff;
       capacity -= diff;
       if (capacity < 0) capacity = 0;
       lastDrinkTime = millis();
-    } else {         // Añadida
+    } else { 
       capacity -= diff;
     }
   }

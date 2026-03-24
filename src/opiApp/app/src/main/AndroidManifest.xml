@@ -35,6 +35,7 @@
         <activity
             android:name=".MainActivity"
             android:exported="false" />
+        <activity android:name=".RegisterActivity" />
         <activity android:name=".StatsActivity" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".SocialActivity" />

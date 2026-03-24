@@ -22,7 +22,7 @@ public class LoginActivity extends BaseActivity {
         EditText emailTF = findViewById(R.id.et_email);
         EditText passwordTF = findViewById(R.id.et_password);
         Button loginBtn = findViewById(R.id.btn_login);
-
+        Button registerBtn = findViewById(R.id.btn_register);
         loginBtn.setOnClickListener(v -> {
             String email = emailTF.getText().toString().trim();
             String password = passwordTF.getText().toString().trim();
@@ -53,6 +53,11 @@ public class LoginActivity extends BaseActivity {
                     runOnUiThread(() -> Toast.makeText(this, "Usuario no encontrado", Toast.LENGTH_SHORT).show());
                 }
             });
+        });
+        registerBtn.setOnClickListener(v ->{
+            Intent intent = new Intent(this,RegisterActivity.class);
+            startActivity(intent);
+            finish();
         });
     }
 }

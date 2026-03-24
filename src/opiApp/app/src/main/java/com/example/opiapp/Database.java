@@ -6,6 +6,12 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import android.util.Log;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 
@@ -63,14 +69,6 @@ public class Database {
 
 //===========================METHODS===========================//
 
-    /**
-     * This method return a specific piece of data
-     * from a specific table and column.
-     * @param table Tells the table name
-     * @param column_name Tells the column name
-     * @param id Tells the user whose datum will be returned
-     * @return Will return a String with the datum or "" if not found
-     */
     public String getDatum(String table, String column_name, int id) {
         ensureConnection();
         if (!isConnected()) return "";
@@ -90,11 +88,6 @@ public class Database {
         return datum;
     }
 
-    /**
-     * Very general query requester in case of very specific queries
-     * @param query is the entire query
-     * @return query result
-     */
     public String generalQuery(String query) {
         ensureConnection();
         if (!isConnected()) return "";
@@ -111,14 +104,6 @@ public class Database {
         return datum;
     }
 
-    /**
-     * Updates a datum in a specified table and column
-     * @param table table in which the datum is updated
-     * @param column_name column in which the datum is updated
-     * @param value new value assigned to the datum
-     * @param id for sql syntax and conditional
-     * @return ps.executeUpdate() regarding database output | -1 states an error
-     */
     public int updateDatum(String table, String column_name, String value, int id) {
         ensureConnection();
         if (!isConnected()) return -1;
@@ -134,12 +119,6 @@ public class Database {
         }
     }
 
-    /**
-     * Gets a tuple of data from the database.
-     * @param table the table from which the data is selected
-     * @param id    filtering for the correct data
-     * @return String containing all the values of the query, or null on error
-     */
     public String getTuple(String table, int id) {
         ensureConnection();
         if (!isConnected()) return null;
@@ -167,11 +146,6 @@ public class Database {
         }
     }
 
-    /**
-     * Returns id from the user currently logged in
-     * @param email email from the user (unique key in db)
-     * @return id from the user
-     */
     public int getuserID(String email) {
         ensureConnection();
         if (!isConnected()) return -1;
@@ -190,11 +164,6 @@ public class Database {
         return -1;
     }
 
-    /**
-     * Returns today's amount_drunk for the current user and date.
-     * @param date today's date as String (LocalDate.now().toString())
-     * @return amount_drunk as String, or "0" if not found
-     */
     public String getTodayHydration(String date) {
         ensureConnection();
         if (!isConnected()) return "0";
@@ -214,12 +183,6 @@ public class Database {
         return "0";
     }
 
-    /**
-     * Inserts or updates the daily hydration record for a given user and date.
-     * @param userId    account id
-     * @param date      date string
-     * @param amount    total water drank today in litres
-     */
     public void updateDailyReminder(int userId, String date, double amount) {
         ensureConnection();
         if (!isConnected()) return;
@@ -237,12 +200,6 @@ public class Database {
         }
     }
 
-    /**
-     * Validates user credentials against the database.
-     * @param email    user email
-     * @param password user password
-     * @return true if credentials match, false otherwise
-     */
     public boolean validateUser(String email, String password) {
         ensureConnection();
         if (!isConnected()) return false;
@@ -278,5 +235,32 @@ public class Database {
             Log.e(TAG, "Error in getuserID: " + e.getMessage());
         }
         return -1;
+    }
+
+    /**
+     * Inserts a new user into the account table.
+     */
+    public boolean registerUser(String firstName, String lastName1, String lastName2, String phone, String email, 
+                               int height, int weight, String birthDate, int desiredWater, String password) {
+        ensureConnection();
+        if (!isConnected()) return false;
+
+        String query = "INSERT INTO account (first_name, last_name1, last_name2, phone, email, height, weight, birth_date, desired_water, password) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+        try (PreparedStatement ps = con.prepareStatement(query)) {
+            ps.setString(1, firstName);
+            ps.setString(2, lastName1);
+            ps.setString(3, lastName2);
+            ps.setString(4, phone);
+            ps.setString(5, email);
+            ps.setInt(6, height);
+            ps.setInt(7, weight);
+            ps.setString(8, birthDate);
+            ps.setInt(9, desiredWater);
+            ps.setString(10, password);
+            return ps.executeUpdate() > 0;
+        } catch (SQLException e) {
+            Log.e(TAG, "Error al registrar el usuario: " + e.getMessage());
+            return false;
+        }
     }
 }

@@ -37,14 +37,15 @@
                 android:textColor="@color/white"
                 android:textSize="18sp" />
 
-            <!-- Nombre -->
+            <!-- first_name (Nombre) -->
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
                 android:hint="Nombre"
-                android:textColorHint="@color/text_secondary"
+                android:textColorHint="@color/accent_orange"
+                app:boxBackgroundColor="@color/bg_dark"
                 app:boxStrokeColor="@color/accent_blue"
                 app:hintTextColor="@color/accent_blue">
 
@@ -52,18 +53,20 @@
                     android:id="@+id/et_first_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
                     android:inputType="textPersonName"
                     android:textColor="@color/white" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!-- Primer apellido -->
+            <!-- last_name1 (Primer Apellido) -->
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:hint="Primer apellido"
-                android:textColorHint="@color/text_secondary"
+                android:hint="Primer Apellido"
+                android:textColorHint="@color/accent_orange"
+                app:boxBackgroundColor="@color/bg_dark"
                 app:boxStrokeColor="@color/accent_blue"
                 app:hintTextColor="@color/accent_blue">
 
@@ -71,18 +74,62 @@
                     android:id="@+id/et_last_name1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
                     android:inputType="textPersonName"
                     android:textColor="@color/white" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!-- Email -->
+            <!-- last_name2 (Segundo Apellido) -->
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:hint="Segundo Apellido"
+                android:textColorHint="@color/accent_orange"
+                app:boxBackgroundColor="@color/bg_dark"
+                app:boxStrokeColor="@color/accent_blue"
+                app:hintTextColor="@color/accent_blue">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_last_name2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/white" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- phone (Teléfono) -->
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:hint="Teléfono"
+                android:textColorHint="@color/accent_orange"
+                app:boxBackgroundColor="@color/bg_dark"
+                app:boxStrokeColor="@color/accent_blue"
+                app:hintTextColor="@color/accent_blue">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:inputType="phone"
+                    android:textColor="@color/white" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- email (Correo electrónico) -->
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
                 android:hint="Correo electrónico"
-                android:textColorHint="@color/text_secondary"
+                android:textColorHint="@color/accent_orange"
+                app:boxBackgroundColor="@color/bg_dark"
                 app:boxStrokeColor="@color/accent_blue"
                 app:hintTextColor="@color/accent_blue">
 
@@ -90,18 +137,104 @@
                     android:id="@+id/et_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
                     android:inputType="textEmailAddress"
                     android:textColor="@color/white" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!-- Contraseña -->
+            <!-- height (Altura) -->
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
+                android:hint="Altura (cm)"
+                android:textColorHint="@color/accent_orange"
+                app:boxBackgroundColor="@color/bg_dark"
+                app:boxStrokeColor="@color/accent_blue"
+                app:hintTextColor="@color/accent_blue">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_height"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:textColor="@color/white" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- weight (Peso) -->
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:hint="Peso (kg)"
+                android:textColorHint="@color/accent_orange"
+                app:boxBackgroundColor="@color/bg_dark"
+                app:boxStrokeColor="@color/accent_blue"
+                app:hintTextColor="@color/accent_blue">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_weight"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:textColor="@color/white" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- birth_date (Fecha de Nacimiento) -->
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:hint="Fecha de Nacimiento (AAAA-MM-DD)"
+                android:textColorHint="@color/accent_orange"
+                app:boxBackgroundColor="@color/bg_dark"
+                app:boxStrokeColor="@color/accent_blue"
+                app:hintTextColor="@color/accent_blue">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_birth_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:inputType="date"
+                    android:textColor="@color/white" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- desired_water (Objetivo de agua) -->
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:hint="Objetivo de agua diario (ml)"
+                android:textColorHint="@color/accent_orange"
+                app:boxBackgroundColor="@color/bg_dark"
+                app:boxStrokeColor="@color/accent_blue"
+                app:hintTextColor="@color/accent_blue">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_desired_water"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:textColor="@color/white" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- password (Contraseña) -->
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="32dp"
                 android:hint="Contraseña"
-                android:textColorHint="@color/text_secondary"
+                android:textColorHint="@color/accent_orange"
+                app:boxBackgroundColor="@color/bg_dark"
                 app:boxStrokeColor="@color/accent_blue"
                 app:hintTextColor="@color/accent_blue"
                 app:passwordToggleEnabled="true"
@@ -111,74 +244,32 @@
                     android:id="@+id/et_password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
                     android:inputType="textPassword"
                     android:textColor="@color/white" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!-- Altura -->
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:hint="Altura (cm)"
-                android:textColorHint="@color/text_secondary"
-                app:boxStrokeColor="@color/accent_blue"
-                app:hintTextColor="@color/accent_blue">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_height"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="number"
-                    android:textColor="@color/white" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <!-- Peso -->
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:hint="Peso (kg)"
-                android:textColorHint="@color/text_secondary"
-                app:boxStrokeColor="@color/accent_blue"
-                app:hintTextColor="@color/accent_blue">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_weight"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="number"
-                    android:textColor="@color/white" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <!-- Agua deseada -->
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="32dp"
-                android:hint="Objetivo de agua diario (ml)"
-                android:textColorHint="@color/text_secondary"
-                app:boxStrokeColor="@color/accent_blue"
-                app:hintTextColor="@color/accent_blue">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_desired_water"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="number"
-                    android:textColor="@color/white" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <!-- Botón registro -->
+            <!-- Botón de Registro -->
             <Button
                 android:id="@+id/btn_register"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
                 android:backgroundTint="@color/accent_orange"
                 android:text="CREAR CUENTA"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:cornerRadius="8dp" />
+
+            <!-- Botón nuevo centrado con accent_blue -->
+            <Button
+                android:id="@+id/btn_new"
+                android:layout_width="wrap_content"
+                android:layout_height="56dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="@color/accent_blue"
+                android:text="TU TEXTO"
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 android:textStyle="bold"

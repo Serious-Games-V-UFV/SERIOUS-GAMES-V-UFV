@@ -87,9 +87,9 @@
                 android:padding="16dp">
 
                 <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center" android:orientation="horizontal">
-                    <View android:layout_width="50dp" android:layout_height="50dp" android:background="@drawable/bg_circle_placeholder" />
+                    <View android:layout_width="50dp" android:layout_height="50dp" android:background="@drawable/logo_dam" />
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginHorizontal="10dp" android:text="VS" android:textColor="@color/accent_blue" android:textStyle="italic" />
-                    <View android:layout_width="50dp" android:layout_height="50dp" android:background="@drawable/bg_circle_placeholder" android:backgroundTint="#FF9800" />
+                    <View android:layout_width="50dp" android:layout_height="50dp" android:background="@drawable/logo_marketing" />
                 </LinearLayout>
 
                 <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:text="vs. Alex Rivera" android:textColor="@color/white" android:textStyle="bold" />
@@ -124,7 +124,7 @@
                     <View
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:background="@drawable/bg_circle_placeholder" />
+                        android:background="@drawable/logo_finanzas" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"

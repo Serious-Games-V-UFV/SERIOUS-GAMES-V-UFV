@@ -33,7 +33,7 @@
                 <View
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:background="@drawable/bg_circle_placeholder" />
+                    android:background="@drawable/logo_circulo" />
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -99,8 +99,7 @@
                 <View
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:background="@drawable/bg_card"
-                    android:backgroundTint="@color/accent_blue" />
+                    android:background="@drawable/logo_dam" />
 
                 <LinearLayout
                     android:layout_width="0dp"

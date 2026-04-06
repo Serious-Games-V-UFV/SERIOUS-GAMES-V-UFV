@@ -16,12 +16,21 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <ImageView
+            android:id="@+id/img_logo"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginBottom="24dp"
+            android:src="@drawable/logo"
+            android:contentDescription="Logo app"
+            android:scaleType="fitCenter" />
+
         <TextView
             android:id="@+id/tv_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="40dp"
-            android:text="OPI - INICIAR SESIÓN"
+            android:text="INICIAR SESIÓN"
             android:textColor="@color/accent_blue"
             android:textSize="32sp"
             android:textStyle="bold" />

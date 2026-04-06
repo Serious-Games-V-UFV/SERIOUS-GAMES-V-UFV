@@ -110,12 +110,12 @@
                 android:orientation="horizontal">
 
                 <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:gravity="center" android:orientation="vertical" android:layout_marginHorizontal="12dp">
-                    <View android:layout_width="60dp" android:layout_height="60dp" android:background="@drawable/bg_circle_placeholder"/>
+                    <View android:layout_width="60dp" android:layout_height="60dp" android:background="@drawable/logo_asir"/>
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="Racha de 7 días" android:textColor="@color/text_secondary" android:textSize="10sp"/>
                 </LinearLayout>
 
                 <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:gravity="center" android:orientation="vertical" android:layout_marginHorizontal="12dp">
-                    <View android:layout_width="60dp" android:layout_height="60dp" android:background="@drawable/bg_circle_placeholder" android:backgroundTint="#FF5722"/>
+                    <View android:layout_width="60dp" android:layout_height="60dp" android:background="@drawable/logo_imagenpersonal"/>
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="Héroe de la Hidratación" android:textColor="@color/text_secondary" android:textSize="10sp"/>
                 </LinearLayout>
             </LinearLayout>

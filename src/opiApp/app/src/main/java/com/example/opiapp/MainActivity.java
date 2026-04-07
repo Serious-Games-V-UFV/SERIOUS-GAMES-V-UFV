@@ -15,11 +15,11 @@ import androidx.core.view.WindowInsetsCompat;
  * Class for displaying the main screen of the app
  */
 public class MainActivity extends BaseActivity {
-    private TextView tvProgressValue;
+    public TextView tvProgressValue;
     private Button btnAdd;
-    private TextView userFullname;
+    public TextView userFullname;
 
-    private TextView currentStreakText;
+    public TextView currentStreakText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +41,8 @@ public class MainActivity extends BaseActivity {
         btnAdd = findViewById(R.id.btn_add);
         userFullname = findViewById(R.id.userFullName);
         currentStreakText = findViewById(R.id.currentStreak);
-
+        UI_Updater uiu = new UI_Updater(this);
+        uiu.start();
 
         // Carga datos de DB y luego actualiza UI
         executor.execute(() -> {
@@ -79,7 +80,7 @@ public class MainActivity extends BaseActivity {
         executor.execute(() -> db.updateDailyReminder(currentUser, today, snapshot));
     }
 
-    private void updateProgressUI() {
+    public void updateProgressUI() {
         String progressText = String.format("%.2fL / %.1fL", totalDrunk, targetHydration / 1000.0);
         tvProgressValue.setText(progressText);
 

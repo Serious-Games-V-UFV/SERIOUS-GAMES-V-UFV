@@ -41,10 +41,11 @@ public class MainActivity extends BaseActivity {
         btnAdd = findViewById(R.id.btn_add);
         userFullname = findViewById(R.id.userFullName);
         currentStreakText = findViewById(R.id.currentStreak);
+        
         UI_Updater uiu = new UI_Updater(this);
         uiu.start();
 
-        // Carga datos de DB y luego actualiza UI
+        // Carga datos iniciales de DB
         executor.execute(() -> {
             targetHydration = Double.parseDouble(db.getDatum("account", "desired_water", currentUser));
             String userName = db.getDatum("account", "first_name", currentUser);
@@ -74,29 +75,46 @@ public class MainActivity extends BaseActivity {
             }
         }
 
-        updateProgressUI();
-
         double snapshot = totalDrunk;
-        executor.execute(() -> db.updateDailyReminder(currentUser, today, snapshot));
+        executor.execute(() -> {
+            db.updateDailyReminder(currentUser, today, snapshot);
+            updateProgressUI();
+        });
     }
 
     public void updateProgressUI() {
-        String progressText = String.format("%.2fL / %.1fL", totalDrunk, targetHydration / 1000.0);
-        tvProgressValue.setText(progressText);
-
         executor.execute(() -> {
+            // Petición a la base de datos para ver si el agua cambió
+            String total = db.getTodayHydration(today);
+            double newTotalDrunk = (total == null || total.isEmpty()) ? 0 : Double.parseDouble(total);
+            
+            // Obtener el streak
             int streak = db.getUserStreak(String.valueOf(currentUser));
-            System.out.println("Current streak: " + streak);
+
             runOnUiThread(() -> {
+                this.totalDrunk = newTotalDrunk;
+                
+                String progressText = String.format("%.2fL / %.1fL", totalDrunk, targetHydration / 1000.0);
+                if (tvProgressValue != null) {
+                    tvProgressValue.setText(progressText);
+                }
+
                 if (currentStreakText != null) {
                     if (streak == 1) {
-                        currentStreakText.setText(String.valueOf(streak + " día"));
-                    } else if (streak > 1 || streak == 0) {
-                        currentStreakText.setText(String.valueOf(streak + " días"));
+                        currentStreakText.setText(streak + " día");
+                    } else {
+                        currentStreakText.setText(streak + " días");
                     }
+                }
+                
+                // Verificar meta
+                double targetInLiters = targetHydration / 1000.0;
+                if (totalDrunk >= targetInLiters && !reached) {
+                    sendNotification(1);
+                    reached = true;
+                    saveReachedStatus();
                 }
             });
         });
-
     }
 }

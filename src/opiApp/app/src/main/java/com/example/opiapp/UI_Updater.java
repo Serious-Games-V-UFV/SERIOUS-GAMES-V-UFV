@@ -2,39 +2,35 @@ package com.example.opiapp;
 
 public class UI_Updater extends Thread {
 
-    boolean repeat = true;
-    MainActivity ma = null;
+    private boolean repeat = true;
+    private final MainActivity ma;
 
     UI_Updater(MainActivity ma) {
-        ma = this.ma;
+        this.ma = ma;
     }
 
+    public void stopUpdating() {
+        repeat = false;
+    }
+
+    @Override
     public void run() {
-        try {
-            while (repeat) {
-                String progressText = String.format("%.2fL / %.1fL", ma.totalDrunk, ma.targetHydration / 1000.0);
-                ma.tvProgressValue.setText(progressText);
-
-                ma.executor.execute(() -> {
-                    int streak = ma.db.getUserStreak(String.valueOf(ma.currentUser));
-                    System.out.println("Current streak: " + streak);
-                    ma.runOnUiThread(() -> {
-                        if (ma.currentStreakText != null) {
-                            if (streak == 1) {
-                                ma.currentStreakText.setText(String.valueOf(streak + " día"));
-                            } else if (streak > 1 || streak == 0) {
-                                ma.currentStreakText.setText(String.valueOf(streak + " días"));
-                            }
-                        }
-                    });
-                });
+        while (repeat) {
+            try {
+                if (ma != null && !ma.isFinishing()) {
+                    // Simplemente llamamos al método que ya maneja la lógica de DB y UI
+                    ma.updateProgressUI();
+                } else {
+                    repeat = false;
+                }
+                
+                // Dormimos el hilo durante 1 segundo (1000 ms)
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                repeat = false;
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            Thread.sleep(2000);
-        } catch (Exception e) {
-
         }
-
-
     }
-
 }
